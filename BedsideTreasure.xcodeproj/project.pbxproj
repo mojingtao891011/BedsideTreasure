@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB9F579118EA561500BF120D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F579018EA561500BF120D /* Foundation.framework */; };
+		FB9F579318EA561500BF120D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F579218EA561500BF120D /* CoreGraphics.framework */; };
+		FB9F579518EA561500BF120D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F579418EA561500BF120D /* UIKit.framework */; };
+		FB9F579B18EA561600BF120D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB9F579918EA561600BF120D /* InfoPlist.strings */; };
+		FB9F579D18EA561600BF120D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9F579C18EA561600BF120D /* main.m */; };
+		FB9F57A118EA561600BF120D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9F57A018EA561600BF120D /* AppDelegate.m */; };
+		FB9F57A318EA561600BF120D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB9F57A218EA561600BF120D /* Images.xcassets */; };
+		FB9F57AA18EA561600BF120D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F57A918EA561600BF120D /* XCTest.framework */; };
+		FB9F57AB18EA561600BF120D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F579018EA561500BF120D /* Foundation.framework */; };
+		FB9F57AC18EA561600BF120D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F579418EA561500BF120D /* UIKit.framework */; };
+		FB9F57B418EA561600BF120D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB9F57B218EA561600BF120D /* InfoPlist.strings */; };
+		FB9F57B618EA561600BF120D /* BedsideTreasureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9F57B518EA561600BF120D /* BedsideTreasureTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB9F57AD18EA561600BF120D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB9F578518EA561500BF120D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB9F578C18EA561500BF120D;
+			remoteInfo = BedsideTreasure;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FB9F578D18EA561500BF120D /* BedsideTreasure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BedsideTreasure.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB9F579018EA561500BF120D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FB9F579218EA561500BF120D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FB9F579418EA561500BF120D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FB9F579818EA561600BF120D /* BedsideTreasure-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BedsideTreasure-Info.plist"; sourceTree = "<group>"; };
+		FB9F579A18EA561600BF120D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FB9F579C18EA561600BF120D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FB9F579E18EA561600BF120D /* BedsideTreasure-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BedsideTreasure-Prefix.pch"; sourceTree = "<group>"; };
+		FB9F579F18EA561600BF120D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FB9F57A018EA561600BF120D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FB9F57A218EA561600BF120D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FB9F57A818EA561600BF120D /* BedsideTreasureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BedsideTreasureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB9F57A918EA561600BF120D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FB9F57B118EA561600BF120D /* BedsideTreasureTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BedsideTreasureTests-Info.plist"; sourceTree = "<group>"; };
+		FB9F57B318EA561600BF120D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FB9F57B518EA561600BF120D /* BedsideTreasureTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BedsideTreasureTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB9F578A18EA561500BF120D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB9F579318EA561500BF120D /* CoreGraphics.framework in Frameworks */,
+				FB9F579518EA561500BF120D /* UIKit.framework in Frameworks */,
+				FB9F579118EA561500BF120D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB9F57A518EA561600BF120D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB9F57AA18EA561600BF120D /* XCTest.framework in Frameworks */,
+				FB9F57AC18EA561600BF120D /* UIKit.framework in Frameworks */,
+				FB9F57AB18EA561600BF120D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB9F578418EA561500BF120D = {
+			isa = PBXGroup;
+			children = (
+				FB9F579618EA561600BF120D /* BedsideTreasure */,
+				FB9F57AF18EA561600BF120D /* BedsideTreasureTests */,
+				FB9F578F18EA561500BF120D /* Frameworks */,
+				FB9F578E18EA561500BF120D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB9F578E18EA561500BF120D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB9F578D18EA561500BF120D /* BedsideTreasure.app */,
+				FB9F57A818EA561600BF120D /* BedsideTreasureTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB9F578F18EA561500BF120D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB9F579018EA561500BF120D /* Foundation.framework */,
+				FB9F579218EA561500BF120D /* CoreGraphics.framework */,
+				FB9F579418EA561500BF120D /* UIKit.framework */,
+				FB9F57A918EA561600BF120D /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB9F579618EA561600BF120D /* BedsideTreasure */ = {
+			isa = PBXGroup;
+			children = (
+				FB9F579F18EA561600BF120D /* AppDelegate.h */,
+				FB9F57A018EA561600BF120D /* AppDelegate.m */,
+				FB9F57A218EA561600BF120D /* Images.xcassets */,
+				FB9F579718EA561600BF120D /* Supporting Files */,
+			);
+			path = BedsideTreasure;
+			sourceTree = "<group>";
+		};
+		FB9F579718EA561600BF120D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB9F579818EA561600BF120D /* BedsideTreasure-Info.plist */,
+				FB9F579918EA561600BF120D /* InfoPlist.strings */,
+				FB9F579C18EA561600BF120D /* main.m */,
+				FB9F579E18EA561600BF120D /* BedsideTreasure-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB9F57AF18EA561600BF120D /* BedsideTreasureTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB9F57B518EA561600BF120D /* BedsideTreasureTests.m */,
+				FB9F57B018EA561600BF120D /* Supporting Files */,
+			);
+			path = BedsideTreasureTests;
+			sourceTree = "<group>";
+		};
+		FB9F57B018EA561600BF120D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB9F57B118EA561600BF120D /* BedsideTreasureTests-Info.plist */,
+				FB9F57B218EA561600BF120D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB9F578C18EA561500BF120D /* BedsideTreasure */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB9F57B918EA561600BF120D /* Build configuration list for PBXNativeTarget "BedsideTreasure" */;
+			buildPhases = (
+				FB9F578918EA561500BF120D /* Sources */,
+				FB9F578A18EA561500BF120D /* Frameworks */,
+				FB9F578B18EA561500BF120D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BedsideTreasure;
+			productName = BedsideTreasure;
+			productReference = FB9F578D18EA561500BF120D /* BedsideTreasure.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FB9F57A718EA561600BF120D /* BedsideTreasureTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB9F57BC18EA561600BF120D /* Build configuration list for PBXNativeTarget "BedsideTreasureTests" */;
+			buildPhases = (
+				FB9F57A418EA561600BF120D /* Sources */,
+				FB9F57A518EA561600BF120D /* Frameworks */,
+				FB9F57A618EA561600BF120D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB9F57AE18EA561600BF120D /* PBXTargetDependency */,
+			);
+			name = BedsideTreasureTests;
+			productName = BedsideTreasureTests;
+			productReference = FB9F57A818EA561600BF120D /* BedsideTreasureTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB9F578518EA561500BF120D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "莫景涛";
+				TargetAttributes = {
+					FB9F57A718EA561600BF120D = {
+						TestTargetID = FB9F578C18EA561500BF120D;
+					};
+				};
+			};
+			buildConfigurationList = FB9F578818EA561500BF120D /* Build configuration list for PBXProject "BedsideTreasure" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FB9F578418EA561500BF120D;
+			productRefGroup = FB9F578E18EA561500BF120D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB9F578C18EA561500BF120D /* BedsideTreasure */,
+				FB9F57A718EA561600BF120D /* BedsideTreasureTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB9F578B18EA561500BF120D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB9F579B18EA561600BF120D /* InfoPlist.strings in Resources */,
+				FB9F57A318EA561600BF120D /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB9F57A618EA561600BF120D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB9F57B418EA561600BF120D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB9F578918EA561500BF120D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB9F57A118EA561600BF120D /* AppDelegate.m in Sources */,
+				FB9F579D18EA561600BF120D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB9F57A418EA561600BF120D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB9F57B618EA561600BF120D /* BedsideTreasureTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB9F57AE18EA561600BF120D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB9F578C18EA561500BF120D /* BedsideTreasure */;
+			targetProxy = FB9F57AD18EA561600BF120D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FB9F579918EA561600BF120D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB9F579A18EA561600BF120D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FB9F57B218EA561600BF120D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB9F57B318EA561600BF120D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB9F57B718EA561600BF120D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FB9F57B818EA561600BF120D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB9F57BA18EA561600BF120D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BedsideTreasure/BedsideTreasure-Prefix.pch";
+				INFOPLIST_FILE = "BedsideTreasure/BedsideTreasure-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FB9F57BB18EA561600BF120D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BedsideTreasure/BedsideTreasure-Prefix.pch";
+				INFOPLIST_FILE = "BedsideTreasure/BedsideTreasure-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FB9F57BD18EA561600BF120D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BedsideTreasure.app/BedsideTreasure";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BedsideTreasure/BedsideTreasure-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BedsideTreasureTests/BedsideTreasureTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		FB9F57BE18EA561600BF120D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BedsideTreasure.app/BedsideTreasure";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BedsideTreasure/BedsideTreasure-Prefix.pch";
+				INFOPLIST_FILE = "BedsideTreasureTests/BedsideTreasureTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB9F578818EA561500BF120D /* Build configuration list for PBXProject "BedsideTreasure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB9F57B718EA561600BF120D /* Debug */,
+				FB9F57B818EA561600BF120D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB9F57B918EA561600BF120D /* Build configuration list for PBXNativeTarget "BedsideTreasure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB9F57BA18EA561600BF120D /* Debug */,
+				FB9F57BB18EA561600BF120D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FB9F57BC18EA561600BF120D /* Build configuration list for PBXNativeTarget "BedsideTreasureTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB9F57BD18EA561600BF120D /* Debug */,
+				FB9F57BE18EA561600BF120D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB9F578518EA561500BF120D /* Project object */;
+}
