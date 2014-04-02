@@ -7,6 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB91CB1D18EBA77500DF91E3 /* BaseNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB1818EBA77500DF91E3 /* BaseNavViewController.m */; };
+		FB91CB1E18EBA77500DF91E3 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB1A18EBA77500DF91E3 /* BaseViewController.m */; };
+		FB91CB1F18EBA77500DF91E3 /* WXBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB1C18EBA77500DF91E3 /* WXBaseModel.m */; };
+		FB91CB3E18EBA7DE00DF91E3 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB2618EBA7DE00DF91E3 /* FriendsViewController.m */; };
+		FB91CB3F18EBA7DE00DF91E3 /* FriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB2718EBA7DE00DF91E3 /* FriendsViewController.xib */; };
+		FB91CB4018EBA7DE00DF91E3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB2A18EBA7DE00DF91E3 /* HomeViewController.m */; };
+		FB91CB4118EBA7DE00DF91E3 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB2B18EBA7DE00DF91E3 /* HomeViewController.xib */; };
+		FB91CB4218EBA7DE00DF91E3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB2E18EBA7DE00DF91E3 /* LoginViewController.m */; };
+		FB91CB4318EBA7DE00DF91E3 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB2F18EBA7DE00DF91E3 /* LoginViewController.xib */; };
+		FB91CB4418EBA7DE00DF91E3 /* RingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB3218EBA7DE00DF91E3 /* RingViewController.m */; };
+		FB91CB4518EBA7DE00DF91E3 /* RingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB3318EBA7DE00DF91E3 /* RingViewController.xib */; };
+		FB91CB4618EBA7DE00DF91E3 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB3618EBA7DE00DF91E3 /* SettingViewController.m */; };
+		FB91CB4718EBA7DE00DF91E3 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB3718EBA7DE00DF91E3 /* SettingViewController.xib */; };
+		FB91CB4818EBA7DE00DF91E3 /* ClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB3A18EBA7DE00DF91E3 /* ClockView.m */; };
+		FB91CB4918EBA7DE00DF91E3 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB3D18EBA7DE00DF91E3 /* UIViewExt.m */; };
+		FB91CB4C18EBA7FE00DF91E3 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB4B18EBA7FE00DF91E3 /* TabBarViewController.m */; };
+		FB91CB4E18EBAA8000DF91E3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB91CB4D18EBAA8000DF91E3 /* QuartzCore.framework */; };
+		FB91CB5818EBD5EB00DF91E3 /* bt_checkbox_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB5218EBD5EB00DF91E3 /* bt_checkbox_normal.png */; };
+		FB91CB5918EBD5EB00DF91E3 /* bt_checkbox_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB5318EBD5EB00DF91E3 /* bt_checkbox_selected.png */; };
+		FB91CB5A18EBD5EB00DF91E3 /* ic_default_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB5418EBD5EB00DF91E3 /* ic_default_avatar.png */; };
+		FB91CB5B18EBD5EB00DF91E3 /* ic_lock.png in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB5518EBD5EB00DF91E3 /* ic_lock.png */; };
+		FB91CB5C18EBD5EB00DF91E3 /* ic_test_head.png in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB5618EBD5EB00DF91E3 /* ic_test_head.png */; };
+		FB91CB5D18EBD5EB00DF91E3 /* ic_user.png in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB5718EBD5EB00DF91E3 /* ic_user.png */; };
+		FB91CB6118EBE63B00DF91E3 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB5F18EBE63B00DF91E3 /* RegisterViewController.m */; };
+		FB91CB6218EBE63B00DF91E3 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB6018EBE63B00DF91E3 /* RegisterViewController.xib */; };
+		FB91CB6618EBF8AF00DF91E3 /* RegiterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB6418EBF8AF00DF91E3 /* RegiterTableViewCell.m */; };
+		FB91CB6718EBF8AF00DF91E3 /* RegiterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB6518EBF8AF00DF91E3 /* RegiterTableViewCell.xib */; };
 		FB9F579118EA561500BF120D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F579018EA561500BF120D /* Foundation.framework */; };
 		FB9F579318EA561500BF120D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F579218EA561500BF120D /* CoreGraphics.framework */; };
 		FB9F579518EA561500BF120D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F579418EA561500BF120D /* UIKit.framework */; };
@@ -32,6 +59,46 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB91CB1718EBA77500DF91E3 /* BaseNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavViewController.h; sourceTree = "<group>"; };
+		FB91CB1818EBA77500DF91E3 /* BaseNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavViewController.m; sourceTree = "<group>"; };
+		FB91CB1918EBA77500DF91E3 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		FB91CB1A18EBA77500DF91E3 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		FB91CB1B18EBA77500DF91E3 /* WXBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXBaseModel.h; sourceTree = "<group>"; };
+		FB91CB1C18EBA77500DF91E3 /* WXBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXBaseModel.m; sourceTree = "<group>"; };
+		FB91CB2518EBA7DE00DF91E3 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		FB91CB2618EBA7DE00DF91E3 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
+		FB91CB2718EBA7DE00DF91E3 /* FriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsViewController.xib; sourceTree = "<group>"; };
+		FB91CB2918EBA7DE00DF91E3 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		FB91CB2A18EBA7DE00DF91E3 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		FB91CB2B18EBA7DE00DF91E3 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		FB91CB2D18EBA7DE00DF91E3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		FB91CB2E18EBA7DE00DF91E3 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		FB91CB2F18EBA7DE00DF91E3 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		FB91CB3118EBA7DE00DF91E3 /* RingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingViewController.h; sourceTree = "<group>"; };
+		FB91CB3218EBA7DE00DF91E3 /* RingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RingViewController.m; sourceTree = "<group>"; };
+		FB91CB3318EBA7DE00DF91E3 /* RingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RingViewController.xib; sourceTree = "<group>"; };
+		FB91CB3518EBA7DE00DF91E3 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		FB91CB3618EBA7DE00DF91E3 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		FB91CB3718EBA7DE00DF91E3 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		FB91CB3918EBA7DE00DF91E3 /* ClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockView.h; sourceTree = "<group>"; };
+		FB91CB3A18EBA7DE00DF91E3 /* ClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockView.m; sourceTree = "<group>"; };
+		FB91CB3C18EBA7DE00DF91E3 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
+		FB91CB3D18EBA7DE00DF91E3 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+		FB91CB4A18EBA7FE00DF91E3 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		FB91CB4B18EBA7FE00DF91E3 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		FB91CB4D18EBAA8000DF91E3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FB91CB5218EBD5EB00DF91E3 /* bt_checkbox_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_checkbox_normal.png; sourceTree = "<group>"; };
+		FB91CB5318EBD5EB00DF91E3 /* bt_checkbox_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_checkbox_selected.png; sourceTree = "<group>"; };
+		FB91CB5418EBD5EB00DF91E3 /* ic_default_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_default_avatar.png; sourceTree = "<group>"; };
+		FB91CB5518EBD5EB00DF91E3 /* ic_lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_lock.png; sourceTree = "<group>"; };
+		FB91CB5618EBD5EB00DF91E3 /* ic_test_head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_test_head.png; sourceTree = "<group>"; };
+		FB91CB5718EBD5EB00DF91E3 /* ic_user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_user.png; sourceTree = "<group>"; };
+		FB91CB5E18EBE63B00DF91E3 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		FB91CB5F18EBE63B00DF91E3 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		FB91CB6018EBE63B00DF91E3 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		FB91CB6318EBF8AF00DF91E3 /* RegiterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegiterTableViewCell.h; sourceTree = "<group>"; };
+		FB91CB6418EBF8AF00DF91E3 /* RegiterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegiterTableViewCell.m; sourceTree = "<group>"; };
+		FB91CB6518EBF8AF00DF91E3 /* RegiterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegiterTableViewCell.xib; sourceTree = "<group>"; };
 		FB9F578D18EA561500BF120D /* BedsideTreasure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BedsideTreasure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB9F579018EA561500BF120D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FB9F579218EA561500BF120D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB91CB4E18EBAA8000DF91E3 /* QuartzCore.framework in Frameworks */,
 				FB9F579318EA561500BF120D /* CoreGraphics.framework in Frameworks */,
 				FB9F579518EA561500BF120D /* UIKit.framework in Frameworks */,
 				FB9F579118EA561500BF120D /* Foundation.framework in Frameworks */,
@@ -74,6 +142,106 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB91CB1618EBA77500DF91E3 /* BaseClass */ = {
+			isa = PBXGroup;
+			children = (
+				FB91CB1718EBA77500DF91E3 /* BaseNavViewController.h */,
+				FB91CB1818EBA77500DF91E3 /* BaseNavViewController.m */,
+				FB91CB1918EBA77500DF91E3 /* BaseViewController.h */,
+				FB91CB1A18EBA77500DF91E3 /* BaseViewController.m */,
+				FB91CB1B18EBA77500DF91E3 /* WXBaseModel.h */,
+				FB91CB1C18EBA77500DF91E3 /* WXBaseModel.m */,
+			);
+			path = BaseClass;
+			sourceTree = "<group>";
+		};
+		FB91CB2418EBA7DE00DF91E3 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				FB91CB2518EBA7DE00DF91E3 /* FriendsViewController.h */,
+				FB91CB2618EBA7DE00DF91E3 /* FriendsViewController.m */,
+				FB91CB2718EBA7DE00DF91E3 /* FriendsViewController.xib */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		FB91CB2818EBA7DE00DF91E3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FB91CB2918EBA7DE00DF91E3 /* HomeViewController.h */,
+				FB91CB2A18EBA7DE00DF91E3 /* HomeViewController.m */,
+				FB91CB2B18EBA7DE00DF91E3 /* HomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FB91CB2C18EBA7DE00DF91E3 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				FB91CB2D18EBA7DE00DF91E3 /* LoginViewController.h */,
+				FB91CB2E18EBA7DE00DF91E3 /* LoginViewController.m */,
+				FB91CB2F18EBA7DE00DF91E3 /* LoginViewController.xib */,
+				FB91CB5E18EBE63B00DF91E3 /* RegisterViewController.h */,
+				FB91CB5F18EBE63B00DF91E3 /* RegisterViewController.m */,
+				FB91CB6018EBE63B00DF91E3 /* RegisterViewController.xib */,
+				FB91CB6318EBF8AF00DF91E3 /* RegiterTableViewCell.h */,
+				FB91CB6418EBF8AF00DF91E3 /* RegiterTableViewCell.m */,
+				FB91CB6518EBF8AF00DF91E3 /* RegiterTableViewCell.xib */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		FB91CB3018EBA7DE00DF91E3 /* Ring */ = {
+			isa = PBXGroup;
+			children = (
+				FB91CB3118EBA7DE00DF91E3 /* RingViewController.h */,
+				FB91CB3218EBA7DE00DF91E3 /* RingViewController.m */,
+				FB91CB3318EBA7DE00DF91E3 /* RingViewController.xib */,
+			);
+			path = Ring;
+			sourceTree = "<group>";
+		};
+		FB91CB3418EBA7DE00DF91E3 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				FB91CB3518EBA7DE00DF91E3 /* SettingViewController.h */,
+				FB91CB3618EBA7DE00DF91E3 /* SettingViewController.m */,
+				FB91CB3718EBA7DE00DF91E3 /* SettingViewController.xib */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		FB91CB3818EBA7DE00DF91E3 /* ThemeManager */ = {
+			isa = PBXGroup;
+			children = (
+				FB91CB3918EBA7DE00DF91E3 /* ClockView.h */,
+				FB91CB3A18EBA7DE00DF91E3 /* ClockView.m */,
+			);
+			path = ThemeManager;
+			sourceTree = "<group>";
+		};
+		FB91CB3B18EBA7DE00DF91E3 /* ThirdSource */ = {
+			isa = PBXGroup;
+			children = (
+				FB91CB3C18EBA7DE00DF91E3 /* UIViewExt.h */,
+				FB91CB3D18EBA7DE00DF91E3 /* UIViewExt.m */,
+			);
+			path = ThirdSource;
+			sourceTree = "<group>";
+		};
+		FB91CB5118EBD5EB00DF91E3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				FB91CB5218EBD5EB00DF91E3 /* bt_checkbox_normal.png */,
+				FB91CB5318EBD5EB00DF91E3 /* bt_checkbox_selected.png */,
+				FB91CB5418EBD5EB00DF91E3 /* ic_default_avatar.png */,
+				FB91CB5518EBD5EB00DF91E3 /* ic_lock.png */,
+				FB91CB5618EBD5EB00DF91E3 /* ic_test_head.png */,
+				FB91CB5718EBD5EB00DF91E3 /* ic_user.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		FB9F578418EA561500BF120D = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +264,7 @@
 		FB9F578F18EA561500BF120D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB91CB4D18EBAA8000DF91E3 /* QuartzCore.framework */,
 				FB9F579018EA561500BF120D /* Foundation.framework */,
 				FB9F579218EA561500BF120D /* CoreGraphics.framework */,
 				FB9F579418EA561500BF120D /* UIKit.framework */,
@@ -107,8 +276,19 @@
 		FB9F579618EA561600BF120D /* BedsideTreasure */ = {
 			isa = PBXGroup;
 			children = (
+				FB91CB5118EBD5EB00DF91E3 /* Images */,
+				FB91CB2C18EBA7DE00DF91E3 /* LoginView */,
+				FB91CB2418EBA7DE00DF91E3 /* Friends */,
+				FB91CB2818EBA7DE00DF91E3 /* Home */,
+				FB91CB3018EBA7DE00DF91E3 /* Ring */,
+				FB91CB3418EBA7DE00DF91E3 /* Setting */,
+				FB91CB3818EBA7DE00DF91E3 /* ThemeManager */,
+				FB91CB3B18EBA7DE00DF91E3 /* ThirdSource */,
+				FB91CB1618EBA77500DF91E3 /* BaseClass */,
 				FB9F579F18EA561600BF120D /* AppDelegate.h */,
 				FB9F57A018EA561600BF120D /* AppDelegate.m */,
+				FB91CB4A18EBA7FE00DF91E3 /* TabBarViewController.h */,
+				FB91CB4B18EBA7FE00DF91E3 /* TabBarViewController.m */,
 				FB9F57A218EA561600BF120D /* Images.xcassets */,
 				FB9F579718EA561600BF120D /* Supporting Files */,
 			);
@@ -219,8 +399,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB91CB5A18EBD5EB00DF91E3 /* ic_default_avatar.png in Resources */,
+				FB91CB5D18EBD5EB00DF91E3 /* ic_user.png in Resources */,
+				FB91CB6718EBF8AF00DF91E3 /* RegiterTableViewCell.xib in Resources */,
+				FB91CB5918EBD5EB00DF91E3 /* bt_checkbox_selected.png in Resources */,
+				FB91CB5B18EBD5EB00DF91E3 /* ic_lock.png in Resources */,
+				FB91CB4718EBA7DE00DF91E3 /* SettingViewController.xib in Resources */,
+				FB91CB4318EBA7DE00DF91E3 /* LoginViewController.xib in Resources */,
 				FB9F579B18EA561600BF120D /* InfoPlist.strings in Resources */,
 				FB9F57A318EA561600BF120D /* Images.xcassets in Resources */,
+				FB91CB5C18EBD5EB00DF91E3 /* ic_test_head.png in Resources */,
+				FB91CB6218EBE63B00DF91E3 /* RegisterViewController.xib in Resources */,
+				FB91CB3F18EBA7DE00DF91E3 /* FriendsViewController.xib in Resources */,
+				FB91CB5818EBD5EB00DF91E3 /* bt_checkbox_normal.png in Resources */,
+				FB91CB4518EBA7DE00DF91E3 /* RingViewController.xib in Resources */,
+				FB91CB4118EBA7DE00DF91E3 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,8 +432,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB91CB4418EBA7DE00DF91E3 /* RingViewController.m in Sources */,
+				FB91CB4218EBA7DE00DF91E3 /* LoginViewController.m in Sources */,
+				FB91CB4C18EBA7FE00DF91E3 /* TabBarViewController.m in Sources */,
+				FB91CB6618EBF8AF00DF91E3 /* RegiterTableViewCell.m in Sources */,
+				FB91CB3E18EBA7DE00DF91E3 /* FriendsViewController.m in Sources */,
+				FB91CB1F18EBA77500DF91E3 /* WXBaseModel.m in Sources */,
+				FB91CB4918EBA7DE00DF91E3 /* UIViewExt.m in Sources */,
 				FB9F57A118EA561600BF120D /* AppDelegate.m in Sources */,
+				FB91CB1E18EBA77500DF91E3 /* BaseViewController.m in Sources */,
+				FB91CB4818EBA7DE00DF91E3 /* ClockView.m in Sources */,
 				FB9F579D18EA561600BF120D /* main.m in Sources */,
+				FB91CB4018EBA7DE00DF91E3 /* HomeViewController.m in Sources */,
+				FB91CB6118EBE63B00DF91E3 /* RegisterViewController.m in Sources */,
+				FB91CB1D18EBA77500DF91E3 /* BaseNavViewController.m in Sources */,
+				FB91CB4618EBA7DE00DF91E3 /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +520,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -346,7 +552,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -437,6 +643,7 @@
 				FB9F57BB18EA561600BF120D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB9F57BC18EA561600BF120D /* Build configuration list for PBXNativeTarget "BedsideTreasureTests" */ = {
 			isa = XCConfigurationList;
@@ -445,6 +652,7 @@
 				FB9F57BE18EA561600BF120D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

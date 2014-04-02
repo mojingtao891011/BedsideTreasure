@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
+#import "BaseNavViewController.h"
 
 @implementation AppDelegate
 
@@ -16,6 +18,11 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    LoginViewController *loginViewCtl = [[LoginViewController alloc]init];
+    BaseNavViewController *nav  = [[BaseNavViewController alloc]initWithRootViewController:loginViewCtl];
+    self.window.rootViewController = nav ;
+    
     return YES;
 }
 
