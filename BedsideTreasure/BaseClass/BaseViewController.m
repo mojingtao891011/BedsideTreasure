@@ -20,7 +20,9 @@
     if (self) {
         self.titleLabel = [[UILabel alloc]init];
         self.titleLabel.backgroundColor = [UIColor clearColor];
+        self.titleLabel.textColor = [UIColor whiteColor] ;
         self.navigationItem.titleView = self.titleLabel ;
+        self.titleLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:20];
     }
     return self;
 }
@@ -29,7 +31,18 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:236/255.0 green:249/255.0 blue:248/255.0 alpha:1.0];
-    // Do any additional setup after loading the view.
+    
+    if (self.navigationController.viewControllers.count > 1 && !_isBack ) {
+        UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [backButton setFrame:CGRectMake(0, 0, 12, 20)];
+        [backButton setBackgroundImage:[UIImage imageNamed:@"bt_back"] forState:UIControlStateNormal];
+        [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *barBrttonItem = [[UIBarButtonItem alloc]initWithCustomView:backButton];
+        self.navigationItem.leftBarButtonItem = barBrttonItem ;
+    }
+
+   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,16 +50,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)backAction
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [self.navigationController popViewControllerAnimated:YES];
 }
-*/
-
 @end

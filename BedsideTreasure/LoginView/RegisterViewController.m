@@ -7,7 +7,6 @@
 //
 
 #import "RegisterViewController.h"
-#import "RegiterTableViewCell.h"
 
 @interface RegisterViewController ()
 
@@ -24,53 +23,82 @@
     }
     return self;
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   // [self _initRegisterTableView];
-   
+    self.originalHeight = self.registerScrollView.top ;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickTap:)];
+    [self.view addGestureRecognizer:tap];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
     self.navigationController.navigationBarHidden = NO ;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
+#pragma mark-----clickTapAction
+- (void)clickTap:(UITapGestureRecognizer*)tap
+{
+    for (UIView *subView in self.registerScrollView.subviews) {
+        for (UIView *view in subView.subviews) {
+            if ([view isKindOfClass:[UITextField class]]) {
+                [view resignFirstResponder];
+            }
+        }
+    }
+}
+#pragma mark-----NotificationCenter
+- (void)keyboardWillShow:(NSNotification*)showNote
+{
+    if (self.tempTextField.tag != 5) {
+        return ;
+    }else if (ScreenHeight > 480)
+    {
+        return ;
+    }
+    CGRect rect =[[showNote userInfo][@"UIKeyboardFrameEndUserInfoKey"]CGRectValue] ;
+    self.keybordNote = showNote ;
+    CGFloat  moveHeight = self.phoneNumberView.bottom - ( ScreenHeight - rect.size.height - 44 - 20) ;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.registerScrollView.top = self.originalHeight ;
+        self.registerScrollView.top = self.registerScrollView.top - moveHeight ;
+    }];
+    
+}
+- (void)keyboardWillHide:(NSNotification*)hideNote
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        self.registerScrollView.top = self.originalHeight ;
+    }];
+}
+
 #pragma mark-----UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return YES ;
 }
-
-- (void)_initRegisterTableView
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    _titleArr = @[@"用户名", @"密码", @"确认密码", @"邮箱", @"手机"];
-    _registerTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, _titleArr.count * 44 + 44) style:UITableViewStylePlain];
-    _registerTableView.dataSource = self ;
-    _registerTableView.delegate = self ;
-    [self.view addSubview: _registerTableView];
-    [_registerTableView registerNib:[UINib nibWithNibName:@"RegiterTableViewCell" bundle:nil] forCellReuseIdentifier:@"RegiterCell"];
-    
-    NSLog(@"%f" , _registerTableView.rowHeight);
+    self.tempTextField = textField ;
+    [self keyboardWillShow:self.keybordNote ];
+    return YES ;
 }
-#pragma mark-----UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return _titleArr.count ;
-   
-}
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-   
-    RegiterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RegiterCell"];
-    cell.titleLabel.text = _titleArr[indexPath.row] ;
-    return cell ;
-      //  explainLabel.text = @"已阅读并同意使用条款和隐私政策" ;
+#pragma mark-----customAction
+- (IBAction)checkActin:(id)sender {
+    UIButton *button = (UIButton*)sender ;
+    button.selected = !button.selected ;
 }
 @end

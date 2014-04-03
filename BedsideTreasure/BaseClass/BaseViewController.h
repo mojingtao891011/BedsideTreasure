@@ -10,4 +10,5 @@
 
 @interface BaseViewController : UIViewController
 @property(nonatomic , retain)UILabel *titleLabel ;
+@property(nonatomic , assign)BOOL isBack ;
 @end

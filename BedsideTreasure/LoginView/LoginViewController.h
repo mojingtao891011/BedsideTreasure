@@ -9,6 +9,9 @@
 #import "BaseViewController.h"
 
 @interface LoginViewController : BaseViewController<UITextFieldDelegate>
+
+@property(nonatomic , assign)NSInteger originalHeight ;
+@property (weak, nonatomic) IBOutlet UIView *bodyView;
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
 @property (weak, nonatomic) IBOutlet UIView *userName_bg;
 @property (weak, nonatomic) IBOutlet UIView *password_bg;

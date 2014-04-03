@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB845B8F18ED4E5600B1BB3C /* bt_back.png in Resources */ = {isa = PBXBuildFile; fileRef = FB845B8E18ED4E5600B1BB3C /* bt_back.png */; };
 		FB91CB1D18EBA77500DF91E3 /* BaseNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB1818EBA77500DF91E3 /* BaseNavViewController.m */; };
 		FB91CB1E18EBA77500DF91E3 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB1A18EBA77500DF91E3 /* BaseViewController.m */; };
 		FB91CB1F18EBA77500DF91E3 /* WXBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB1C18EBA77500DF91E3 /* WXBaseModel.m */; };
@@ -32,8 +33,6 @@
 		FB91CB5D18EBD5EB00DF91E3 /* ic_user.png in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB5718EBD5EB00DF91E3 /* ic_user.png */; };
 		FB91CB6118EBE63B00DF91E3 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB5F18EBE63B00DF91E3 /* RegisterViewController.m */; };
 		FB91CB6218EBE63B00DF91E3 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB6018EBE63B00DF91E3 /* RegisterViewController.xib */; };
-		FB91CB6618EBF8AF00DF91E3 /* RegiterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB6418EBF8AF00DF91E3 /* RegiterTableViewCell.m */; };
-		FB91CB6718EBF8AF00DF91E3 /* RegiterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB6518EBF8AF00DF91E3 /* RegiterTableViewCell.xib */; };
 		FB9F579118EA561500BF120D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F579018EA561500BF120D /* Foundation.framework */; };
 		FB9F579318EA561500BF120D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F579218EA561500BF120D /* CoreGraphics.framework */; };
 		FB9F579518EA561500BF120D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F579418EA561500BF120D /* UIKit.framework */; };
@@ -59,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB845B8E18ED4E5600B1BB3C /* bt_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_back.png; sourceTree = "<group>"; };
 		FB91CB1718EBA77500DF91E3 /* BaseNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavViewController.h; sourceTree = "<group>"; };
 		FB91CB1818EBA77500DF91E3 /* BaseNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavViewController.m; sourceTree = "<group>"; };
 		FB91CB1918EBA77500DF91E3 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -96,9 +96,6 @@
 		FB91CB5E18EBE63B00DF91E3 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		FB91CB5F18EBE63B00DF91E3 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		FB91CB6018EBE63B00DF91E3 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
-		FB91CB6318EBF8AF00DF91E3 /* RegiterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegiterTableViewCell.h; sourceTree = "<group>"; };
-		FB91CB6418EBF8AF00DF91E3 /* RegiterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegiterTableViewCell.m; sourceTree = "<group>"; };
-		FB91CB6518EBF8AF00DF91E3 /* RegiterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegiterTableViewCell.xib; sourceTree = "<group>"; };
 		FB9F578D18EA561500BF120D /* BedsideTreasure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BedsideTreasure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB9F579018EA561500BF120D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FB9F579218EA561500BF120D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -184,9 +181,6 @@
 				FB91CB5E18EBE63B00DF91E3 /* RegisterViewController.h */,
 				FB91CB5F18EBE63B00DF91E3 /* RegisterViewController.m */,
 				FB91CB6018EBE63B00DF91E3 /* RegisterViewController.xib */,
-				FB91CB6318EBF8AF00DF91E3 /* RegiterTableViewCell.h */,
-				FB91CB6418EBF8AF00DF91E3 /* RegiterTableViewCell.m */,
-				FB91CB6518EBF8AF00DF91E3 /* RegiterTableViewCell.xib */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -232,12 +226,13 @@
 		FB91CB5118EBD5EB00DF91E3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FB845B8E18ED4E5600B1BB3C /* bt_back.png */,
 				FB91CB5218EBD5EB00DF91E3 /* bt_checkbox_normal.png */,
 				FB91CB5318EBD5EB00DF91E3 /* bt_checkbox_selected.png */,
 				FB91CB5418EBD5EB00DF91E3 /* ic_default_avatar.png */,
 				FB91CB5518EBD5EB00DF91E3 /* ic_lock.png */,
-				FB91CB5618EBD5EB00DF91E3 /* ic_test_head.png */,
 				FB91CB5718EBD5EB00DF91E3 /* ic_user.png */,
+				FB91CB5618EBD5EB00DF91E3 /* ic_test_head.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -401,7 +396,6 @@
 			files = (
 				FB91CB5A18EBD5EB00DF91E3 /* ic_default_avatar.png in Resources */,
 				FB91CB5D18EBD5EB00DF91E3 /* ic_user.png in Resources */,
-				FB91CB6718EBF8AF00DF91E3 /* RegiterTableViewCell.xib in Resources */,
 				FB91CB5918EBD5EB00DF91E3 /* bt_checkbox_selected.png in Resources */,
 				FB91CB5B18EBD5EB00DF91E3 /* ic_lock.png in Resources */,
 				FB91CB4718EBA7DE00DF91E3 /* SettingViewController.xib in Resources */,
@@ -414,6 +408,7 @@
 				FB91CB5818EBD5EB00DF91E3 /* bt_checkbox_normal.png in Resources */,
 				FB91CB4518EBA7DE00DF91E3 /* RingViewController.xib in Resources */,
 				FB91CB4118EBA7DE00DF91E3 /* HomeViewController.xib in Resources */,
+				FB845B8F18ED4E5600B1BB3C /* bt_back.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +430,6 @@
 				FB91CB4418EBA7DE00DF91E3 /* RingViewController.m in Sources */,
 				FB91CB4218EBA7DE00DF91E3 /* LoginViewController.m in Sources */,
 				FB91CB4C18EBA7FE00DF91E3 /* TabBarViewController.m in Sources */,
-				FB91CB6618EBF8AF00DF91E3 /* RegiterTableViewCell.m in Sources */,
 				FB91CB3E18EBA7DE00DF91E3 /* FriendsViewController.m in Sources */,
 				FB91CB1F18EBA77500DF91E3 /* WXBaseModel.m in Sources */,
 				FB91CB4918EBA7DE00DF91E3 /* UIViewExt.m in Sources */,

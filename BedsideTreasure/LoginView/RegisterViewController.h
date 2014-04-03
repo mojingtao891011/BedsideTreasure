@@ -8,10 +8,15 @@
 
 #import "BaseViewController.h"
 
-@interface RegisterViewController : BaseViewController<UITextFieldDelegate , UITableViewDataSource , UITableViewDelegate>
+@interface RegisterViewController : BaseViewController<UITextFieldDelegate >
 
 @property (weak, nonatomic) IBOutlet UIScrollView *registerScrollView;
-@property(nonatomic , retain)UITableView *registerTableView ;
-@property(nonatomic , retain)NSArray *titleArr ;
+@property(nonatomic , retain)UITextField *tempTextField ;
+@property(nonatomic , retain)NSNotification* keybordNote ;
+@property(nonatomic , assign)NSInteger originalHeight ;
+@property (weak, nonatomic) IBOutlet UIView *phoneNumberView;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
+
+- (IBAction)checkActin:(id)sender;
 
 @end
