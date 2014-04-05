@@ -16,7 +16,10 @@
 @property(nonatomic , assign)NSInteger originalHeight ;
 @property (weak, nonatomic) IBOutlet UIView *phoneNumberView;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
+@property (strong, nonatomic) IBOutlet UIView *alertView;
 
 - (IBAction)checkActin:(id)sender;
+- (IBAction)registerAction:(id)sender;
+- (IBAction)registerOkAction:(id)sender;
 
 @end

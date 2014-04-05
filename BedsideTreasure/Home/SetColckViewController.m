@@ -1,24 +1,24 @@
 //
-//  SettingViewController.m
+//  SetColckViewController.m
 //  BedsideTreasure
 //
-//  Created by 莫景涛 on 14-4-1.
+//  Created by 莫景涛 on 14-4-4.
 //  Copyright (c) 2014年 莫景涛. All rights reserved.
 //
 
-#import "SettingViewController.h"
+#import "SetColckViewController.h"
 
-@interface SettingViewController ()
+@interface SetColckViewController ()
 
 @end
 
-@implementation SettingViewController
+@implementation SetColckViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.titleLabel.text = @"设置" ;
+        self.titleLabel.text = @"闹钟设置" ;
         [self.titleLabel sizeToFit];
     }
     return self;
@@ -27,10 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"setting" ;
-    NSLog(@"＝＝＝%f" , Version);
-    NSLog(@"%f" , NSFoundationVersionNumber);
-    
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning

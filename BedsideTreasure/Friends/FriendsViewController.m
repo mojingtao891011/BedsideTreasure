@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.titleLabel.text = @"friends" ;
+        self.titleLabel.text = @"好友" ;
         [self.titleLabel sizeToFit];
     }
     return self;

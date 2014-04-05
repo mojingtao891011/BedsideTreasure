@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 
-@interface HomeViewController : BaseViewController
 
+@interface HomeViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet UIView *clockView_bg;
+- (IBAction)setClockTime:(id)sender;
 @end

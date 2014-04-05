@@ -8,6 +8,9 @@
 
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
+#import "LookPassWordViewController.h"
+#import "TabBarViewController.h"
+#import "BaseNavViewController.h"
 
 @interface LoginViewController ()
 
@@ -38,6 +41,64 @@
     [self.view addGestureRecognizer:tap];
     
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+   // [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    self.navigationController.navigationBarHidden = YES ;
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBarHidden = NO ;
+    //[[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+   
+}
+#pragma mark-----clickTapAction
+- (void)clickTap:(UITapGestureRecognizer*)tap
+{
+    [self.userName resignFirstResponder];
+    [self.passWord resignFirstResponder];
+}
+#pragma mark-----NotificationCenter
+- (void)keyboardWillShow:(NSNotification*)showNote
+{
+    if (ScreenHeight > 480) {
+        return ;
+    }
+    CGRect rect =[[showNote userInfo][@"UIKeyboardFrameEndUserInfoKey"]CGRectValue] ;
+    CGFloat  moveHeight ;
+    if (Version < 7.0) {
+        moveHeight = self.password_bg.bottom - ( ScreenHeight - rect.size.height  - 44 - 20) ;
+    }else{
+        moveHeight = self.password_bg.bottom - ( ScreenHeight - rect.size.height  - 44 ) ;
+    }
+    [UIView animateWithDuration:0.5 animations:^{
+            self.bodyView.top = self.originalHeight ;
+            self.bodyView.top = self.bodyView.top - moveHeight ;
+    }];
+}
+- (void)keyboardWillHide:(NSNotification*)hideNote
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        self.bodyView.top = self.originalHeight ;
+    }];
+}
+#pragma mark-----UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES ;
+}
+#pragma mark-----customAction
 - (void)drawUserImageView
 {
     UIImageView * imageView = [[UIImageView alloc] init];
@@ -63,70 +124,62 @@
     imageView2.layer.cornerRadius = 70;
     [imageView addSubview:imageView2];
     imageView2.image = [UIImage imageNamed:@"ic_test_head"];
-
+    
 }
-- (void)viewWillAppear:(BOOL)animated
+- (IBAction)loginAction:(id)sender
 {
-    [super viewWillAppear:animated];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    self.navigationController.navigationBarHidden = YES ;
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-}
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
-}
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-   
-}
-#pragma mark-----clickTapAction
-- (void)clickTap:(UITapGestureRecognizer*)tap
-{
-    [self.userName resignFirstResponder];
-    [self.passWord resignFirstResponder];
-}
-#pragma mark-----NotificationCenter
-- (void)keyboardWillShow:(NSNotification*)showNote
-{
-    if (ScreenHeight > 480) {
-        return ;
+    static int count = 0;
+    if ([self.userName.text isEqualToString:@"123"] &&[self.passWord.text isEqualToString:@"123"]) {
+        TabBarViewController *tabBarViewCtl = [[TabBarViewController  alloc]init];
+        [self presentViewController:tabBarViewCtl animated:YES completion:nil];
     }
-    CGRect rect =[[showNote userInfo][@"UIKeyboardFrameEndUserInfoKey"]CGRectValue] ;
-    CGFloat  moveHeight ;
-    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
-         moveHeight = self.password_bg.bottom - ( ScreenHeight - rect.size.height  - 44) ;
-    }else{
-        moveHeight = self.password_bg.bottom - ( ScreenHeight - rect.size.height  - 44 ) ;
-    }
+    else if (count >= 3)
+    {
+        self.alertView.height = ScreenHeight ;
+        self.alertView.top = 0 ;
+        self.alertView.alpha = 0.0 ;
         [UIView animateWithDuration:0.5 animations:^{
-            self.bodyView.top = self.originalHeight ;
-            self.bodyView.top = self.bodyView.top - moveHeight ;
-    }];
+            self.alertView.alpha = 0.9 ;
+            [self.view addSubview:self.alertView];
+        }];
+
+    }
+    else
+    {
+        self.promptView.layer.cornerRadius = 5.0 ;
+        self.promptView.alpha = 0.0 ;
+        self.promptView.frame = CGRectMake(20, 400, ScreenWidth-40, 60);
+        [UIView animateWithDuration:0.5 animations:^{
+            self.promptView.alpha = 1.0 ;
+        }];
+        [self.view addSubview:self.promptView];
+        [self performSelector:@selector(hidesPromptView) withObject:nil afterDelay:2];
+    }
+    count++ ;
 }
-- (void)keyboardWillHide:(NSNotification*)hideNote
+- (void)hidesPromptView
 {
     [UIView animateWithDuration:0.5 animations:^{
-        self.bodyView.top = self.originalHeight ;
+        self.promptView.alpha = 0.0 ;
     }];
-}
-#pragma mark-----UITextFieldDelegate
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES ;
-}
-#pragma mark-----customAction
-- (IBAction)loginAction:(id)sender {
-    NSLog(@"loginAction");
-}
 
+}
 - (IBAction)RegisterAction:(id)sender {
-    NSLog(@"RegisterAction");
+    
     RegisterViewController *registerViewCtl = [[RegisterViewController alloc]init];
     [self.navigationController pushViewController:registerViewCtl animated:YES];
+}
+
+- (IBAction)forgetPassWord:(id)sender {
+    LookPassWordViewController *lookPassWordViewCtl = [[LookPassWordViewController alloc]init] ;
+    [self.navigationController pushViewController:lookPassWordViewCtl animated:YES];
+    self.alertView.top = ScreenHeight ;
+}
+
+- (IBAction)cancelLookPassWord:(id)sender {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.alertView.alpha = 0.0 ;
+    }];
+    self.alertView.top = ScreenHeight ;
 }
 @end

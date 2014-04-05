@@ -7,6 +7,7 @@
 //
 
 #import "RegisterViewController.h"
+#import "SetIspaceViewController.h"
 
 @interface RegisterViewController ()
 
@@ -33,8 +34,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [[UIApplication sharedApplication] setStatusBarHidden:NO];
-    self.navigationController.navigationBarHidden = NO ;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
@@ -101,4 +100,24 @@
     UIButton *button = (UIButton*)sender ;
     button.selected = !button.selected ;
 }
+
+- (IBAction)registerAction:(id)sender {
+    self.alertView.height = ScreenHeight ;
+    self.alertView.top = 0 ;
+    self.alertView.alpha = 0.0 ;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.alertView.alpha = 0.9 ;
+         [self.view addSubview:self.alertView];
+    }];
+   
+}
+
+- (IBAction)registerOkAction:(id)sender {
+    SetIspaceViewController *setIspaceViewCtl = [[SetIspaceViewController alloc]init];
+    [self.navigationController pushViewController:setIspaceViewCtl animated:YES];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.alertView.alpha = 0.0 ;
+    }];
+    self.alertView.top = ScreenHeight ;
+  }
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "SetColckViewController.h"
 
 @interface HomeViewController ()
 
@@ -18,7 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.titleLabel.text = @"home" ;
+        self.titleLabel.text = @"主页" ;
         [self.titleLabel sizeToFit];
     }
     return self;
@@ -27,13 +28,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"home" ;
+        
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
-
+- (IBAction)setClockTime:(id)sender {
+    SetColckViewController *setClockViewCtl = [[SetColckViewController alloc]init] ;
+    [self.navigationController pushViewController:setClockViewCtl animated:YES] ;
+}
 @end

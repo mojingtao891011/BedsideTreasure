@@ -12,12 +12,17 @@
 
 @property(nonatomic , assign)NSInteger originalHeight ;
 @property (weak, nonatomic) IBOutlet UIView *bodyView;
-@property (weak, nonatomic) IBOutlet UIImageView *userImage;
+@property (strong, nonatomic) IBOutlet UIView *alertView;
+@property (strong, nonatomic) IBOutlet UIView *promptView;
+
 @property (weak, nonatomic) IBOutlet UIView *userName_bg;
 @property (weak, nonatomic) IBOutlet UIView *password_bg;
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UITextField *passWord;
+
 - (IBAction)loginAction:(id)sender;
 - (IBAction)RegisterAction:(id)sender;
+- (IBAction)forgetPassWord:(id)sender;
+- (IBAction)cancelLookPassWord:(id)sender;
 
 @end

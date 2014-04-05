@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TabBarViewController : UITabBarController
-
+@interface TabBarViewController : UITabBarController<UINavigationControllerDelegate>
+{
+    UIButton *_selectedButton ;
+    UIView *_tabbarView ;
+}
+- (void)showBarItem:(BOOL)show;
 @end

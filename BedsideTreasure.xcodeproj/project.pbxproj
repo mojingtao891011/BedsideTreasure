@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB3995D418F008BC001EFA9D /* Clock.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3995D318F008BC001EFA9D /* Clock.m */; };
+		FB3995D818F02D5B001EFA9D /* SetIspaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3995D618F02D5B001EFA9D /* SetIspaceViewController.m */; };
+		FB3995D918F02D5B001EFA9D /* SetIspaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3995D718F02D5B001EFA9D /* SetIspaceViewController.xib */; };
+		FB3995DD18F04141001EFA9D /* LookPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3995DB18F04141001EFA9D /* LookPassWordViewController.m */; };
+		FB3995DE18F04141001EFA9D /* LookPassWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3995DC18F04141001EFA9D /* LookPassWordViewController.xib */; };
+		FB3995E218F0512C001EFA9D /* PhoneLookPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3995E018F0512C001EFA9D /* PhoneLookPassWordViewController.m */; };
+		FB3995E318F0512C001EFA9D /* PhoneLookPassWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3995E118F0512C001EFA9D /* PhoneLookPassWordViewController.xib */; };
+		FB3995E718F05217001EFA9D /* EmailLookPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3995E518F05217001EFA9D /* EmailLookPassWordViewController.m */; };
+		FB3995E818F05217001EFA9D /* EmailLookPassWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3995E618F05217001EFA9D /* EmailLookPassWordViewController.xib */; };
+		FB52370518EEB0D900ACDE50 /* bt_friends_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FB5236FD18EEB0D900ACDE50 /* bt_friends_normal.png */; };
+		FB52370618EEB0D900ACDE50 /* bt_friends_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FB5236FE18EEB0D900ACDE50 /* bt_friends_pressed.png */; };
+		FB52370718EEB0D900ACDE50 /* bt_home_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FB5236FF18EEB0D900ACDE50 /* bt_home_normal.png */; };
+		FB52370818EEB0D900ACDE50 /* bt_home_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FB52370018EEB0D900ACDE50 /* bt_home_pressed.png */; };
+		FB52370918EEB0D900ACDE50 /* bt_ring_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FB52370118EEB0D900ACDE50 /* bt_ring_normal.png */; };
+		FB52370A18EEB0D900ACDE50 /* bt_ring_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FB52370218EEB0D900ACDE50 /* bt_ring_pressed.png */; };
+		FB52370B18EEB0D900ACDE50 /* bt_setting_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FB52370318EEB0D900ACDE50 /* bt_setting_normal.png */; };
+		FB52370C18EEB0D900ACDE50 /* bt_setting_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FB52370418EEB0D900ACDE50 /* bt_setting_pressed.png */; };
+		FB52371B18EEBF8C00ACDE50 /* SetColckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB52371918EEBF8C00ACDE50 /* SetColckViewController.m */; };
+		FB52371C18EEBF8C00ACDE50 /* SetColckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB52371A18EEBF8C00ACDE50 /* SetColckViewController.xib */; };
 		FB845B8F18ED4E5600B1BB3C /* bt_back.png in Resources */ = {isa = PBXBuildFile; fileRef = FB845B8E18ED4E5600B1BB3C /* bt_back.png */; };
 		FB91CB1D18EBA77500DF91E3 /* BaseNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB1818EBA77500DF91E3 /* BaseNavViewController.m */; };
 		FB91CB1E18EBA77500DF91E3 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB1A18EBA77500DF91E3 /* BaseViewController.m */; };
@@ -21,7 +40,6 @@
 		FB91CB4518EBA7DE00DF91E3 /* RingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB3318EBA7DE00DF91E3 /* RingViewController.xib */; };
 		FB91CB4618EBA7DE00DF91E3 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB3618EBA7DE00DF91E3 /* SettingViewController.m */; };
 		FB91CB4718EBA7DE00DF91E3 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB91CB3718EBA7DE00DF91E3 /* SettingViewController.xib */; };
-		FB91CB4818EBA7DE00DF91E3 /* ClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB3A18EBA7DE00DF91E3 /* ClockView.m */; };
 		FB91CB4918EBA7DE00DF91E3 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB3D18EBA7DE00DF91E3 /* UIViewExt.m */; };
 		FB91CB4C18EBA7FE00DF91E3 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB91CB4B18EBA7FE00DF91E3 /* TabBarViewController.m */; };
 		FB91CB4E18EBAA8000DF91E3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB91CB4D18EBAA8000DF91E3 /* QuartzCore.framework */; };
@@ -58,6 +76,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB3995D218F008BC001EFA9D /* Clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clock.h; sourceTree = "<group>"; };
+		FB3995D318F008BC001EFA9D /* Clock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clock.m; sourceTree = "<group>"; };
+		FB3995D518F02D5B001EFA9D /* SetIspaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetIspaceViewController.h; sourceTree = "<group>"; };
+		FB3995D618F02D5B001EFA9D /* SetIspaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetIspaceViewController.m; sourceTree = "<group>"; };
+		FB3995D718F02D5B001EFA9D /* SetIspaceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetIspaceViewController.xib; sourceTree = "<group>"; };
+		FB3995DA18F04141001EFA9D /* LookPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookPassWordViewController.h; sourceTree = "<group>"; };
+		FB3995DB18F04141001EFA9D /* LookPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookPassWordViewController.m; sourceTree = "<group>"; };
+		FB3995DC18F04141001EFA9D /* LookPassWordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LookPassWordViewController.xib; sourceTree = "<group>"; };
+		FB3995DF18F0512C001EFA9D /* PhoneLookPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneLookPassWordViewController.h; sourceTree = "<group>"; };
+		FB3995E018F0512C001EFA9D /* PhoneLookPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneLookPassWordViewController.m; sourceTree = "<group>"; };
+		FB3995E118F0512C001EFA9D /* PhoneLookPassWordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhoneLookPassWordViewController.xib; sourceTree = "<group>"; };
+		FB3995E418F05217001EFA9D /* EmailLookPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailLookPassWordViewController.h; sourceTree = "<group>"; };
+		FB3995E518F05217001EFA9D /* EmailLookPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailLookPassWordViewController.m; sourceTree = "<group>"; };
+		FB3995E618F05217001EFA9D /* EmailLookPassWordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmailLookPassWordViewController.xib; sourceTree = "<group>"; };
+		FB5236FD18EEB0D900ACDE50 /* bt_friends_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_friends_normal.png; sourceTree = "<group>"; };
+		FB5236FE18EEB0D900ACDE50 /* bt_friends_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_friends_pressed.png; sourceTree = "<group>"; };
+		FB5236FF18EEB0D900ACDE50 /* bt_home_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_home_normal.png; sourceTree = "<group>"; };
+		FB52370018EEB0D900ACDE50 /* bt_home_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_home_pressed.png; sourceTree = "<group>"; };
+		FB52370118EEB0D900ACDE50 /* bt_ring_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_ring_normal.png; sourceTree = "<group>"; };
+		FB52370218EEB0D900ACDE50 /* bt_ring_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_ring_pressed.png; sourceTree = "<group>"; };
+		FB52370318EEB0D900ACDE50 /* bt_setting_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_setting_normal.png; sourceTree = "<group>"; };
+		FB52370418EEB0D900ACDE50 /* bt_setting_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_setting_pressed.png; sourceTree = "<group>"; };
+		FB52371818EEBF8C00ACDE50 /* SetColckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetColckViewController.h; sourceTree = "<group>"; };
+		FB52371918EEBF8C00ACDE50 /* SetColckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetColckViewController.m; sourceTree = "<group>"; };
+		FB52371A18EEBF8C00ACDE50 /* SetColckViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetColckViewController.xib; sourceTree = "<group>"; };
 		FB845B8E18ED4E5600B1BB3C /* bt_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_back.png; sourceTree = "<group>"; };
 		FB91CB1718EBA77500DF91E3 /* BaseNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavViewController.h; sourceTree = "<group>"; };
 		FB91CB1818EBA77500DF91E3 /* BaseNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavViewController.m; sourceTree = "<group>"; };
@@ -80,8 +123,6 @@
 		FB91CB3518EBA7DE00DF91E3 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		FB91CB3618EBA7DE00DF91E3 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		FB91CB3718EBA7DE00DF91E3 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
-		FB91CB3918EBA7DE00DF91E3 /* ClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockView.h; sourceTree = "<group>"; };
-		FB91CB3A18EBA7DE00DF91E3 /* ClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockView.m; sourceTree = "<group>"; };
 		FB91CB3C18EBA7DE00DF91E3 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		FB91CB3D18EBA7DE00DF91E3 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
 		FB91CB4A18EBA7FE00DF91E3 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
@@ -168,6 +209,9 @@
 				FB91CB2918EBA7DE00DF91E3 /* HomeViewController.h */,
 				FB91CB2A18EBA7DE00DF91E3 /* HomeViewController.m */,
 				FB91CB2B18EBA7DE00DF91E3 /* HomeViewController.xib */,
+				FB52371818EEBF8C00ACDE50 /* SetColckViewController.h */,
+				FB52371918EEBF8C00ACDE50 /* SetColckViewController.m */,
+				FB52371A18EEBF8C00ACDE50 /* SetColckViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -178,9 +222,21 @@
 				FB91CB2D18EBA7DE00DF91E3 /* LoginViewController.h */,
 				FB91CB2E18EBA7DE00DF91E3 /* LoginViewController.m */,
 				FB91CB2F18EBA7DE00DF91E3 /* LoginViewController.xib */,
+				FB3995DA18F04141001EFA9D /* LookPassWordViewController.h */,
+				FB3995DB18F04141001EFA9D /* LookPassWordViewController.m */,
+				FB3995DC18F04141001EFA9D /* LookPassWordViewController.xib */,
+				FB3995DF18F0512C001EFA9D /* PhoneLookPassWordViewController.h */,
+				FB3995E018F0512C001EFA9D /* PhoneLookPassWordViewController.m */,
+				FB3995E118F0512C001EFA9D /* PhoneLookPassWordViewController.xib */,
+				FB3995E418F05217001EFA9D /* EmailLookPassWordViewController.h */,
+				FB3995E518F05217001EFA9D /* EmailLookPassWordViewController.m */,
+				FB3995E618F05217001EFA9D /* EmailLookPassWordViewController.xib */,
 				FB91CB5E18EBE63B00DF91E3 /* RegisterViewController.h */,
 				FB91CB5F18EBE63B00DF91E3 /* RegisterViewController.m */,
 				FB91CB6018EBE63B00DF91E3 /* RegisterViewController.xib */,
+				FB3995D518F02D5B001EFA9D /* SetIspaceViewController.h */,
+				FB3995D618F02D5B001EFA9D /* SetIspaceViewController.m */,
+				FB3995D718F02D5B001EFA9D /* SetIspaceViewController.xib */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -208,8 +264,8 @@
 		FB91CB3818EBA7DE00DF91E3 /* ThemeManager */ = {
 			isa = PBXGroup;
 			children = (
-				FB91CB3918EBA7DE00DF91E3 /* ClockView.h */,
-				FB91CB3A18EBA7DE00DF91E3 /* ClockView.m */,
+				FB3995D218F008BC001EFA9D /* Clock.h */,
+				FB3995D318F008BC001EFA9D /* Clock.m */,
 			);
 			path = ThemeManager;
 			sourceTree = "<group>";
@@ -226,6 +282,14 @@
 		FB91CB5118EBD5EB00DF91E3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FB5236FD18EEB0D900ACDE50 /* bt_friends_normal.png */,
+				FB5236FE18EEB0D900ACDE50 /* bt_friends_pressed.png */,
+				FB5236FF18EEB0D900ACDE50 /* bt_home_normal.png */,
+				FB52370018EEB0D900ACDE50 /* bt_home_pressed.png */,
+				FB52370118EEB0D900ACDE50 /* bt_ring_normal.png */,
+				FB52370218EEB0D900ACDE50 /* bt_ring_pressed.png */,
+				FB52370318EEB0D900ACDE50 /* bt_setting_normal.png */,
+				FB52370418EEB0D900ACDE50 /* bt_setting_pressed.png */,
 				FB845B8E18ED4E5600B1BB3C /* bt_back.png */,
 				FB91CB5218EBD5EB00DF91E3 /* bt_checkbox_normal.png */,
 				FB91CB5318EBD5EB00DF91E3 /* bt_checkbox_selected.png */,
@@ -394,20 +458,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB3995DE18F04141001EFA9D /* LookPassWordViewController.xib in Resources */,
+				FB52370C18EEB0D900ACDE50 /* bt_setting_pressed.png in Resources */,
+				FB52370518EEB0D900ACDE50 /* bt_friends_normal.png in Resources */,
+				FB52371C18EEBF8C00ACDE50 /* SetColckViewController.xib in Resources */,
 				FB91CB5A18EBD5EB00DF91E3 /* ic_default_avatar.png in Resources */,
 				FB91CB5D18EBD5EB00DF91E3 /* ic_user.png in Resources */,
 				FB91CB5918EBD5EB00DF91E3 /* bt_checkbox_selected.png in Resources */,
 				FB91CB5B18EBD5EB00DF91E3 /* ic_lock.png in Resources */,
 				FB91CB4718EBA7DE00DF91E3 /* SettingViewController.xib in Resources */,
+				FB3995E318F0512C001EFA9D /* PhoneLookPassWordViewController.xib in Resources */,
 				FB91CB4318EBA7DE00DF91E3 /* LoginViewController.xib in Resources */,
 				FB9F579B18EA561600BF120D /* InfoPlist.strings in Resources */,
 				FB9F57A318EA561600BF120D /* Images.xcassets in Resources */,
 				FB91CB5C18EBD5EB00DF91E3 /* ic_test_head.png in Resources */,
 				FB91CB6218EBE63B00DF91E3 /* RegisterViewController.xib in Resources */,
+				FB3995E818F05217001EFA9D /* EmailLookPassWordViewController.xib in Resources */,
+				FB52370818EEB0D900ACDE50 /* bt_home_pressed.png in Resources */,
+				FB52370718EEB0D900ACDE50 /* bt_home_normal.png in Resources */,
 				FB91CB3F18EBA7DE00DF91E3 /* FriendsViewController.xib in Resources */,
 				FB91CB5818EBD5EB00DF91E3 /* bt_checkbox_normal.png in Resources */,
 				FB91CB4518EBA7DE00DF91E3 /* RingViewController.xib in Resources */,
 				FB91CB4118EBA7DE00DF91E3 /* HomeViewController.xib in Resources */,
+				FB52370B18EEB0D900ACDE50 /* bt_setting_normal.png in Resources */,
+				FB3995D918F02D5B001EFA9D /* SetIspaceViewController.xib in Resources */,
+				FB52370A18EEB0D900ACDE50 /* bt_ring_pressed.png in Resources */,
+				FB52370618EEB0D900ACDE50 /* bt_friends_pressed.png in Resources */,
+				FB52370918EEB0D900ACDE50 /* bt_ring_normal.png in Resources */,
 				FB845B8F18ED4E5600B1BB3C /* bt_back.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,14 +505,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB91CB4418EBA7DE00DF91E3 /* RingViewController.m in Sources */,
+				FB3995E218F0512C001EFA9D /* PhoneLookPassWordViewController.m in Sources */,
 				FB91CB4218EBA7DE00DF91E3 /* LoginViewController.m in Sources */,
 				FB91CB4C18EBA7FE00DF91E3 /* TabBarViewController.m in Sources */,
 				FB91CB3E18EBA7DE00DF91E3 /* FriendsViewController.m in Sources */,
+				FB3995D818F02D5B001EFA9D /* SetIspaceViewController.m in Sources */,
 				FB91CB1F18EBA77500DF91E3 /* WXBaseModel.m in Sources */,
 				FB91CB4918EBA7DE00DF91E3 /* UIViewExt.m in Sources */,
 				FB9F57A118EA561600BF120D /* AppDelegate.m in Sources */,
 				FB91CB1E18EBA77500DF91E3 /* BaseViewController.m in Sources */,
-				FB91CB4818EBA7DE00DF91E3 /* ClockView.m in Sources */,
+				FB3995DD18F04141001EFA9D /* LookPassWordViewController.m in Sources */,
+				FB3995E718F05217001EFA9D /* EmailLookPassWordViewController.m in Sources */,
+				FB52371B18EEBF8C00ACDE50 /* SetColckViewController.m in Sources */,
+				FB3995D418F008BC001EFA9D /* Clock.m in Sources */,
 				FB9F579D18EA561600BF120D /* main.m in Sources */,
 				FB91CB4018EBA7DE00DF91E3 /* HomeViewController.m in Sources */,
 				FB91CB6118EBE63B00DF91E3 /* RegisterViewController.m in Sources */,

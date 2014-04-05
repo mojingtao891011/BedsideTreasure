@@ -1,25 +1,26 @@
 //
-//  SettingViewController.m
+//  SetIspaceViewController.m
 //  BedsideTreasure
 //
-//  Created by 莫景涛 on 14-4-1.
+//  Created by 莫景涛 on 14-4-5.
 //  Copyright (c) 2014年 莫景涛. All rights reserved.
 //
 
-#import "SettingViewController.h"
+#import "SetIspaceViewController.h"
 
-@interface SettingViewController ()
+@interface SetIspaceViewController ()
 
 @end
 
-@implementation SettingViewController
+@implementation SetIspaceViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.titleLabel.text = @"设置" ;
-        [self.titleLabel sizeToFit];
+        self.titleLabel.text = @"设备设置";
+        [self.titleLabel sizeToFit] ;
+        self.isBack = NO ;
     }
     return self;
 }
@@ -27,9 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"setting" ;
-    NSLog(@"＝＝＝%f" , Version);
-    NSLog(@"%f" , NSFoundationVersionNumber);
     
 }
 

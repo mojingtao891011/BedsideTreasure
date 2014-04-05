@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.titleLabel.text = @"ring" ;
+        self.titleLabel.text = @"铃声" ;
         [self.titleLabel sizeToFit];
     }
     return self;
