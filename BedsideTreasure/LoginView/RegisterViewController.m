@@ -102,6 +102,8 @@
 }
 
 - (IBAction)registerAction:(id)sender {
+    UIButton *button = (UIButton*)sender ;
+    [button setBackgroundColor:buttonSelectedBackgundColor];
     self.alertView.height = ScreenHeight ;
     self.alertView.top = 0 ;
     self.alertView.alpha = 0.0 ;

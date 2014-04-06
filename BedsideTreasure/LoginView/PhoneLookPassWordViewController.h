@@ -11,6 +11,7 @@
 @interface PhoneLookPassWordViewController : BaseViewController<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *CancelButton;
 - (IBAction)CancelAction:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *enterAction;
+- (IBAction)enterAction:(id)sender;
+
 
 @end

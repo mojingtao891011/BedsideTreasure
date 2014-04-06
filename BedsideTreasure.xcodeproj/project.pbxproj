@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB2FF7DD18F11F9800DFA3C1 /* ResetPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2FF7DB18F11F9800DFA3C1 /* ResetPassWordViewController.m */; };
+		FB2FF7DE18F11F9800DFA3C1 /* ResetPassWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB2FF7DC18F11F9800DFA3C1 /* ResetPassWordViewController.xib */; };
+		FB2FF7E218F18F1300DFA3C1 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2FF7E018F18F1300DFA3C1 /* AccountViewController.m */; };
+		FB2FF7E318F18F1300DFA3C1 /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB2FF7E118F18F1300DFA3C1 /* AccountViewController.xib */; };
+		FB2FF7E718F1918000DFA3C1 /* AccountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2FF7E518F1918000DFA3C1 /* AccountTableViewCell.m */; };
+		FB2FF7E818F1918000DFA3C1 /* AccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB2FF7E618F1918000DFA3C1 /* AccountTableViewCell.xib */; };
+		FB2FF7EC18F1A8D200DFA3C1 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2FF7EA18F1A8D200DFA3C1 /* HelpViewController.m */; };
+		FB2FF7ED18F1A8D200DFA3C1 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB2FF7EB18F1A8D200DFA3C1 /* HelpViewController.xib */; };
+		FB2FF7F118F1AB4A00DFA3C1 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2FF7EF18F1AB4A00DFA3C1 /* FeedbackViewController.m */; };
+		FB2FF7F218F1AB4A00DFA3C1 /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB2FF7F018F1AB4A00DFA3C1 /* FeedbackViewController.xib */; };
+		FB2FF7F618F1ABA000DFA3C1 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2FF7F418F1ABA000DFA3C1 /* AboutViewController.m */; };
+		FB2FF7F718F1ABA000DFA3C1 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB2FF7F518F1ABA000DFA3C1 /* AboutViewController.xib */; };
 		FB3995D418F008BC001EFA9D /* Clock.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3995D318F008BC001EFA9D /* Clock.m */; };
 		FB3995D818F02D5B001EFA9D /* SetIspaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3995D618F02D5B001EFA9D /* SetIspaceViewController.m */; };
 		FB3995D918F02D5B001EFA9D /* SetIspaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3995D718F02D5B001EFA9D /* SetIspaceViewController.xib */; };
@@ -76,6 +88,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB2FF7DA18F11F9800DFA3C1 /* ResetPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPassWordViewController.h; sourceTree = "<group>"; };
+		FB2FF7DB18F11F9800DFA3C1 /* ResetPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPassWordViewController.m; sourceTree = "<group>"; };
+		FB2FF7DC18F11F9800DFA3C1 /* ResetPassWordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPassWordViewController.xib; sourceTree = "<group>"; };
+		FB2FF7DF18F18F1300DFA3C1 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		FB2FF7E018F18F1300DFA3C1 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		FB2FF7E118F18F1300DFA3C1 /* AccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
+		FB2FF7E418F1918000DFA3C1 /* AccountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTableViewCell.h; sourceTree = "<group>"; };
+		FB2FF7E518F1918000DFA3C1 /* AccountTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTableViewCell.m; sourceTree = "<group>"; };
+		FB2FF7E618F1918000DFA3C1 /* AccountTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountTableViewCell.xib; sourceTree = "<group>"; };
+		FB2FF7E918F1A8D200DFA3C1 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		FB2FF7EA18F1A8D200DFA3C1 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		FB2FF7EB18F1A8D200DFA3C1 /* HelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
+		FB2FF7EE18F1AB4A00DFA3C1 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		FB2FF7EF18F1AB4A00DFA3C1 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		FB2FF7F018F1AB4A00DFA3C1 /* FeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
+		FB2FF7F318F1ABA000DFA3C1 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		FB2FF7F418F1ABA000DFA3C1 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		FB2FF7F518F1ABA000DFA3C1 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		FB3995D218F008BC001EFA9D /* Clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clock.h; sourceTree = "<group>"; };
 		FB3995D318F008BC001EFA9D /* Clock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clock.m; sourceTree = "<group>"; };
 		FB3995D518F02D5B001EFA9D /* SetIspaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetIspaceViewController.h; sourceTree = "<group>"; };
@@ -180,6 +210,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB2FF7F818F1ACDB00DFA3C1 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				FB2FF7DF18F18F1300DFA3C1 /* AccountViewController.h */,
+				FB2FF7E018F18F1300DFA3C1 /* AccountViewController.m */,
+				FB2FF7E118F18F1300DFA3C1 /* AccountViewController.xib */,
+				FB2FF7E418F1918000DFA3C1 /* AccountTableViewCell.h */,
+				FB2FF7E518F1918000DFA3C1 /* AccountTableViewCell.m */,
+				FB2FF7E618F1918000DFA3C1 /* AccountTableViewCell.xib */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
+		FB2FF7F918F1AD0400DFA3C1 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				FB2FF7E918F1A8D200DFA3C1 /* HelpViewController.h */,
+				FB2FF7EA18F1A8D200DFA3C1 /* HelpViewController.m */,
+				FB2FF7EB18F1A8D200DFA3C1 /* HelpViewController.xib */,
+			);
+			name = Help;
+			sourceTree = "<group>";
+		};
+		FB2FF7FA18F1AD2200DFA3C1 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				FB2FF7F318F1ABA000DFA3C1 /* AboutViewController.h */,
+				FB2FF7F418F1ABA000DFA3C1 /* AboutViewController.m */,
+				FB2FF7F518F1ABA000DFA3C1 /* AboutViewController.xib */,
+				FB2FF7EE18F1AB4A00DFA3C1 /* FeedbackViewController.h */,
+				FB2FF7EF18F1AB4A00DFA3C1 /* FeedbackViewController.m */,
+				FB2FF7F018F1AB4A00DFA3C1 /* FeedbackViewController.xib */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
 		FB91CB1618EBA77500DF91E3 /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +297,9 @@
 				FB3995E418F05217001EFA9D /* EmailLookPassWordViewController.h */,
 				FB3995E518F05217001EFA9D /* EmailLookPassWordViewController.m */,
 				FB3995E618F05217001EFA9D /* EmailLookPassWordViewController.xib */,
+				FB2FF7DA18F11F9800DFA3C1 /* ResetPassWordViewController.h */,
+				FB2FF7DB18F11F9800DFA3C1 /* ResetPassWordViewController.m */,
+				FB2FF7DC18F11F9800DFA3C1 /* ResetPassWordViewController.xib */,
 				FB91CB5E18EBE63B00DF91E3 /* RegisterViewController.h */,
 				FB91CB5F18EBE63B00DF91E3 /* RegisterViewController.m */,
 				FB91CB6018EBE63B00DF91E3 /* RegisterViewController.xib */,
@@ -257,6 +326,9 @@
 				FB91CB3518EBA7DE00DF91E3 /* SettingViewController.h */,
 				FB91CB3618EBA7DE00DF91E3 /* SettingViewController.m */,
 				FB91CB3718EBA7DE00DF91E3 /* SettingViewController.xib */,
+				FB2FF7FA18F1AD2200DFA3C1 /* About */,
+				FB2FF7F918F1AD0400DFA3C1 /* Help */,
+				FB2FF7F818F1ACDB00DFA3C1 /* Account */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -462,6 +534,8 @@
 				FB52370C18EEB0D900ACDE50 /* bt_setting_pressed.png in Resources */,
 				FB52370518EEB0D900ACDE50 /* bt_friends_normal.png in Resources */,
 				FB52371C18EEBF8C00ACDE50 /* SetColckViewController.xib in Resources */,
+				FB2FF7E318F18F1300DFA3C1 /* AccountViewController.xib in Resources */,
+				FB2FF7DE18F11F9800DFA3C1 /* ResetPassWordViewController.xib in Resources */,
 				FB91CB5A18EBD5EB00DF91E3 /* ic_default_avatar.png in Resources */,
 				FB91CB5D18EBD5EB00DF91E3 /* ic_user.png in Resources */,
 				FB91CB5918EBD5EB00DF91E3 /* bt_checkbox_selected.png in Resources */,
@@ -470,8 +544,11 @@
 				FB3995E318F0512C001EFA9D /* PhoneLookPassWordViewController.xib in Resources */,
 				FB91CB4318EBA7DE00DF91E3 /* LoginViewController.xib in Resources */,
 				FB9F579B18EA561600BF120D /* InfoPlist.strings in Resources */,
+				FB2FF7F718F1ABA000DFA3C1 /* AboutViewController.xib in Resources */,
 				FB9F57A318EA561600BF120D /* Images.xcassets in Resources */,
+				FB2FF7ED18F1A8D200DFA3C1 /* HelpViewController.xib in Resources */,
 				FB91CB5C18EBD5EB00DF91E3 /* ic_test_head.png in Resources */,
+				FB2FF7E818F1918000DFA3C1 /* AccountTableViewCell.xib in Resources */,
 				FB91CB6218EBE63B00DF91E3 /* RegisterViewController.xib in Resources */,
 				FB3995E818F05217001EFA9D /* EmailLookPassWordViewController.xib in Resources */,
 				FB52370818EEB0D900ACDE50 /* bt_home_pressed.png in Resources */,
@@ -482,6 +559,7 @@
 				FB91CB4118EBA7DE00DF91E3 /* HomeViewController.xib in Resources */,
 				FB52370B18EEB0D900ACDE50 /* bt_setting_normal.png in Resources */,
 				FB3995D918F02D5B001EFA9D /* SetIspaceViewController.xib in Resources */,
+				FB2FF7F218F1AB4A00DFA3C1 /* FeedbackViewController.xib in Resources */,
 				FB52370A18EEB0D900ACDE50 /* bt_ring_pressed.png in Resources */,
 				FB52370618EEB0D900ACDE50 /* bt_friends_pressed.png in Resources */,
 				FB52370918EEB0D900ACDE50 /* bt_ring_normal.png in Resources */,
@@ -505,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB91CB4418EBA7DE00DF91E3 /* RingViewController.m in Sources */,
+				FB2FF7DD18F11F9800DFA3C1 /* ResetPassWordViewController.m in Sources */,
 				FB3995E218F0512C001EFA9D /* PhoneLookPassWordViewController.m in Sources */,
 				FB91CB4218EBA7DE00DF91E3 /* LoginViewController.m in Sources */,
 				FB91CB4C18EBA7FE00DF91E3 /* TabBarViewController.m in Sources */,
@@ -514,15 +593,20 @@
 				FB91CB4918EBA7DE00DF91E3 /* UIViewExt.m in Sources */,
 				FB9F57A118EA561600BF120D /* AppDelegate.m in Sources */,
 				FB91CB1E18EBA77500DF91E3 /* BaseViewController.m in Sources */,
+				FB2FF7F618F1ABA000DFA3C1 /* AboutViewController.m in Sources */,
 				FB3995DD18F04141001EFA9D /* LookPassWordViewController.m in Sources */,
 				FB3995E718F05217001EFA9D /* EmailLookPassWordViewController.m in Sources */,
 				FB52371B18EEBF8C00ACDE50 /* SetColckViewController.m in Sources */,
 				FB3995D418F008BC001EFA9D /* Clock.m in Sources */,
 				FB9F579D18EA561600BF120D /* main.m in Sources */,
+				FB2FF7E218F18F1300DFA3C1 /* AccountViewController.m in Sources */,
+				FB2FF7E718F1918000DFA3C1 /* AccountTableViewCell.m in Sources */,
 				FB91CB4018EBA7DE00DF91E3 /* HomeViewController.m in Sources */,
 				FB91CB6118EBE63B00DF91E3 /* RegisterViewController.m in Sources */,
 				FB91CB1D18EBA77500DF91E3 /* BaseNavViewController.m in Sources */,
+				FB2FF7EC18F1A8D200DFA3C1 /* HelpViewController.m in Sources */,
 				FB91CB4618EBA7DE00DF91E3 /* SettingViewController.m in Sources */,
+				FB2FF7F118F1AB4A00DFA3C1 /* FeedbackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,28 +1,25 @@
 //
-//  SettingViewController.m
+//  AboutViewController.m
 //  BedsideTreasure
 //
-//  Created by 莫景涛 on 14-4-1.
+//  Created by 莫景涛 on 14-4-6.
 //  Copyright (c) 2014年 莫景涛. All rights reserved.
 //
 
-#import "SettingViewController.h"
-#import "AccountViewController.h"
-#import "HelpViewController.h"
 #import "AboutViewController.h"
+#import "FeedbackViewController.h"
 
-@interface SettingViewController ()
+@interface AboutViewController ()
 
 @end
 
-@implementation SettingViewController
+@implementation AboutViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.titleLabel.text = @"设置" ;
-        [self.titleLabel sizeToFit];
+        // Custom initialization
     }
     return self;
 }
@@ -30,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.dataSourceArr = @[@"账号设置" , @"帮助" , @"关于"] ;
+   self.dataSourceArr = @[@"用户协议" , @"版本介绍" , @"检查新版本" ,  @"iSpace" , @"评分" , @"反馈"  ];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,7 +35,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark-----UITableViewDataSource
+#pragma mark -----UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.dataSourceArr.count ;
@@ -67,19 +64,9 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%d" , indexPath.row);
-    if (indexPath.row == 0) {
-        AccountViewController *accountViewCtl = [[AccountViewController alloc]init];
-        [self.navigationController pushViewController:accountViewCtl animated:YES];
+    if (indexPath.row == _dataSourceArr.count - 1) {
+        FeedbackViewController *feedbackViewCtl = [[FeedbackViewController alloc]init];
+        [self.navigationController pushViewController:feedbackViewCtl animated:YES];
     }
-    else if(indexPath.row == 1){
-        HelpViewController *helpViewCtl = [[HelpViewController alloc]init];
-        [self.navigationController pushViewController:helpViewCtl animated:YES];
-    }
-    else if (indexPath.row == 2){
-        AboutViewController *aboutViewCtl = [[AboutViewController alloc]init];
-        [self.navigationController pushViewController:aboutViewCtl animated:YES];
-    }
-    
 }
 @end

@@ -18,6 +18,10 @@
 #define  ScreenHeight [UIScreen mainScreen].bounds.size.height
 #define  ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define Version [[[UIDevice currentDevice]systemVersion]floatValue]
+
 #define buttonBackgundColor [UIColor colorWithRed:124/255.0 green:214/255.0 blue:208/255.0 alpha:1.0]
+#define buttonSelectedBackgundColor [UIColor colorWithRed:36/255.0 green:215/255.0 blue:205/255.0 alpha:1.0]
 #define ViewBackgroundColor  [UIColor colorWithRed:236/255.0 green:249/255.0 blue:248/255.0 alpha:1.0];
+#define FontColor [UIColor blackColor]
+
 #endif

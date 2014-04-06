@@ -27,8 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"%f", Version);
-    self.title = @"friends" ;
+    
 }
 
 - (void)didReceiveMemoryWarning

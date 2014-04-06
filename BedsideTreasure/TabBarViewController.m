@@ -122,7 +122,7 @@
 #pragma mark-----UINavigationControllerDelegate
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
     
-    int count = navigationController.viewControllers.count ;
+    NSInteger count = navigationController.viewControllers.count ;
     if (count == 1) {
         [self showBarItem:YES];
     }else{

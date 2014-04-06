@@ -10,7 +10,6 @@
 #import "RegisterViewController.h"
 #import "LookPassWordViewController.h"
 #import "TabBarViewController.h"
-#import "BaseNavViewController.h"
 
 @interface LoginViewController ()
 
@@ -128,6 +127,8 @@
 }
 - (IBAction)loginAction:(id)sender
 {
+    UIButton *landButton = (UIButton*)sender ;
+    [landButton setBackgroundColor:buttonSelectedBackgundColor];
     static int count = 0;
     if ([self.userName.text isEqualToString:@"123"] &&[self.passWord.text isEqualToString:@"123"]) {
         TabBarViewController *tabBarViewCtl = [[TabBarViewController  alloc]init];
@@ -171,6 +172,8 @@
 }
 
 - (IBAction)forgetPassWord:(id)sender {
+    UIButton *button = (UIButton*)sender ;
+    [button setBackgroundColor:buttonSelectedBackgundColor];
     LookPassWordViewController *lookPassWordViewCtl = [[LookPassWordViewController alloc]init] ;
     [self.navigationController pushViewController:lookPassWordViewCtl animated:YES];
     self.alertView.top = ScreenHeight ;

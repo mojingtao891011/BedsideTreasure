@@ -9,5 +9,7 @@
 #import "BaseViewController.h"
 
 @interface EmailLookPassWordViewController : BaseViewController<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *CancelButton;
+- (IBAction)enterAction:(id)sender;
 
 @end

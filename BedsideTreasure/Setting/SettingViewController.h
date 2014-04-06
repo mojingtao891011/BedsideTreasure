@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 
-@interface SettingViewController : BaseViewController
+@interface SettingViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *settingTableView;
+@property (retain, nonatomic) NSArray *dataSourceArr ;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "PhoneLookPassWordViewController.h"
+#import "ResetPassWordViewController.h"
 
 @interface PhoneLookPassWordViewController ()
 
@@ -44,5 +45,10 @@
 }
 - (IBAction)CancelAction:(id)sender {
    
+}
+
+- (IBAction)enterAction:(id)sender {
+    ResetPassWordViewController *resetPasswordView = [[ResetPassWordViewController alloc]init];
+    [self.navigationController pushViewController:resetPasswordView animated:YES];
 }
 @end
