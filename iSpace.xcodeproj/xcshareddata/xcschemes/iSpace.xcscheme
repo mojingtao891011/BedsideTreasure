@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FB9F578C18EA561500BF120D"
-               BuildableName = "BedsideTreasure.app"
-               BlueprintName = "BedsideTreasure"
-               ReferencedContainer = "container:BedsideTreasure.xcodeproj">
+               BuildableName = "iSpace.app"
+               BlueprintName = "iSpace"
+               ReferencedContainer = "container:iSpace.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FB9F57A718EA561600BF120D"
-               BuildableName = "BedsideTreasureTests.xctest"
-               BlueprintName = "BedsideTreasureTests"
-               ReferencedContainer = "container:BedsideTreasure.xcodeproj">
+               BuildableName = "iSpaceTests.xctest"
+               BlueprintName = "iSpaceTests"
+               ReferencedContainer = "container:iSpace.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FB9F578C18EA561500BF120D"
-            BuildableName = "BedsideTreasure.app"
-            BlueprintName = "BedsideTreasure"
-            ReferencedContainer = "container:BedsideTreasure.xcodeproj">
+            BuildableName = "iSpace.app"
+            BlueprintName = "iSpace"
+            ReferencedContainer = "container:iSpace.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FB9F578C18EA561500BF120D"
-            BuildableName = "BedsideTreasure.app"
-            BlueprintName = "BedsideTreasure"
-            ReferencedContainer = "container:BedsideTreasure.xcodeproj">
+            BuildableName = "iSpace.app"
+            BlueprintName = "iSpace"
+            ReferencedContainer = "container:iSpace.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FB9F578C18EA561500BF120D"
-            BuildableName = "BedsideTreasure.app"
-            BlueprintName = "BedsideTreasure"
-            ReferencedContainer = "container:BedsideTreasure.xcodeproj">
+            BuildableName = "iSpace.app"
+            BlueprintName = "iSpace"
+            ReferencedContainer = "container:iSpace.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

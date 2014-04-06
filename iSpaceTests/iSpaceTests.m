@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface BedsideTreasureTests : XCTestCase
+@interface iSpaceTests : XCTestCase
 
 @end
 
-@implementation BedsideTreasureTests
+@implementation iSpaceTests
 
 - (void)setUp
 {

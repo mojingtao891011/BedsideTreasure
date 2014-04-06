@@ -74,7 +74,7 @@
 		FB9F57AB18EA561600BF120D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F579018EA561500BF120D /* Foundation.framework */; };
 		FB9F57AC18EA561600BF120D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F579418EA561500BF120D /* UIKit.framework */; };
 		FB9F57B418EA561600BF120D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB9F57B218EA561600BF120D /* InfoPlist.strings */; };
-		FB9F57B618EA561600BF120D /* BedsideTreasureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9F57B518EA561600BF120D /* BedsideTreasureTests.m */; };
+		FB9F57B618EA561600BF120D /* iSpaceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9F57B518EA561600BF120D /* iSpaceTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,22 +167,22 @@
 		FB91CB5E18EBE63B00DF91E3 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		FB91CB5F18EBE63B00DF91E3 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		FB91CB6018EBE63B00DF91E3 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
-		FB9F578D18EA561500BF120D /* BedsideTreasure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BedsideTreasure.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB9F578D18EA561500BF120D /* iSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB9F579018EA561500BF120D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FB9F579218EA561500BF120D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FB9F579418EA561500BF120D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		FB9F579818EA561600BF120D /* BedsideTreasure-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BedsideTreasure-Info.plist"; sourceTree = "<group>"; };
+		FB9F579818EA561600BF120D /* iSpace-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iSpace-Info.plist"; sourceTree = "<group>"; };
 		FB9F579A18EA561600BF120D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FB9F579C18EA561600BF120D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FB9F579E18EA561600BF120D /* BedsideTreasure-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BedsideTreasure-Prefix.pch"; sourceTree = "<group>"; };
+		FB9F579E18EA561600BF120D /* iSpace-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iSpace-Prefix.pch"; sourceTree = "<group>"; };
 		FB9F579F18EA561600BF120D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FB9F57A018EA561600BF120D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FB9F57A218EA561600BF120D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		FB9F57A818EA561600BF120D /* BedsideTreasureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BedsideTreasureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB9F57A818EA561600BF120D /* iSpaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iSpaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB9F57A918EA561600BF120D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		FB9F57B118EA561600BF120D /* BedsideTreasureTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BedsideTreasureTests-Info.plist"; sourceTree = "<group>"; };
+		FB9F57B118EA561600BF120D /* iSpaceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iSpaceTests-Info.plist"; sourceTree = "<group>"; };
 		FB9F57B318EA561600BF120D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FB9F57B518EA561600BF120D /* BedsideTreasureTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BedsideTreasureTests.m; sourceTree = "<group>"; };
+		FB9F57B518EA561600BF120D /* iSpaceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iSpaceTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -376,8 +376,8 @@
 		FB9F578418EA561500BF120D = {
 			isa = PBXGroup;
 			children = (
-				FB9F579618EA561600BF120D /* BedsideTreasure */,
-				FB9F57AF18EA561600BF120D /* BedsideTreasureTests */,
+				FB9F579618EA561600BF120D /* iSpace */,
+				FB9F57AF18EA561600BF120D /* iSpaceTests */,
 				FB9F578F18EA561500BF120D /* Frameworks */,
 				FB9F578E18EA561500BF120D /* Products */,
 			);
@@ -386,8 +386,8 @@
 		FB9F578E18EA561500BF120D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FB9F578D18EA561500BF120D /* BedsideTreasure.app */,
-				FB9F57A818EA561600BF120D /* BedsideTreasureTests.xctest */,
+				FB9F578D18EA561500BF120D /* iSpace.app */,
+				FB9F57A818EA561600BF120D /* iSpaceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -404,7 +404,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FB9F579618EA561600BF120D /* BedsideTreasure */ = {
+		FB9F579618EA561600BF120D /* iSpace */ = {
 			isa = PBXGroup;
 			children = (
 				FB91CB5118EBD5EB00DF91E3 /* Images */,
@@ -423,33 +423,33 @@
 				FB9F57A218EA561600BF120D /* Images.xcassets */,
 				FB9F579718EA561600BF120D /* Supporting Files */,
 			);
-			path = BedsideTreasure;
+			path = iSpace;
 			sourceTree = "<group>";
 		};
 		FB9F579718EA561600BF120D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FB9F579818EA561600BF120D /* BedsideTreasure-Info.plist */,
+				FB9F579818EA561600BF120D /* iSpace-Info.plist */,
 				FB9F579918EA561600BF120D /* InfoPlist.strings */,
 				FB9F579C18EA561600BF120D /* main.m */,
-				FB9F579E18EA561600BF120D /* BedsideTreasure-Prefix.pch */,
+				FB9F579E18EA561600BF120D /* iSpace-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FB9F57AF18EA561600BF120D /* BedsideTreasureTests */ = {
+		FB9F57AF18EA561600BF120D /* iSpaceTests */ = {
 			isa = PBXGroup;
 			children = (
-				FB9F57B518EA561600BF120D /* BedsideTreasureTests.m */,
+				FB9F57B518EA561600BF120D /* iSpaceTests.m */,
 				FB9F57B018EA561600BF120D /* Supporting Files */,
 			);
-			path = BedsideTreasureTests;
+			path = iSpaceTests;
 			sourceTree = "<group>";
 		};
 		FB9F57B018EA561600BF120D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FB9F57B118EA561600BF120D /* BedsideTreasureTests-Info.plist */,
+				FB9F57B118EA561600BF120D /* iSpaceTests-Info.plist */,
 				FB9F57B218EA561600BF120D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -458,9 +458,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FB9F578C18EA561500BF120D /* BedsideTreasure */ = {
+		FB9F578C18EA561500BF120D /* iSpace */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB9F57B918EA561600BF120D /* Build configuration list for PBXNativeTarget "BedsideTreasure" */;
+			buildConfigurationList = FB9F57B918EA561600BF120D /* Build configuration list for PBXNativeTarget "iSpace" */;
 			buildPhases = (
 				FB9F578918EA561500BF120D /* Sources */,
 				FB9F578A18EA561500BF120D /* Frameworks */,
@@ -470,14 +470,14 @@
 			);
 			dependencies = (
 			);
-			name = BedsideTreasure;
+			name = iSpace;
 			productName = BedsideTreasure;
-			productReference = FB9F578D18EA561500BF120D /* BedsideTreasure.app */;
+			productReference = FB9F578D18EA561500BF120D /* iSpace.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FB9F57A718EA561600BF120D /* BedsideTreasureTests */ = {
+		FB9F57A718EA561600BF120D /* iSpaceTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB9F57BC18EA561600BF120D /* Build configuration list for PBXNativeTarget "BedsideTreasureTests" */;
+			buildConfigurationList = FB9F57BC18EA561600BF120D /* Build configuration list for PBXNativeTarget "iSpaceTests" */;
 			buildPhases = (
 				FB9F57A418EA561600BF120D /* Sources */,
 				FB9F57A518EA561600BF120D /* Frameworks */,
@@ -488,9 +488,9 @@
 			dependencies = (
 				FB9F57AE18EA561600BF120D /* PBXTargetDependency */,
 			);
-			name = BedsideTreasureTests;
+			name = iSpaceTests;
 			productName = BedsideTreasureTests;
-			productReference = FB9F57A818EA561600BF120D /* BedsideTreasureTests.xctest */;
+			productReference = FB9F57A818EA561600BF120D /* iSpaceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -507,7 +507,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FB9F578818EA561500BF120D /* Build configuration list for PBXProject "BedsideTreasure" */;
+			buildConfigurationList = FB9F578818EA561500BF120D /* Build configuration list for PBXProject "iSpace" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -519,8 +519,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FB9F578C18EA561500BF120D /* BedsideTreasure */,
-				FB9F57A718EA561600BF120D /* BedsideTreasureTests */,
+				FB9F578C18EA561500BF120D /* iSpace */,
+				FB9F57A718EA561600BF120D /* iSpaceTests */,
 			);
 		};
 /* End PBXProject section */
@@ -614,7 +614,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB9F57B618EA561600BF120D /* BedsideTreasureTests.m in Sources */,
+				FB9F57B618EA561600BF120D /* iSpaceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,7 +623,7 @@
 /* Begin PBXTargetDependency section */
 		FB9F57AE18EA561600BF120D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FB9F578C18EA561500BF120D /* BedsideTreasure */;
+			target = FB9F578C18EA561500BF120D /* iSpace */;
 			targetProxy = FB9F57AD18EA561600BF120D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -724,9 +724,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BedsideTreasure/BedsideTreasure-Prefix.pch";
-				INFOPLIST_FILE = "BedsideTreasure/BedsideTreasure-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "iSpace/iSpace-Prefix.pch";
+				INFOPLIST_FILE = "iSpace/iSpace-Info.plist";
+				PRODUCT_NAME = iSpace;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -737,9 +737,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BedsideTreasure/BedsideTreasure-Prefix.pch";
-				INFOPLIST_FILE = "BedsideTreasure/BedsideTreasure-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "iSpace/iSpace-Prefix.pch";
+				INFOPLIST_FILE = "iSpace/iSpace-Info.plist";
+				PRODUCT_NAME = iSpace;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -760,7 +760,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "BedsideTreasureTests/BedsideTreasureTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iSpaceTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -778,7 +778,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BedsideTreasure/BedsideTreasure-Prefix.pch";
 				INFOPLIST_FILE = "BedsideTreasureTests/BedsideTreasureTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iSpaceTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -787,7 +787,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FB9F578818EA561500BF120D /* Build configuration list for PBXProject "BedsideTreasure" */ = {
+		FB9F578818EA561500BF120D /* Build configuration list for PBXProject "iSpace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB9F57B718EA561600BF120D /* Debug */,
@@ -796,7 +796,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FB9F57B918EA561600BF120D /* Build configuration list for PBXNativeTarget "BedsideTreasure" */ = {
+		FB9F57B918EA561600BF120D /* Build configuration list for PBXNativeTarget "iSpace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB9F57BA18EA561600BF120D /* Debug */,
@@ -805,7 +805,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FB9F57BC18EA561600BF120D /* Build configuration list for PBXNativeTarget "BedsideTreasureTests" */ = {
+		FB9F57BC18EA561600BF120D /* Build configuration list for PBXNativeTarget "iSpaceTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB9F57BD18EA561600BF120D /* Debug */,
