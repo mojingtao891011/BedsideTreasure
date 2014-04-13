@@ -15,6 +15,11 @@
     #import <Foundation/Foundation.h>
     #import "UIViewExt.h"
     #import <QuartzCore/QuartzCore.h>
+    #import "MBProgressHUD.h"
+    #import "NetDataService.h"
+    #import "Reachability.h"
+
+#define URl @"http://113.10.139.200:25000/iSpaceSvr/ios"
 #define  ScreenHeight [UIScreen mainScreen].bounds.size.height
 #define  ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define Version [[[UIDevice currentDevice]systemVersion]floatValue]

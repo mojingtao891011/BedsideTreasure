@@ -30,7 +30,6 @@
     self.backgroundColor = [UIColor whiteColor];
     self.alpha = 0.8 ;
     
-    
 }
 - (CGPoint)midPoint {
     CGRect theBounds = self.bounds;
@@ -45,8 +44,8 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.calendar = [NSCalendar currentCalendar];
-        self.time = [NSDate date];
+//        self.calendar = [NSCalendar currentCalendar];
+        self.time = _time;
         
     }
     return self;
@@ -132,8 +131,11 @@
     [super awakeFromNib];
     _borderColor = [self.backgroundColor copy] ;
     self.calendar = [NSCalendar currentCalendar];
-    self.time = [NSDate date];
+    if (self.time==nil) {
+        _time = [NSDate new];
+    }
+    self.time = _time;
     [self setBorderColor];
-
-}
+  
+  }
 @end

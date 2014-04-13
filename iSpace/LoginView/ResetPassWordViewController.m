@@ -27,13 +27,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.CancelButton.layer.borderWidth = 1 ;
+    self.CancelButton.layer.borderColor = buttonBackgundColor.CGColor ;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 #pragma mark -----UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

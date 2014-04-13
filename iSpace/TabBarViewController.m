@@ -85,8 +85,8 @@
 - (void)selectleViewController:(UIButton*)button
 {
     self.selectedIndex = button.tag - 100 ;
-    button.selected = ! button.selected ;
     _selectedButton.selected = NO ;
+    button.selected = YES ;
     _selectedButton = button ;
 }
 //是否要显示BarItem

@@ -8,9 +8,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController">
             <connections>
                 <outlet property="alertView" destination="Ghr-iS-AWU" id="cG9-du-7kX"/>
-                <outlet property="phoneNumberTextField" destination="rMX-gP-AfH" id="mMD-uR-tp0"/>
+                <outlet property="confirmPassword" destination="ukz-Nq-51T" id="Pkm-ey-TRL"/>
+                <outlet property="email" destination="fCQ-Dy-bPC" id="tN1-yo-KIB"/>
+                <outlet property="isSuccessLabel" destination="taC-tN-dAJ" id="NMs-qP-aGS"/>
+                <outlet property="label" destination="UaO-we-JHz" id="Dqi-HA-qQJ"/>
+                <outlet property="messageLabel" destination="6Z6-Qf-ozQ" id="w6h-QU-VtZ"/>
+                <outlet property="phoneNumber" destination="rMX-gP-AfH" id="9tp-O9-iRE"/>
                 <outlet property="phoneNumberView" destination="Wse-yz-d7p" id="wI5-Av-fMr"/>
                 <outlet property="registerScrollView" destination="hqj-Oh-XLX" id="ZKB-NL-xEO"/>
+                <outlet property="userName" destination="M4E-qd-xcP" id="gLk-NR-0Lw"/>
+                <outlet property="userNameLabel" destination="jhq-0e-Pwv" id="dqQ-4l-HWu"/>
+                <outlet property="userPassword" destination="kFq-P5-NgH" id="KbQ-G2-Q83"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -34,7 +42,7 @@
                                     <color key="textColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M4E-qd-xcP">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="必须由字母数字组成" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M4E-qd-xcP">
                                     <rect key="frame" x="112" y="6" width="176" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -178,7 +186,7 @@
                                     <rect key="frame" x="112" y="6" width="176" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                     <connections>
                                         <outlet property="delegate" destination="-1" id="jBy-d1-QoH"/>
                                     </connections>
@@ -268,11 +276,10 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="registerAction:" destination="-1" eventType="touchUpInside" id="6Ev-Jn-VF5"/>
-                                <action selector="registerOkAction:" destination="-1" eventType="touchUpInside" id="hyI-QA-B6p"/>
+                                <action selector="registerOkAction:" destination="-1" eventType="touchUpInside" id="0ST-HW-mxL"/>
                             </connections>
                         </button>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="恭喜您成为iSpace的用户" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Z6-Qf-ozQ">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="恭喜您成为iSpace的用户" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Z6-Qf-ozQ">
                             <rect key="frame" x="51" y="43" width="189" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>

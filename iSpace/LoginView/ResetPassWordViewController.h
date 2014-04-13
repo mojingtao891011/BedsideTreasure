@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface ResetPassWordViewController : BaseViewController<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *CancelButton;
 
 @end

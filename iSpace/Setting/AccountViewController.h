@@ -13,4 +13,5 @@
 @property (weak, nonatomic) IBOutlet UITableView *accountTableView;
 @property(nonatomic , retain)NSArray *dataSourceArr ;
 @property (strong, nonatomic) IBOutlet UITableViewCell *exitButtonCell;
+- (IBAction)exitLand:(id)sender;
 @end

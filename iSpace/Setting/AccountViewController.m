@@ -7,6 +7,7 @@
 //
 
 #import "AccountViewController.h"
+#import "LoginViewController.h"
 
 @interface AccountViewController ()
 
@@ -82,4 +83,10 @@
     
 }
 
+- (IBAction)exitLand:(id)sender {
+    UIButton *landButton = (UIButton*)sender ;
+    [landButton setBackgroundColor:buttonSelectedBackgundColor];
+    LoginViewController *exitloginViewCtl = [[LoginViewController alloc]init];
+    [self.navigationController pushViewController:exitloginViewCtl animated:YES];
+}
 @end

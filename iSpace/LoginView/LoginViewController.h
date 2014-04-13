@@ -10,9 +10,12 @@
 
 @interface LoginViewController : BaseViewController<UITextFieldDelegate>
 
+@property(nonatomic , assign)int  statusInt ;
 @property(nonatomic , assign)NSInteger originalHeight ;
 @property (weak, nonatomic) IBOutlet UIView *bodyView;
 @property (strong, nonatomic) IBOutlet UIView *alertView;
+@property (weak, nonatomic) IBOutlet UILabel *alertInfo;
+
 @property (strong, nonatomic) IBOutlet UIView *promptView;
 
 @property (weak, nonatomic) IBOutlet UIView *userName_bg;

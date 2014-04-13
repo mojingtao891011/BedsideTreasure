@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+                <outlet property="alertInfo" destination="CTA-AD-UB1" id="fvE-a4-Fps"/>
                 <outlet property="alertView" destination="zMA-Ot-WhR" id="Y4y-2y-26p"/>
                 <outlet property="bodyView" destination="bil-8z-nNu" id="5bt-qu-s1O"/>
                 <outlet property="passWord" destination="IHw-7X-FJr" id="ZWv-59-AFI"/>
@@ -105,7 +106,7 @@
             <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="用户名或密码错误，请重新输入" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTA-AD-UB1">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="用户名或密码错误，请重新输入" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTA-AD-UB1">
                     <rect key="frame" x="21" y="19" width="238" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>

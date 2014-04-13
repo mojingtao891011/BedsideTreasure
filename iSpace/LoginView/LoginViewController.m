@@ -127,14 +127,55 @@
 }
 - (IBAction)loginAction:(id)sender
 {
+    //点击注册改变背景颜色
     UIButton *landButton = (UIButton*)sender ;
     [landButton setBackgroundColor:buttonSelectedBackgundColor];
-    static int count = 0;
-    if ([self.userName.text isEqualToString:@"123"] &&[self.passWord.text isEqualToString:@"123"]) {
-        TabBarViewController *tabBarViewCtl = [[TabBarViewController  alloc]init];
-        [self presentViewController:tabBarViewCtl animated:YES completion:nil];
+    
+    //点击登录前判断用户名和密码是否为空
+    if (_userName.text.length == 0 ) {
+        _alertInfo.text = @"用户名不能为空" ;
+        [self errorInfo];
+        return ;
+    }else if(_passWord.text.length == 0){
+        _alertInfo.text = @"密码不能为空" ;
+        [self errorInfo];
+        return ;
     }
-    else if (count >= 3)
+    
+    //检查网络
+    BOOL reachable = [[Reachability reachabilityForInternetConnection] isReachable];
+    if (!reachable) {
+        UIAlertView *alertViews = [[UIAlertView alloc] initWithTitle:@"该功能需要连接网络才能使用，请检查您的网络连接状态" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] ;
+        [alertViews show];
+        return;
+    }
+
+    //请求头
+    NSArray *headkey = @[@"command" , @"flag" , @"protocol" , @"sequence" , @"timestamp" , @"user_id"  ] ;
+    NSArray *headValue = @[@"2049" , @"0" , @"1" , @"0" , @"0" , @"0" , ];
+    NSMutableDictionary *headDic =[NSMutableDictionary dictionaryWithObjects:headValue forKeys:headkey];
+    //请求体
+    NSArray *bobyKey = @[@"account" , @"password"];
+    NSArray *bobyValue = @[_userName.text, _passWord.text ] ;
+    NSMutableDictionary *bobyDic =[NSMutableDictionary dictionaryWithObjects:bobyValue forKeys:bobyKey];
+    //把请求体与 请求头装进字典里
+    NSMutableDictionary *Dict =[[NSMutableDictionary alloc]init];
+    [Dict setObject:headDic forKey:@"message_head"] ;
+    [Dict setObject:bobyDic forKey:@"message_body"] ;
+    
+    //请求网络
+    [NetDataService requestWithUrl:URl dictParams:Dict httpMethod:@"POST" completeBlock:^(id result){
+        NSLog(@"111111 %@" , result);
+         NSDictionary *returnInfo = result[@"message_body"];
+        NSString *status = returnInfo[@"error"];
+       _statusInt = [status intValue];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self landAction];
+        });
+    }];
+    //登录错误三次弹出找回密码框
+    static int count = 0;
+    if (count >= 3)
     {
         self.alertView.height = ScreenHeight ;
         self.alertView.top = 0 ;
@@ -145,19 +186,50 @@
         }];
 
     }
-    else
-    {
-        self.promptView.layer.cornerRadius = 5.0 ;
-        self.promptView.alpha = 0.0 ;
-        self.promptView.frame = CGRectMake(20, 400, ScreenWidth-40, 60);
-        [UIView animateWithDuration:0.5 animations:^{
-            self.promptView.alpha = 1.0 ;
-        }];
-        [self.view addSubview:self.promptView];
-        [self performSelector:@selector(hidesPromptView) withObject:nil afterDelay:2];
-    }
     count++ ;
 }
+- (void)landAction
+{
+//0:登录成功-1:登录失败,未知错误-2:用户已登录-3:用户不存在-4:密码错误 -5:用户冻结(多次输入错误密码时冻结账户)
+    TabBarViewController *tabBarViewCtl = [[TabBarViewController  alloc]init];
+    switch (_statusInt) {
+        case 0:
+            [self presentViewController:tabBarViewCtl animated:YES completion:nil];
+            break;
+        case -1:
+            _alertInfo.text = @"登录失败,未知错误" ;
+            break;
+        case -2:
+            _alertInfo.text = @"用户已登录" ;
+            break;
+        case -3:
+            _alertInfo.text = @"用户不存在" ;
+            break;
+        case -4:
+            _alertInfo.text = @"密码错误" ;
+            break;
+        case -5:
+            _alertInfo.text = @"用户冻结(多次输入错误密码时冻结账户)" ;
+            break;
+        default:
+            break;
+    }
+    [self errorInfo];
+
+}
+- (void)errorInfo
+{
+    //错误信息提示框
+    self.promptView.layer.cornerRadius = 5.0 ;
+    self.promptView.alpha = 0.0 ;
+    self.promptView.frame = CGRectMake(20, 400, ScreenWidth-40, 60);
+    [UIView animateWithDuration:0.5 animations:^{
+        self.promptView.alpha = 1.0 ;
+    }];
+    [self.view addSubview:self.promptView];
+    [self performSelector:@selector(hidesPromptView) withObject:nil afterDelay:2];
+}
+//hide错误信息提示框
 - (void)hidesPromptView
 {
     [UIView animateWithDuration:0.5 animations:^{
