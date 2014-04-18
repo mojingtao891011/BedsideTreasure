@@ -11,18 +11,25 @@
 
 @interface SetColckViewController : BaseViewController
 
+@property(nonatomic , retain)NSMutableArray *musicArr ;
+@property(nonatomic , retain)NSMutableArray *recordArr ;
+@property(nonatomic , retain)NSMutableArray *FMArr ;
+
 @property(nonatomic , assign)BOOL isOpenRingType ;
 @property(nonatomic , assign)NSInteger clockButtonTag ;
 @property (weak, nonatomic) IBOutlet UIView *styleVIew;
 
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *dataPicker;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (weak, nonatomic) IBOutlet UIView *repeatView;
+@property (weak, nonatomic) IBOutlet UILabel *showTitle;
+@property (weak, nonatomic) IBOutlet UIButton *showButton;
 
 - (IBAction)selectedButton:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *showButton;
 - (IBAction)clickstyleButton:(id)sender;
-
 - (IBAction)getDate:(id)sender;
+- (IBAction)repeatAction:(id)sender;
+- (IBAction)listActin:(id)sender;
+
 
 @end

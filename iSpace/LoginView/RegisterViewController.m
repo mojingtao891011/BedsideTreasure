@@ -7,7 +7,9 @@
 //
 
 #import "RegisterViewController.h"
-#import "SetIspaceViewController.h"
+#import "TabBarViewController.h"
+#import "AgreementViewController.h"
+#import <CommonCrypto/CommonDigest.h>
 
 @interface RegisterViewController ()
 
@@ -103,6 +105,11 @@
     button.selected = !button.selected ;
     _isAgree = button.selected ;
 }
+#pragma mark------查看同意使用条款
+- (IBAction)agreeAction:(id)sender {
+    AgreementViewController *agreeViewCtl = [[AgreementViewController alloc]init];
+    [self.navigationController pushViewController:agreeViewCtl animated:YES];
+}
 #pragma mark------提交注册信息
 - (IBAction)registerAction:(id)sender {
     
@@ -124,54 +131,34 @@
 #pragma mark------开始网络请求
 - (void)startNetwork
 {
-    //检查网络
-    BOOL reachable = [[Reachability reachabilityForInternetConnection] isReachable];
-    if (!reachable) {
-        UIAlertView *alertViews = [[UIAlertView alloc] initWithTitle:@"该功能需要连接网络才能使用，请检查您的网络连接状态" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] ;
-        [alertViews show];
-        return;
-    }
-
-    //请求头
-    NSArray *headkey = @[@"command" , @"flag" , @"protocol" , @"sequence" , @"timestamp" , @"user_id"  ] ;
-    NSArray *headValue = @[@"2048" , @"0" , @"1" , @"0" , @"0" , @"0" , ];
-    NSMutableDictionary *headDic =[NSMutableDictionary dictionaryWithObjects:headValue forKeys:headkey];
     
     //请求体
-    NSArray *bobyKey = @[@"name" , @"password" , @"email" , @"phone_no"];
-    NSArray *bobyValue = @[_userName.text , _userPassword.text , _email.text , _phoneNumber.text ] ;
-    NSMutableDictionary *bobyDic =[NSMutableDictionary dictionaryWithObjects:bobyValue forKeys:bobyKey];
-    
-    //把请求体与 请求头装进字典里
-    NSMutableDictionary *Dict =[[NSMutableDictionary alloc]init];
-    [Dict setObject:headDic forKey:@"message_head"] ;
-    [Dict setObject:bobyDic forKey:@"message_body"] ;
+    NSMutableDictionary *Dict = [NetDataService needCommand:@"2048" andNeedUserId:@"0" AndNeedBobyArrKey:@[@"name" , @"password" , @"email", @"phone_no"] andNeedBobyArrValue:@[_userName.text , _MD5Password , _email.text,  _phoneNumber.text]];
     
     //请求网络
-    //添加等待指示器
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeCustomView ;
-    hud.labelText = @"loading" ;
-    
-    [NetDataService requestWithUrl:URl dictParams:Dict httpMethod:@"POST" completeBlock:^(id result){
+    [NetDataService requestWithUrl:URl dictParams:Dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"Registering" andViewCtl:self completeBlock:^(id result){
+#warning result
         NSLog(@"++++===%@" , result);
         NSDictionary *returnInfoDict = result[@"message_body"];
+        //保存user_id
+        NSString *userID = returnInfoDict[@"uid"];
+        [[NSUserDefaults standardUserDefaults] setObject:userID forKey:@"uid"];
+        [[NSUserDefaults standardUserDefaults]  synchronize];
+        
         NSString *returnInt = returnInfoDict[@"error"];
         int infoInt = [returnInt intValue];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self isSuccessRegister:infoInt];
         });
-    }];
 
+    }];
 }
 #pragma mark------从网络获取到数据后返回到主界面
 - (void)isSuccessRegister:(int)infoInt
 {
-    NSLog(@"infoInt = %d" , infoInt);
+    
     _errorInt = infoInt ;
-    //请求完成隐藏等待指示器
-     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    //根据返回的数据判断注册是否成功 0:注册成功 -1:注册失败,未知错误 -2:用户名已注册 -3:邮箱名已注册 -4:手机号已注册
+    //根据返回的数据判断注册是否成功 0:注册成功 -1:注册失败,未知错误 -203:用户名已注册 -204:邮箱名已注册 -205:手机号已注册
     switch (infoInt) {
         case 0:
             _isSuccessLabel.text = @"注册成功" ;
@@ -185,17 +172,17 @@
             _isSuccessLabel.text = @"注册失败" ;
             _errorMessage = @"注册失败,未知错误" ;
             break;
-        case -2:
+        case -203:
             _label.alpha = 0.0  , _userNameLabel.alpha = 0.0 ;
             _isSuccessLabel.text = @"注册失败" ;
             _errorMessage = @"用户名已注册" ;
             break;
-        case -3:
+        case -204:
             _label.alpha = 0.0  , _userNameLabel.alpha = 0.0 ;
             _isSuccessLabel.text = @"注册失败" ;
             _errorMessage = @"邮箱名已注册" ;
             break;
-        case -4:
+        case -205:
             _label.alpha = 0.0  , _userNameLabel.alpha = 0.0 ;
             _isSuccessLabel.text = @"注册失败" ;
             _errorMessage = @"手机号已注册" ;
@@ -235,7 +222,11 @@
     
     //判断两次输入密码是否相同并且长度小于32个字节
     BOOL isPassword =[_userPassword.text isEqualToString:_confirmPassword.text]&&_userPassword.text.length <= 32&&_userPassword.text.length >= 8;
-    
+     //如果都符合要求则对密码进行MD5加密
+    if (isPassword) {
+        _MD5Password = [self md5:_userPassword.text];
+        _MD5ConfirmPassword = [self md5:_confirmPassword.text];
+    }
     //判断输入的是否为正确邮箱而且长度小于256个字节
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES%@",emailRegex];
@@ -243,7 +234,14 @@
     
     //如果条件都符合则向服务器提交注册信息
     if (isName && isPassword && isEmail&&_isAgree) {
-        return [self isMobileNumber:_phoneNumber.text] ;
+        //非必须项没有输入（手机号码没有输入）
+        if (_phoneNumber.text.length == 0) {
+            return YES ;
+        }//非必须项有输入（手机号码有输入）
+        else{
+            return [self isMobileNumber:_phoneNumber.text];
+        }
+        return YES ;
     }else{
         if (!isName) {
             _promptMessage = @"用户名不符合要求" ;
@@ -262,6 +260,28 @@
     return NO ;
     
 }
+#pragma mark------对密码进行MD5加密
+- (NSString *)md5:(NSString *)str
+
+{
+    //转换成utf-8
+    const char *cStr = [str UTF8String];
+    //开辟一个16字节（128位：md5加密出来就是128位/bit）的空间（一个字节=8字位=8个二进制数）
+    unsigned char result[16];
+    //官方封装好的加密方法
+    CC_MD5(cStr, strlen(cStr), result); // This is the md5 call
+    // 把cStr字符串转换成了32位的16进制数列（这个过程不可逆转） 存储到了result这个空间中
+    NSMutableString *Mstr = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH];
+    for (int i=0; i<CC_MD5_DIGEST_LENGTH; i++) {
+        //x表示十六进制，%02X  意思是不足两位将用0补齐，如果多余两位则不影响
+        [Mstr appendFormat:@"%02X",result[i]];
+        
+    }
+    
+    return Mstr;
+    
+}
+
 #pragma mark------正则判断手机号码地址格式
 - (BOOL)isMobileNumber:(NSString *)mobileNum
 {
@@ -291,8 +311,8 @@
 #pragma mark-----点击自定义弹出提示框的“确定”按钮时
 - (IBAction)registerOkAction:(id)sender {
     if (_errorInt == 0) {
-        SetIspaceViewController *setIspaceViewCtl = [[SetIspaceViewController alloc]init];
-        [self.navigationController pushViewController:setIspaceViewCtl animated:YES];
+        TabBarViewController *tabBarViewCtl = [[TabBarViewController alloc]init];
+        [self presentViewController:tabBarViewCtl animated:YES completion:NULL];
     }
     [UIView animateWithDuration:0.5 animations:^{
         self.alertView.alpha = 0.0 ;

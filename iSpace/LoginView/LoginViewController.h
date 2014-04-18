@@ -10,7 +10,10 @@
 
 @interface LoginViewController : BaseViewController<UITextFieldDelegate>
 
-@property(nonatomic , assign)int  statusInt ;
+@property(nonatomic , assign)int  statusInt ;//保存从服务器反馈回来的整形值
+@property(nonatomic , assign)int count ; //记录密码输错次数
+@property(nonatomic , retain)NSString *lastUserName; //用来记录上一次输入的用户名
+
 @property(nonatomic , assign)NSInteger originalHeight ;
 @property (weak, nonatomic) IBOutlet UIView *bodyView;
 @property (strong, nonatomic) IBOutlet UIView *alertView;
@@ -22,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIView *password_bg;
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UITextField *passWord;
+@property (nonatomic , retain)NSString *MD5Password ;
 
 - (IBAction)loginAction:(id)sender;
 - (IBAction)RegisterAction:(id)sender;

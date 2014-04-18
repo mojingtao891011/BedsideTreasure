@@ -10,5 +10,5 @@
 
 @interface FriendsViewController : BaseViewController
 
-- (IBAction)landAction:(id)sender;
+
 @end

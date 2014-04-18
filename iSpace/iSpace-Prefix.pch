@@ -20,6 +20,7 @@
     #import "Reachability.h"
 
 #define URl @"http://113.10.139.200:25000/iSpaceSvr/ios"
+#define  USER_ID  [[NSUserDefaults standardUserDefaults]objectForKey:@"uid"]
 #define  ScreenHeight [UIScreen mainScreen].bounds.size.height
 #define  ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define Version [[[UIDevice currentDevice]systemVersion]floatValue]

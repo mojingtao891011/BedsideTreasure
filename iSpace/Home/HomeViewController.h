@@ -10,6 +10,11 @@
 #import "Clock.h"
 
 @interface HomeViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet UIScrollView *bobyView;
+@property (weak, nonatomic) IBOutlet UIView *headView;
+@property (weak, nonatomic) IBOutlet UIView *middleView;
+
+@property (weak, nonatomic) IBOutlet UIView *endView;
 @property (weak, nonatomic) IBOutlet Clock *clock1;
 @property (weak, nonatomic) IBOutlet Clock *clock2;
 @property (weak, nonatomic) IBOutlet Clock *clock3;
@@ -19,5 +24,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *clockLabel3;
 @property (weak, nonatomic) IBOutlet UILabel *clockLabel4;
 
+@property (strong, nonatomic) IBOutlet UIView *otheriSpace;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
+
 - (IBAction)clickClock:(id)sender;
+- (IBAction)addOtheriSpace:(id)sender;
 @end

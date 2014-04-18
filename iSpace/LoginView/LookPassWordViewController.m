@@ -7,8 +7,7 @@
 //
 
 #import "LookPassWordViewController.h"
-#import "PhoneLookPassWordViewController.h"
-#import "EmailLookPassWordViewController.h"
+#import "LookStyleViewController.h"
 
 @interface LookPassWordViewController ()
 
@@ -29,7 +28,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _titleArr = @[@"使用手机号重设密码" , @"使用邮箱地址重设密码"] ;
+    _titleArr = @[@"" , @""] ;
+    
+    //一开始就主动请求获取用户信息
+     [self startNetwork];
+    
 }
 - (void)didReceiveMemoryWarning
 {
@@ -47,6 +50,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell.backgroundColor = [UIColor clearColor];
         cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator ;
         UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(10, 43, tableView.width-20, 1)];
         lineView.backgroundColor = [UIColor lightGrayColor];
@@ -58,19 +62,45 @@
     UILabel *label = (UILabel*)[cell viewWithTag:11];
     label.text = _titleArr[indexPath.row] ;
     [label sizeToFit];
+    label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor lightGrayColor];
     return cell ;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-         PhoneLookPassWordViewController *phoneLookViewCtl = [[PhoneLookPassWordViewController alloc]init];
-        [self.navigationController pushViewController:phoneLookViewCtl animated:YES];
-    }
-    else if (indexPath.row == 1){
-        EmailLookPassWordViewController *emailLookViewCtl = [[EmailLookPassWordViewController alloc]init];
-        [self.navigationController pushViewController:emailLookViewCtl animated:YES];
-    }
+    LookStyleViewController *lookStyleViewCtl = [[LookStyleViewController alloc]init];
+    lookStyleViewCtl.userInfoModel = _userInfoModel ;
+    lookStyleViewCtl.searchStyle = [NSString stringWithFormat:@"%d" , indexPath.row] ;
+    [self.navigationController pushViewController:lookStyleViewCtl animated:YES];
+
+   
+}
+#pragma mark-----customAction
+#pragma mark-----请求网络数据（获取用户信息）
+- (void)startNetwork
+{
+    //请求体
+    NSMutableDictionary *Dict = [NetDataService needCommand:@"2063" andNeedUserId:@"0" AndNeedBobyArrKey:@[@"account"] andNeedBobyArrValue:@[_userName]];
+    
+    //请求网络
+    [NetDataService requestWithUrl:URl dictParams:Dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"Loading" andViewCtl:self completeBlock:^(id result){
+#warning NSlogResult
+        NSLog(@"%@" , result);
+        NSDictionary *retrunDict = result[@"message_body"] ;
+        //保存用户信息到用户信息模型
+        _userInfoModel = [[UserInfoModel alloc]initWithDataDic:retrunDict];
+        //保存用户ID
+        NSDictionary *headDict = result[@"message_head"] ;
+        NSString *userID = headDict[@"user_id"];
+        [[NSUserDefaults standardUserDefaults] setObject:userID forKey:@"uid"];
+        [[NSUserDefaults standardUserDefaults]  synchronize];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            _titleArr = @[@"使用手机号重设密码" , @"使用邮箱地址重设密码"] ;
+            [_lookPassWordTableView reloadData];
+        });
+
+    }];
    
 }
 @end

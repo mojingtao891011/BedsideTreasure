@@ -45,7 +45,7 @@
     HomeViewController *homeCtl = [[HomeViewController alloc]init];
     RingViewController *ringCtl = [[RingViewController alloc]init];
     SettingViewController *settingCtl = [[SettingViewController alloc]init];
-    NSArray *ctlArr = @[ friendsCtl , homeCtl , ringCtl , settingCtl ];
+    NSArray *ctlArr = @[  friendsCtl , homeCtl , ringCtl , settingCtl ];
     NSMutableArray *navArr = [[NSMutableArray alloc]initWithCapacity:ctlArr.count];
     for (UIViewController *ctl in ctlArr) {
         BaseNavViewController *nav = [[BaseNavViewController alloc]initWithRootViewController:ctl];
@@ -53,6 +53,7 @@
         [navArr addObject:nav];
     }
     self.viewControllers = navArr ;
+    self.selectedIndex = 1 ;
     self.tabBar.hidden = YES ;
     [self CustomTabbar];
 }
@@ -65,7 +66,7 @@
     [self.view addSubview:_tabbarView];
     NSArray *imgStateNormalArr = @[@"bt_friends_normal" , @"bt_home_normal" , @"bt_ring_normal" , @"bt_setting_normal" ] ;
     NSArray *imgStateSelectedArr = @[@"bt_friends_pressed" , @"bt_home_pressed" , @"bt_ring_pressed" , @"bt_setting_pressed" ] ;
-    NSLog(@"===%@" , [UIImage imageNamed:imgStateNormalArr[0]]);
+    
     for (int i = 0 ; i < imgStateNormalArr.count; i++) {
         UIButton *tabBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [tabBarButton setFrame:CGRectMake( (ScreenWidth/4 - 45) / 2 + i*80, 2, 45, 45)];
@@ -73,7 +74,7 @@
         [tabBarButton setBackgroundImage:[UIImage imageNamed:imgStateSelectedArr[i]] forState:UIControlStateSelected];
         tabBarButton.tintColor = [UIColor clearColor];
         tabBarButton.tag = 100 + i ;
-        if (tabBarButton.tag == 100) {
+        if (tabBarButton.tag == 101) {
             _selectedButton = tabBarButton ;
             _selectedButton.selected = YES ;
         }

@@ -7,10 +7,13 @@
 //
 
 #import "BaseViewController.h"
+#import "UserInfoModel.h"
 
 @interface LookPassWordViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate>
 {
     NSArray *_titleArr ;
 }
+@property(nonatomic , copy)NSString *userName ;
+@property(nonatomic , retain)UserInfoModel *userInfoModel ;
 @property (weak, nonatomic) IBOutlet UITableView *lookPassWordTableView;
 @end

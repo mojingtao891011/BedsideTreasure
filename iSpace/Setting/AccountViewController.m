@@ -82,11 +82,31 @@
     imageView1.image = [UIImage imageNamed:@"ic_test_head"];
     
 }
-
+#pragma mark--------点击退出按钮时
 - (IBAction)exitLand:(id)sender {
+    
+    //改变button的背景色
     UIButton *landButton = (UIButton*)sender ;
     [landButton setBackgroundColor:buttonSelectedBackgundColor];
-    LoginViewController *exitloginViewCtl = [[LoginViewController alloc]init];
-    [self.navigationController pushViewController:exitloginViewCtl animated:YES];
+    
+    //请求体
+    NSMutableDictionary *dict = [NetDataService needCommand:@"2054" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"cause"] andNeedBobyArrValue:@[ @"0" ]];
+    
+    //请求网络
+    [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"Exiting" andViewCtl:self completeBlock:^(id result){
+        NSLog(@"%@" , result);
+        NSDictionary *returnDict = result[@"message_body"];
+        int  returnError = [returnDict[@"error"] intValue];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self returnInfo:returnError];
+        });
+    }];
+}
+- (void)returnInfo:(int)errorInt
+{
+    if (errorInt == 0) {
+        LoginViewController *exitloginViewCtl = [[LoginViewController alloc]init];
+        [self.navigationController pushViewController:exitloginViewCtl animated:YES];
+    }
 }
 @end

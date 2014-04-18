@@ -13,6 +13,8 @@ typedef void( ^requestFinishBlock )( id result );
 
 @interface NetDataService : NSObject
 
-+ (ASIHTTPRequest*)requestWithUrl:(NSString*)urlString dictParams:(NSMutableDictionary*)dictparams httpMethod:(NSString*)httpMethod completeBlock:(requestFinishBlock)block ;
++(NSMutableDictionary*)needCommand:(NSString*)command andNeedUserId:(NSString*)userId AndNeedBobyArrKey:(NSArray*)bobyArrkey andNeedBobyArrValue:(NSArray*)bobyArrValue  ;
+
++(ASIHTTPRequest*)requestWithUrl:(NSString *)urlString dictParams:(NSMutableDictionary *)dictparams httpMethod:(NSString *)httpMethod AndisWaitActivity:(BOOL)isWaitActivity AndWaitActivityTitle:(NSString*) waitTitle andViewCtl:(UIViewController*)viewCtl completeBlock:(requestFinishBlock)block ;
 
 @end

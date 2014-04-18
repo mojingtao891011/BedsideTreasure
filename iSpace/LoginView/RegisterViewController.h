@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UIView *phoneNumberView;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
+@property(nonatomic , retain)NSString *MD5Password ;
+@property(nonatomic , retain)NSString *MD5ConfirmPassword ;
 
 @property (strong, nonatomic) IBOutlet UIView *alertView;
 @property (weak, nonatomic) IBOutlet UILabel *isSuccessLabel;
@@ -34,6 +36,7 @@
 @property(nonatomic , assign)int errorInt ;
 
 - (IBAction)checkActin:(id)sender;
+- (IBAction)agreeAction:(id)sender;
 - (IBAction)registerAction:(id)sender;
 - (IBAction)registerOkAction:(id)sender;
 
