@@ -21,13 +21,15 @@
     if (self) {
         self.titleLabel.text = @"主页" ;
         [self.titleLabel sizeToFit];
-        [self updateDevices];
+       
     }
     return self;
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //更新设备
+     [self updateDevices];
     
     self.bobyView.contentSize = CGSizeMake(ScreenWidth, ScreenHeight-100);
     //设置闹钟的alpha

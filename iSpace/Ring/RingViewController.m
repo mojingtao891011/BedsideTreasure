@@ -35,7 +35,9 @@
     [super viewDidLoad];
     _titleArr = @[@"在线下载" , @"语音" ,@"音乐" , @"FM"];
     _headBool2 = YES ;
+    //隐藏多余的下划线
     [self setExtraCellLineHidden:_ringTabelView];
+    
     [_ringTabelView registerNib:[UINib nibWithNibName:@"DownloadTableViewCell" bundle:nil] forCellReuseIdentifier:@"DownloadTableViewCell"];
     
     [_ringTabelView registerNib:[UINib nibWithNibName:@"RecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"RecordTableViewCell"];

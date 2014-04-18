@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 #import "UserInfoModel.h"
 
-@interface LookStyleViewController : BaseViewController<UITextFieldDelegate>
+@interface LookStyleViewController : BaseViewController<UITextFieldDelegate , UIAlertViewDelegate>
 
 @property(nonatomic , copy)NSString *email ;
 @property(nonatomic , copy)NSString *account ;

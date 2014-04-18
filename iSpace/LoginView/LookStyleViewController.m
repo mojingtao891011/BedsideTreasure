@@ -42,8 +42,16 @@
 - (void)searchStyle:(NSString*)index
 {
     if ([index isEqualToString:@"0"]) {
-        _searchStyleName.text = @"手机号码" ;
-        _showLabel.text = _userInfoModel.phone_no ;
+        if (_userInfoModel.phone_no.length != 0) {
+            
+             _searchStyleName.text = @"手机号码" ;
+            NSMutableString *mutablestr = [[NSMutableString alloc]initWithString:_userInfoModel.phone_no] ;
+            [ mutablestr replaceCharactersInRange:NSMakeRange(3, 4) withString:@"*****"];
+            _showLabel.text = mutablestr ;
+
+        }else{
+            [self showAlertView:@"该账号未绑定手机"];
+        }
     }else{
         _searchStyleName.text = @"邮箱地址" ;
         _showLabel.text = _userInfoModel.email ;
@@ -58,6 +66,11 @@
 #pragma mark-----点击确定按钮
 - (IBAction)enterAction:(id)sender {
     
+    //提交前判断是否已经输入验证码
+    if (_captchaTextfield.text.length == 0) {
+        [self showAlertView:@"您还未输入验证码"];
+        return ;
+    }
     //请求体
     NSMutableDictionary *dict = [NetDataService needCommand:@"2059" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"account" , @"request_id" , @"verify_code"] andNeedBobyArrValue:@[ _userInfoModel.name , @"0" , _captchaTextfield.text]];
     
@@ -150,5 +163,12 @@
             break;
     }
     [self showAlertView:infoContent];
+}
+#pragma mark----UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if ([alertView.message isEqualToString:@"该账号未绑定手机"]) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 @end
