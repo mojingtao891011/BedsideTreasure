@@ -129,6 +129,10 @@
         NSDictionary *returnDict = result[@"message_body"];
         NSString *returnInfo = returnDict[@"error"];
         int returnInt = [returnInfo intValue];
+        
+        NSDictionary *dev_list =returnDict [@"dev_list"];
+        NSArray *list = dev_list[@"list"];
+        NSLog(@"%@ , %@" , dev_list , list);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self updateDevicesComplete:returnInt];
         });
