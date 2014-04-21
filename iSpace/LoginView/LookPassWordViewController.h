@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 #import "UserInfoModel.h"
 
-@interface LookPassWordViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate>
+@interface LookPassWordViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate , UIAlertViewDelegate>
 {
     NSArray *_titleArr ;
 }

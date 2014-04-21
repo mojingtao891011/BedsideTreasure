@@ -11,6 +11,8 @@
 #import "RecordTableViewCell.h"
 #import "MusicTableViewCell.h"
 #import "FMTableViewCell.h"
+#import "StartRecordTableViewCell.h"
+#import "AddMusicTableViewCell.h"
 
 @interface RingViewController ()<NSURLConnectionDelegate>
 {
@@ -33,20 +35,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     _titleArr = @[@"在线下载" , @"语音" ,@"音乐" , @"FM"];
     _headBool2 = YES ;
+    _boolInt = 0 ;
+    [self registerCell];
+    
+    _listArr = [[NSMutableArray alloc]initWithCapacity:10] ;
+        
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveNote:) name:@"postListArr" object:nil];
+  
+}
+- (void)registerCell
+{
     //隐藏多余的下划线
     [self setExtraCellLineHidden:_ringTabelView];
-    
-    [_ringTabelView registerNib:[UINib nibWithNibName:@"DownloadTableViewCell" bundle:nil] forCellReuseIdentifier:@"DownloadTableViewCell"];
+
+     [_ringTabelView registerNib:[UINib nibWithNibName:@"DownloadTableViewCell" bundle:nil] forCellReuseIdentifier:@"DownloadTableViewCell"];
     
     [_ringTabelView registerNib:[UINib nibWithNibName:@"RecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"RecordTableViewCell"];
     
     [_ringTabelView registerNib:[UINib nibWithNibName:@"MusicTableViewCell" bundle:nil ]forCellReuseIdentifier:@"MusicTableViewCell"] ;
     
      [_ringTabelView registerNib:[UINib nibWithNibName:@"FMTableViewCell" bundle:nil] forCellReuseIdentifier:@"FMTableViewCell"];
+    
+    [_ringTabelView registerNib:[UINib nibWithNibName:@"StartRecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"StartRecordTableViewCell"] ;
+    
+    [_ringTabelView registerNib:[UINib nibWithNibName:@"AddMusicTableViewCell" bundle:nil] forCellReuseIdentifier:@"AddMusicTableViewCell"];
+    
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -71,112 +88,125 @@
     }else if (section == 1 && _headBool1){
         return 5;
     }else if (section == 2 && _headBool2){
-        return 5;
+        return _listArr.count+1;
     }else if (section == 3 && _headBool3){
         return 5;
     }
-
     return 0;
 }
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        StartRecordTableViewCell *startRecordCell = [tableView dequeueReusableCellWithIdentifier:@"StartRecordTableViewCell"] ;
+        return startRecordCell ;
+    }
+    if (indexPath.section == 2 && indexPath.row == 0) {
+        AddMusicTableViewCell *addMusicCell = [tableView dequeueReusableCellWithIdentifier:@"AddMusicTableViewCell"] ;
+        addMusicCell.present_ViewController = self ;
+        return addMusicCell ;
+    }
+    
     DownloadTableViewCell *downLoadCell = [tableView dequeueReusableCellWithIdentifier:@"DownloadTableViewCell"];
-    RecordTableViewCell *recordCell = [tableView dequeueReusableCellWithIdentifier:@"RecordTableViewCell"];
+     RecordTableViewCell *recordCell = [tableView dequeueReusableCellWithIdentifier:@"RecordTableViewCell"];
     MusicTableViewCell *musicCell = [tableView dequeueReusableCellWithIdentifier:@"MusicTableViewCell"];
     FMTableViewCell *FMcell =[tableView dequeueReusableCellWithIdentifier:@"FMTableViewCell"];
+    NSArray *arrCell = @[downLoadCell , recordCell , musicCell , FMcell];
+     if (indexPath.section == 2) {
+        MPMediaItem *musicObject = _listArr[indexPath.row-1] ;
+        musicCell.titleStr = [musicObject valueForProperty:MPMediaItemPropertyTitle ];
+    }
+    return arrCell[indexPath.section];
     
-    if (indexPath.section == 2 && indexPath.row == 0) {
-        return _addMusicCell ;
-    }
-
-    switch (indexPath.section) {
-        case 0:
-            return downLoadCell ;
-            break;
-        case 1:
-            return recordCell ;
-            break;
-        case 2:
-            return musicCell ;
-            break;
-        case 3:
-            return FMcell;
-            break;
-        default:
-            break;
-    }
-       return nil ;
+    
  }
 #pragma mark------UITableViewDelegate
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, tableView.width, 20)];
+    
+    _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, tableView.width, 44)];
+    _headView.tag = section + 1 ;
     //添加标题label
-    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 30, 20)];
+    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 12, 30, 20)];
     titleLabel.text = _titleArr[section];
     titleLabel.textColor = buttonBackgundColor ;
     [titleLabel sizeToFit];
     titleLabel.backgroundColor = [UIColor clearColor] ;
     [_headView addSubview:titleLabel];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickHeader:)];
+    [_headView addGestureRecognizer:tap];
+    
     //添加展开按钮
     UIButton *showButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [showButton setFrame:CGRectMake(tableView.width - 25, 5, 12, 12)];
+    [showButton setFrame:CGRectMake(tableView.width - 22, 16, 12, 12)];
     [showButton setBackgroundImage:[UIImage imageNamed:@"bt_arrow_down"] forState:UIControlStateNormal];
-    [showButton addTarget:self action:@selector(clickShowButton:) forControlEvents:UIControlEventTouchUpInside];
-    showButton.tag = section + 10 ;
     [_headView addSubview:showButton];
-//    //添加大按钮（方便点击）
-//    UIButton *bigButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [bigButton setFrame:CGRectMake(tableView.width - 50, 0, 40, 20)];
-//    [bigButton setBackgroundColor:[UIColor redColor]];
-//    bigButton.tag = 10 + section ;
-//    [bigButton addTarget:self action:@selector(clickShowButton:) forControlEvents:UIControlEventTouchUpInside];
-//    [_headView addSubview:bigButton];
-    //旋转90°
-    [UIView animateWithDuration:0.5 animations:^{
-        
-        CGAffineTransform   oldTrans = showButton.transform ;
-        CGAffineTransform   newTrans = CGAffineTransformRotate(oldTrans, _angle * M_PI / 180);
-        showButton.transform = newTrans ;
-        
-    }];
-    
     
     //添加下划线
-    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 20, tableView.width, 1)];
+    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 43, tableView.width, 1)];
     lineView.backgroundColor = [UIColor lightGrayColor];
+    lineView.alpha = 0.5 ;
     [_headView addSubview:lineView];
     
-    _headView.backgroundColor = ViewBackgroundColor ;
-    return _headView ;
+    _headView.backgroundColor = ViewBackgroundColor;
+    
+    NSArray *boolArr = @[[NSNumber numberWithBool:_headBool0] , [NSNumber numberWithBool:_headBool1] , [NSNumber numberWithBool:_headBool2] , [NSNumber numberWithBool:_headBool3]];
+    if ([boolArr[_boolInt] boolValue]) {
+        
+        CGAffineTransform oldTrans = showButton.transform ;
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            CGAffineTransform newTrans = CGAffineTransformRotate(oldTrans, 180*M_PI/180);
+            showButton.transform = newTrans ;
+        }];
+    }
+
+        return _headView;
 }
-- (void)clickShowButton:(UIButton*)sender
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    _angle = _angle + 180 ;
-    sender.selected = !sender.selected ;
-    int headIndex = sender.tag - 10 ;
+    return 54 ;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 44 ;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+     NSLog(@"%d" , indexPath.section);
+}
+#pragma mark-----customAction
+#pragma mark-----点击展开按钮时
+- (void)clickHeader:(UITapGestureRecognizer*)tap
+{
+    int headIndex = tap.view.tag;
     switch (headIndex) {
-        case 0:
+        case 1:
             _headBool0 = !_headBool0 ;
             break;
-        case 1:
+        case 2:
             _headBool1 = !_headBool1 ;
             break;
-        case 2:
+        case 3:
             _headBool2 = !_headBool2 ;
             break;
-        case 3:
+        case 4:
             _headBool3 = !_headBool3 ;
             break;
         default:
             break;
     }
-    
-    [_ringTabelView reloadSections:[NSIndexSet indexSetWithIndex:headIndex] withRowAnimation:UITableViewRowAnimationFade];
-   
+    _boolInt = headIndex - 1 ;
+    [_ringTabelView reloadSections:[NSIndexSet indexSetWithIndex:headIndex-1] withRowAnimation:UITableViewRowAnimationFade];
+
 }
-#pragma mark------添加音乐按钮
-- (IBAction)addMusic:(id)sender {
+#pragma mark-----接收通知
+- (void)receiveNote:(NSNotification*)note
+{
+    id result = [note object];
+   _listArr = [result mutableCopy];
+    
+    [_ringTabelView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationFade];
     
 }
 @end

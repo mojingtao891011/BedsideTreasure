@@ -84,9 +84,14 @@
     
     //请求网络
     [NetDataService requestWithUrl:URl dictParams:Dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"Loading" andViewCtl:self completeBlock:^(id result){
-#warning NSlogResult
-        NSLog(@"%@" , result);
+        
         NSDictionary *retrunDict = result[@"message_body"] ;
+        NSString *errorInt = retrunDict[@"error"];
+        if (errorInt.intValue != 0 ) {
+            UIAlertView *alerView = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"该用户尚未注册" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+            [alerView show];
+            return ;
+        }
         //保存用户信息到用户信息模型
         _userInfoModel = [[UserInfoModel alloc]initWithDataDic:retrunDict];
         //保存用户ID
@@ -102,5 +107,10 @@
 
     }];
    
+}
+#pragma mark------UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

@@ -99,6 +99,11 @@
     [textField resignFirstResponder];
     return YES ;
 }
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    self.userName_bg.layer.borderColor = [UIColor colorWithRed:125/255.0 green:214/255.9 blue:208/255.0 alpha:1.0].CGColor;
+    return YES ;
+}
 #pragma mark-----customAction
 #pragma mark-----画圆形的用户头像
 - (void)drawUserImageView
@@ -135,10 +140,6 @@
     UIButton *landButton = (UIButton*)sender ;
     [landButton setBackgroundColor:buttonSelectedBackgundColor];
     
-#warning testLand
-//    TabBarViewController *tabBarViewCtl = [[TabBarViewController  alloc]init];
-//    [self presentViewController:tabBarViewCtl animated:YES completion:nil];
-
    //在同一个界面两次输入不同用户名
     if (![_userName.text isEqualToString:_lastUserName]) {
         _count = 0 ;
@@ -161,8 +162,7 @@
     
     //请求网络
     [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"Langing" andViewCtl:self completeBlock:^(id result){
-#warning NSlog result
-        NSLog(@"%@" , result);
+
         NSDictionary *returnInfo = result[@"message_body"];
         //保存用户ID
         NSString *userID = returnInfo[@"uid"];
@@ -270,8 +270,8 @@
     if (_userName.text.length == 0 || _passWord.text.length == 0) {
         return ;
     }
-#warning count==3
-    if (_count >= 1)
+
+    if (_count >= 3)
     {
         self.alertView.height = ScreenHeight ;
         self.alertView.top = 0 ;
@@ -303,12 +303,27 @@
 - (IBAction)forgetPassWord:(id)sender {
     
     UIButton *button = (UIButton*)sender ;
-    [button setBackgroundColor:buttonSelectedBackgundColor];
+    if (button.tag == 100 ) {
+        if (_userName.text.length != 0) {
+            LookPassWordViewController *lookPassWordViewCtl = [[LookPassWordViewController alloc]init] ;
+            lookPassWordViewCtl.userName = _userName.text ;
+            [self.navigationController pushViewController:lookPassWordViewCtl animated:YES];
+        }else{
+            self.userName_bg.layer.borderColor = [UIColor redColor].CGColor;
+            UIAlertView *alerView = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"找回密码时用户名不能留空" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+            [alerView show];
+        }
+    }else{
+         [button setBackgroundColor:buttonSelectedBackgundColor];
+        LookPassWordViewController *lookPassWordViewCtl = [[LookPassWordViewController alloc]init] ;
+        lookPassWordViewCtl.userName = _userName.text ;
+        [self.navigationController pushViewController:lookPassWordViewCtl animated:YES];
+         self.alertView.top = ScreenHeight ;
+    }
+   
     
-    LookPassWordViewController *lookPassWordViewCtl = [[LookPassWordViewController alloc]init] ;
-    lookPassWordViewCtl.userName = _userName.text ;
-    [self.navigationController pushViewController:lookPassWordViewCtl animated:YES];
-    self.alertView.top = ScreenHeight ;
+    
+   
 }
 #pragma mark-----忘记密码框的取消按钮
 - (IBAction)cancelLookPassWord:(id)sender {

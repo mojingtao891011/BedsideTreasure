@@ -52,7 +52,7 @@
         NSString *MD5Password = [self md5:_password.text] ;
         
         //请求体
-        NSMutableDictionary *dict = [NetDataService needCommand:@"2060" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"request_id" ,@"verify_code" , @"password"] andNeedBobyArrValue:@[@"0" , _captcha , MD5Password] ];
+        NSMutableDictionary *dict = [NetDataService needCommand:@"2062" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"request_id" ,@"verify_code" , @"password"] andNeedBobyArrValue:@[@"0" , _captcha , MD5Password] ];
         //请求网络
         [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"Reseting" andViewCtl:self completeBlock:^(id result){
             NSDictionary *returnDict = result[@"message_body"];

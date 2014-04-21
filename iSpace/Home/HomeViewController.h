@@ -10,6 +10,8 @@
 #import "Clock.h"
 
 @interface HomeViewController : BaseViewController
+
+@property(nonatomic , retain)NSMutableArray *dev_snArr ;
 @property (weak, nonatomic) IBOutlet UIScrollView *bobyView;
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UIView *middleView;

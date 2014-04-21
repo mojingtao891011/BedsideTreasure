@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "SetColckViewController.h"
+#import "AlarmInfoModel.h"
 
 @interface HomeViewController ()
 
@@ -125,14 +126,24 @@
     
     //请求网络
     [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"updateing" andViewCtl:self completeBlock:^(id result){
-        NSLog(@"%@" , result);
+        //NSLog(@"%@" , result);
         NSDictionary *returnDict = result[@"message_body"];
+        
         NSString *returnInfo = returnDict[@"error"];
         int returnInt = [returnInfo intValue];
         
-        NSDictionary *dev_list =returnDict [@"dev_list"];
-        NSArray *list = dev_list[@"list"];
-        NSLog(@"%@ , %@" , dev_list , list);
+        //如果等于0说明有绑定设备
+        if (returnInt == 0) {
+             NSDictionary *dev_list = returnDict[@"dev_list"];
+            NSArray *listArr = dev_list[@"list"] ;
+            NSLog(@"====%@" , listArr[0]);
+            for (NSDictionary *deviceDict in listArr) {
+                //  把闹钟信息装进模型里
+                NSArray *alarmInfoDict = deviceDict[@"alarm_info"][@"list"];
+                AlarmInfoModel *alarmModel = [[AlarmInfoModel alloc]initWithDataDic:alarmInfoDict[0]];
+            }
+        }
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [self updateDevicesComplete:returnInt];
         });

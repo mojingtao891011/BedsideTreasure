@@ -7,6 +7,7 @@
 //
 
 #import "SettingViewController.h"
+#import "SettingTableViewCell.h"
 #import "AccountViewController.h"
 #import "HelpViewController.h"
 #import "AboutViewController.h"
@@ -30,7 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.dataSourceArr = @[@"账号设置" , @"帮助" , @"关于"] ;
+    self.dataSourceArr = @[@"账号设置" , @"帮助" , @"用户协议" , @"版本介绍" , @"检查新版本" , @"评分" , @"反馈"] ;
+    self.imgameArr = @[@"ic_user_setting" , @"ic_help" ,@"ic_agreement" , @"ic_app_introduce" , @"ic_update" , @"ic_star" , @"ic_feedback" ];
+    [self setExtraCellLineHidden:_settingTableView];
+    [_settingTableView registerNib:[UINib nibWithNibName:@"SettingTableViewCell" bundle:nil] forCellReuseIdentifier:@"SettingTableViewCell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,6 +42,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+//UITableView隐藏多余的分割线
+- (void)setExtraCellLineHidden: (UITableView *)tableView{
+    UIView *view =[ [UIView alloc]init];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+    [tableView setTableHeaderView:view];
+}
+
 #pragma mark-----UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -45,29 +57,15 @@
 }
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellID = @"cellID" ;
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator ;
-        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(10, 43, tableView.width-20, 1)];
-        lineView.backgroundColor = [UIColor lightGrayColor];
-        [cell.contentView addSubview:lineView];
-        UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 13, 0, 20)];
-        titleLabel.tag = 12 ;
-        titleLabel.backgroundColor = [UIColor clearColor];
-        cell.backgroundColor = [UIColor clearColor] ;
-        [cell.contentView addSubview:titleLabel];
-    }
-    UILabel *label = (UILabel*)[cell viewWithTag:12];
-    label.text = _dataSourceArr[indexPath.row] ;
-    [label sizeToFit];
-    label.textColor = FontColor;
+    SettingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SettingTableViewCell"];
+    cell.imageView.image = [UIImage imageNamed:_imgameArr[indexPath.row]];
+    cell.titleLabel.text = _dataSourceArr[indexPath.row];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator ;
     return cell ;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%d" , indexPath.row);
+    
     if (indexPath.row == 0) {
         AccountViewController *accountViewCtl = [[AccountViewController alloc]init];
         [self.navigationController pushViewController:accountViewCtl animated:YES];

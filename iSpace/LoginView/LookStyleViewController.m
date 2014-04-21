@@ -95,9 +95,6 @@
     -210:验证码错误(请求 ID 和对应的验证码不对应) -211:验证码超时(验
     */
     ResetPassWordViewController *resetPasswordView = [[ResetPassWordViewController alloc]init];
-#warning testTO_ResetPassWordViewController
-    resetPasswordView.captcha = _captchaTextfield.text ;
-    [self.navigationController pushViewController:resetPasswordView animated:YES];
     
     NSString *infoPrompt ;
     
