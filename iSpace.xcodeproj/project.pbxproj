@@ -33,6 +33,10 @@
 		FB21E2BF1904B89E00E9B806 /* ic_user_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB21E2BE1904B89E00E9B806 /* ic_user_setting@2x.png */; };
 		FB21E2C21904F59400E9B806 /* AlarmInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB21E2C11904F59400E9B806 /* AlarmInfoModel.m */; };
 		FB21E2C5190521E800E9B806 /* FMInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB21E2C4190521E800E9B806 /* FMInfoModel.m */; };
+		FB21E2C919061AF200E9B806 /* OtherDevicesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB21E2C719061AF200E9B806 /* OtherDevicesTableViewCell.m */; };
+		FB21E2CA19061AF200E9B806 /* OtherDevicesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB21E2C819061AF200E9B806 /* OtherDevicesTableViewCell.xib */; };
+		FB21E2CD19061D4A00E9B806 /* bt_radio_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FB21E2CB19061D4A00E9B806 /* bt_radio_normal.png */; };
+		FB21E2CE19061D4A00E9B806 /* bt_radio_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FB21E2CC19061D4A00E9B806 /* bt_radio_pressed.png */; };
 		FB2FF7DD18F11F9800DFA3C1 /* ResetPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2FF7DB18F11F9800DFA3C1 /* ResetPassWordViewController.m */; };
 		FB2FF7DE18F11F9800DFA3C1 /* ResetPassWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB2FF7DC18F11F9800DFA3C1 /* ResetPassWordViewController.xib */; };
 		FB2FF7E218F18F1300DFA3C1 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2FF7E018F18F1300DFA3C1 /* AccountViewController.m */; };
@@ -187,6 +191,11 @@
 		FB21E2C11904F59400E9B806 /* AlarmInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmInfoModel.m; sourceTree = "<group>"; };
 		FB21E2C3190521E800E9B806 /* FMInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMInfoModel.h; sourceTree = "<group>"; };
 		FB21E2C4190521E800E9B806 /* FMInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMInfoModel.m; sourceTree = "<group>"; };
+		FB21E2C619061AF200E9B806 /* OtherDevicesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherDevicesTableViewCell.h; sourceTree = "<group>"; };
+		FB21E2C719061AF200E9B806 /* OtherDevicesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherDevicesTableViewCell.m; sourceTree = "<group>"; };
+		FB21E2C819061AF200E9B806 /* OtherDevicesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherDevicesTableViewCell.xib; sourceTree = "<group>"; };
+		FB21E2CB19061D4A00E9B806 /* bt_radio_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_radio_normal.png; sourceTree = "<group>"; };
+		FB21E2CC19061D4A00E9B806 /* bt_radio_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_radio_pressed.png; sourceTree = "<group>"; };
 		FB2FF7DA18F11F9800DFA3C1 /* ResetPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPassWordViewController.h; sourceTree = "<group>"; };
 		FB2FF7DB18F11F9800DFA3C1 /* ResetPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPassWordViewController.m; sourceTree = "<group>"; };
 		FB2FF7DC18F11F9800DFA3C1 /* ResetPassWordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPassWordViewController.xib; sourceTree = "<group>"; };
@@ -548,6 +557,9 @@
 				FB91CB2918EBA7DE00DF91E3 /* HomeViewController.h */,
 				FB91CB2A18EBA7DE00DF91E3 /* HomeViewController.m */,
 				FB91CB2B18EBA7DE00DF91E3 /* HomeViewController.xib */,
+				FB21E2C619061AF200E9B806 /* OtherDevicesTableViewCell.h */,
+				FB21E2C719061AF200E9B806 /* OtherDevicesTableViewCell.m */,
+				FB21E2C819061AF200E9B806 /* OtherDevicesTableViewCell.xib */,
 				FB52371818EEBF8C00ACDE50 /* SetColckViewController.h */,
 				FB52371918EEBF8C00ACDE50 /* SetColckViewController.m */,
 				FB34877E18F7D8A900708232 /* SetColckViewController.xib */,
@@ -635,6 +647,8 @@
 		FB91CB5118EBD5EB00DF91E3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FB21E2CB19061D4A00E9B806 /* bt_radio_normal.png */,
+				FB21E2CC19061D4A00E9B806 /* bt_radio_pressed.png */,
 				FB21E2BE1904B89E00E9B806 /* ic_user_setting@2x.png */,
 				FB21E2BA1904B89800E9B806 /* ic_star@2x.png */,
 				FB21E2BB1904B89800E9B806 /* ic_update@2x.png */,
@@ -871,6 +885,7 @@
 				FB77DAB818FBB79A00A1675D /* ListViewController.xib in Resources */,
 				FB2FF7DE18F11F9800DFA3C1 /* ResetPassWordViewController.xib in Resources */,
 				FB91CB5A18EBD5EB00DF91E3 /* ic_default_avatar.png in Resources */,
+				FB21E2CD19061D4A00E9B806 /* bt_radio_normal.png in Resources */,
 				FB91CB5D18EBD5EB00DF91E3 /* ic_user.png in Resources */,
 				FBBF7F3318FE9C0B00F2F4C9 /* bt_download_normal@2x.png in Resources */,
 				FBC6971718FCE671001EED48 /* ic_bluetooth_off@2x.png in Resources */,
@@ -885,6 +900,7 @@
 				FB91CB4318EBA7DE00DF91E3 /* LoginViewController.xib in Resources */,
 				FB0C003D18FF8652008DF97E /* MusicTableViewCell.xib in Resources */,
 				FB9F579B18EA561600BF120D /* InfoPlist.strings in Resources */,
+				FB21E2CA19061AF200E9B806 /* OtherDevicesTableViewCell.xib in Resources */,
 				FB2FF7F718F1ABA000DFA3C1 /* AboutViewController.xib in Resources */,
 				FBBF7F2C18FE968100F2F4C9 /* DownloadTableViewCell.xib in Resources */,
 				FB9F57A318EA561600BF120D /* Images.xcassets in Resources */,
@@ -901,6 +917,7 @@
 				FB91CB3F18EBA7DE00DF91E3 /* FriendsViewController.xib in Resources */,
 				FBBF7F3418FE9C0B00F2F4C9 /* bt_download_pressed@2x.png in Resources */,
 				FBBF7F2F18FE9B2500F2F4C9 /* bt_pause@2x.png in Resources */,
+				FB21E2CE19061D4A00E9B806 /* bt_radio_pressed.png in Resources */,
 				FB91CB5818EBD5EB00DF91E3 /* bt_checkbox_normal.png in Resources */,
 				FB0C004818FF8A30008DF97E /* FMTableViewCell.xib in Resources */,
 				FB1D312019037F490058AF50 /* ic_mouse@2x.png in Resources */,
@@ -949,6 +966,7 @@
 				FB90DE4518F91A3C00961273 /* NSNumber+Message.m in Sources */,
 				FB91CB4218EBA7DE00DF91E3 /* LoginViewController.m in Sources */,
 				FB0C003C18FF8652008DF97E /* MusicTableViewCell.m in Sources */,
+				FB21E2C919061AF200E9B806 /* OtherDevicesTableViewCell.m in Sources */,
 				FB91CB4C18EBA7FE00DF91E3 /* TabBarViewController.m in Sources */,
 				FB91CB3E18EBA7DE00DF91E3 /* FriendsViewController.m in Sources */,
 				FB90DE4618F91A3C00961273 /* NSString+URLEncoding.m in Sources */,

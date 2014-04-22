@@ -8,10 +8,14 @@
 
 #import "HomeViewController.h"
 #import "SetColckViewController.h"
+#import "DevicesInfoModel.h"
 #import "AlarmInfoModel.h"
+#import "OtherDevicesTableViewCell.h"
 
 @interface HomeViewController ()
-
+{
+    int count ;
+}
 @end
 
 @implementation HomeViewController
@@ -33,76 +37,41 @@
      [self updateDevices];
     
     self.bobyView.contentSize = CGSizeMake(ScreenWidth, ScreenHeight-100);
-    //设置闹钟的alpha
-    NSArray *clockArr = @[_clock1 , _clock2 , _clock3 , _clock4 , _clockLabel1 , _clockLabel2 , _clockLabel3 , _clockLabel4];
-    for (UIView *v  in clockArr) {
-        v.alpha = 0.3 ;
-    }
-    //添加设备视图
-    [self addiSpace];
-        
+    
+    _clockArr = @[_clock1 , _clock2 , _clock3 , _clock4];
+    _clockLabelArr = @[_clockLabel1 , _clockLabel2 , _clockLabel3 , _clockLabel4];
+    
+    _otherDevicesView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 200);
+    [self.view addSubview:_otherDevicesView];
+    [_otherDevicesTableView registerNib:[UINib nibWithNibName:@"OtherDevicesTableViewCell" bundle:nil] forCellReuseIdentifier:@"OtherDevicesTableViewCell"];
+    [self setExtraCellLineHidden:_otherDevicesTableView];
+    _devicesTotalArr = [[NSMutableArray alloc]initWithCapacity:4];
+    count = 100 ;
+    
 }
 - (void)viewWillAppear:(BOOL)animated
 {
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getDatetime:) name:@"123" object:nil];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getIndexs:) name:@"POSTINDEXS" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeDevices:) name:@"addDevicesButtonAction" object:nil];
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     
 }
-- (void)addiSpace
+#pragma mark--------NSNotificationCenter
+- (void)getIndexs:(NSNotification*)note
 {
-    _otheriSpace.top = _endView.bottom ;
-    [self.bobyView addSubview:_otheriSpace];
+    NSString *index = [note object];
+    count = index.intValue ;
+    [_otherDevicesTableView reloadData];
 }
-#pragma mark-------点击确定按钮
-- (void)getDatetime:(NSNotification*)note
+- (void)changeDevices:(NSNotification*)note
 {
-    NSDictionary *dataDict = [note object];
-    NSArray *keyArr = [dataDict allKeys];
-    NSDate *dictKey = keyArr[0];
-    NSDate *date = dataDict[dictKey];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"hh:mm:aa"];
-    NSString *timeStr = [dateFormatter stringFromDate:date];
-    NSInteger clockTag = [keyArr[0] integerValue];
-    
-    switch (clockTag) {
-        case 1:
-            _clock1.time = date ;
-            [_clock1 setNeedsDisplay];
-            _clockLabel1.text = timeStr ;
-            _clockLabel1.alpha = 1.0 ;
-            _clock1.alpha = 1.0 ;
-            break;
-        case 2:
-            _clock2.time = date ;
-            [_clock2 setNeedsDisplay];
-            _clockLabel2.text = timeStr ;
-            _clockLabel2.alpha = 1.0 ;
-            _clock2.alpha = 1.0 ;
-            break;
-        case 3:
-            _clock3.time = date ;
-            [_clock3 setNeedsDisplay];
-            _clockLabel3.text = timeStr ;
-            _clockLabel3.alpha = 1.0 ;
-            _clock3.alpha = 1.0 ;
-            break;
-        case 4:
-            _clock4.time = date ;
-            [_clock4 setNeedsDisplay];
-            _clockLabel4.text = timeStr ;
-            _clockLabel4.alpha = 1.0 ;
-            _clock4.alpha = 1.0 ;
-            break;
-
-        default:
-            break;
-    }
-
-
+    _addButton.selected = YES ;
+    [self addOtheriSpace:_addButton];
 }
 #pragma mark-------点击闹钟进入闹钟设置界面
 - (IBAction)clickClock:(id)sender {
@@ -116,7 +85,54 @@
 - (IBAction)addOtheriSpace:(id)sender {
     
     _addButton.selected = !_addButton.selected ;
+    if (_addButton.selected) {
+        [UIView animateWithDuration:0.5 animations:^{
+            _otherDevicesView.top = ScreenHeight - _otherDevicesView.height - 100 ;
+        }];
+    }else{
+        [UIView animateWithDuration:0.5 animations:^{
+            _otherDevicesView.top = ScreenHeight ;
+        }];
+
+    }
 }
+#pragma mark-----UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _devicesTotalArr.count;
+}
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    OtherDevicesTableViewCell *otherDevicesCell = [tableView dequeueReusableCellWithIdentifier:@"OtherDevicesTableViewCell"];
+    otherDevicesCell.redioButton.tag = 10 + indexPath.row ;
+    if (indexPath.row == count) {
+        otherDevicesCell.redioButton.selected = YES ;
+        otherDevicesCell.cancelButton.hidden = NO ;
+        otherDevicesCell.enterButton.hidden = NO ;
+    }
+    else{
+        otherDevicesCell.redioButton.selected = NO ;
+        otherDevicesCell.cancelButton.hidden = YES ;
+        otherDevicesCell.enterButton.hidden = YES ;
+    }
+    if (indexPath.row == 0) {
+        otherDevicesCell.devicesName.text = @"切换到其他设备";
+        otherDevicesCell.redioButton.hidden = YES ;
+        return otherDevicesCell ;
+    }
+    DevicesInfoModel *devicesModel = _devicesTotalArr[indexPath.row];
+    otherDevicesCell.devicesName.text = devicesModel.dev_name ;
+    return otherDevicesCell ;
+}
+#pragma mark-----UITableViewDelegate
+//UITableView隐藏多余的分割线
+- (void)setExtraCellLineHidden: (UITableView *)tableView{
+    UIView *view =[ [UIView alloc]init];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+    [tableView setTableHeaderView:view];
+}
+
 #pragma mark-----登录成功在后台更新设备
 -(void)updateDevices
 {
@@ -126,7 +142,7 @@
     
     //请求网络
     [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"updateing" andViewCtl:self completeBlock:^(id result){
-        //NSLog(@"%@" , result);
+        NSLog(@"%@" ,result);
         NSDictionary *returnDict = result[@"message_body"];
         
         NSString *returnInfo = returnDict[@"error"];
@@ -136,14 +152,19 @@
         if (returnInt == 0) {
              NSDictionary *dev_list = returnDict[@"dev_list"];
             NSArray *listArr = dev_list[@"list"] ;
-            NSLog(@"====%@" , listArr[0]);
+    
             for (NSDictionary *deviceDict in listArr) {
+                
                 //  把闹钟信息装进模型里
-                NSArray *alarmInfoDict = deviceDict[@"alarm_info"][@"list"];
-                AlarmInfoModel *alarmModel = [[AlarmInfoModel alloc]initWithDataDic:alarmInfoDict[0]];
+                DevicesInfoModel *devicesInfoModel = [[DevicesInfoModel alloc]initWithDataDic:deviceDict];
+                
+                //把绑定设备个数一一装进数组里
+                [_devicesTotalArr addObject:devicesInfoModel];
+                
             }
         }
-        
+        DevicesInfoModel *model = _devicesTotalArr[0];
+        NSLog(@"%@" , model.alermInfo);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self updateDevicesComplete:returnInt];
         });
@@ -160,8 +181,39 @@
         
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"友情提示" message:@"该页面不可操作，亲～你可能还未绑定设备哦" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
         [alertView show];
+    }else{
+        [self updateAlarmInfo];
     }
+    [_otherDevicesTableView reloadData];
     
 }
-
+#pragma mark-----后台更新设备获取的数据显示出来
+- (void)updateAlarmInfo
+{
+    DevicesInfoModel *devicesInfoMdel = _devicesTotalArr[0];
+    NSMutableArray *alarmInfoArr = devicesInfoMdel.alermInfoArr ;
+    for ( int i = 0 ; i < alarmInfoArr.count ; i++) {
+        AlarmInfoModel *alarmInfoModel = alarmInfoArr[i];
+        NSString *timeStr = [NSString stringWithFormat:@"%@:%@",alarmInfoModel.hour , alarmInfoModel.minute];
+        //把NSString转化为NSDate
+        NSDate* date = [self dateFromFomate:timeStr formate:@"HH:mm"];
+        
+        Clock *clock = _clockArr[i];
+        clock.time = date ;
+        [clock setNeedsDisplay];
+        
+        UILabel *timerLabel = _clockLabelArr[i];
+        timerLabel.text = timeStr ;
+    }
+ 
+}
+#pragma mark------把NSString转化为NSDate
+- (NSDate *) dateFromFomate:(NSString *)datestring formate:(NSString*)formate {
+	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:formate];
+    NSLocale* local =[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] ;
+    [formatter setLocale: local];
+    NSDate *date = [formatter dateFromString:datestring];
+    return date;
+}
 @end

@@ -9,9 +9,10 @@
 #import "BaseViewController.h"
 #import "Clock.h"
 
-@interface HomeViewController : BaseViewController
+@interface HomeViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate>
 
-@property(nonatomic , retain)NSMutableArray *dev_snArr ;
+@property(nonatomic , retain)NSMutableArray *devicesTotalArr ;
+
 @property (weak, nonatomic) IBOutlet UIScrollView *bobyView;
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UIView *middleView;
@@ -25,8 +26,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *clockLabel2;
 @property (weak, nonatomic) IBOutlet UILabel *clockLabel3;
 @property (weak, nonatomic) IBOutlet UILabel *clockLabel4;
+@property(nonatomic , retain)NSArray *clockArr ;
+@property(nonatomic , retain)NSArray *clockLabelArr ;
 
-@property (strong, nonatomic) IBOutlet UIView *otheriSpace;
+@property (strong, nonatomic) IBOutlet UIView *otherDevicesView;
+@property (weak, nonatomic) IBOutlet UITableView *otherDevicesTableView;
+
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 - (IBAction)clickClock:(id)sender;

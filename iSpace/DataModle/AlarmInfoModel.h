@@ -11,15 +11,15 @@
 
 @interface AlarmInfoModel : WXBaseModel
 
-@property(nonatomic , assign) int       index ;
-@property(nonatomic , assign) int       state ;
-@property(nonatomic , assign)int        frequency ;
-@property(nonatomic , assign)int        sleep_times ;
-@property(nonatomic , assign)int        sleep_gap ;
-@property(nonatomic , assign)int        hour ;
-@property(nonatomic , assign)int        minute ;
-@property(nonatomic , assign)int        vol_level ;
-@property(nonatomic , assign)int        vol_type ;
+@property(nonatomic , copy) NSString       *index ;
+@property(nonatomic , copy) NSString       *state ;
+@property(nonatomic , copy) NSString        *frequency ;
+@property(nonatomic , copy) NSString        *sleep_times ;
+@property(nonatomic , copy) NSString        *sleep_gap ;
+@property(nonatomic , copy) NSString       *hour ;
+@property(nonatomic , copy) NSString        *minute ;
+@property(nonatomic , copy) NSString        *vol_level ;
+@property(nonatomic , copy) NSString       *vol_type ;
 @property(nonatomic , copy)NSString        *fm_chnl ;
 @property(nonatomic , copy)NSString        *file_path ;
 

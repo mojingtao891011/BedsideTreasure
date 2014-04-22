@@ -94,6 +94,7 @@
 - (IBAction)getDate:(id)sender {
   
     NSDate *date = [_dataPicker date];
+    NSLog(@"date = %@" , date);
     NSString *tagStr = [NSString stringWithFormat:@"%d" , _clockButtonTag];
     NSDictionary *dict = [NSDictionary dictionaryWithObject:date forKey:tagStr];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"123" object:dict];

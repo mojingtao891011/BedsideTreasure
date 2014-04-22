@@ -84,7 +84,7 @@
     
     //请求网络
     [NetDataService requestWithUrl:URl dictParams:Dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"Loading" andViewCtl:self completeBlock:^(id result){
-        
+        NSLog(@"%@" , result);
         NSDictionary *retrunDict = result[@"message_body"] ;
         NSString *errorInt = retrunDict[@"error"];
         if (errorInt.intValue != 0 ) {
