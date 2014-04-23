@@ -84,7 +84,7 @@
     
     //请求网络
     [NetDataService requestWithUrl:URl dictParams:Dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"Loading" andViewCtl:self completeBlock:^(id result){
-        NSLog(@"%@" , result);
+        
         NSDictionary *retrunDict = result[@"message_body"] ;
         NSString *errorInt = retrunDict[@"error"];
         if (errorInt.intValue != 0 ) {
@@ -94,6 +94,7 @@
         }
         //保存用户信息到用户信息模型
         _userInfoModel = [[UserInfoModel alloc]initWithDataDic:retrunDict];
+        
         //保存用户ID
         NSDictionary *headDict = result[@"message_head"] ;
         NSString *userID = headDict[@"user_id"];
@@ -103,6 +104,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             _titleArr = @[@"使用手机号重设密码" , @"使用邮箱地址重设密码"] ;
             [_lookPassWordTableView reloadData];
+            NSLog(@"%@" ,_userInfoModel.phone_no);
         });
 
     }];

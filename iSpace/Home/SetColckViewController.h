@@ -9,14 +9,16 @@
 #import "BaseViewController.h"
 #import "Clock.h"
 
+
 @interface SetColckViewController : BaseViewController
 
+@property(nonatomic , copy)NSString *devices_sn;
+@property(nonatomic , assign)NSInteger clockButtonTag ;
 @property(nonatomic , retain)NSMutableArray *musicArr ;
 @property(nonatomic , retain)NSMutableArray *recordArr ;
 @property(nonatomic , retain)NSMutableArray *FMArr ;
 
 @property(nonatomic , assign)BOOL isOpenRingType ;
-@property(nonatomic , assign)NSInteger clockButtonTag ;
 @property (weak, nonatomic) IBOutlet UIView *styleVIew;
 
 

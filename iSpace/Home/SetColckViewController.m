@@ -9,6 +9,7 @@
 #import "SetColckViewController.h"
 #import "ListViewController.h"
 
+
 @interface SetColckViewController ()
 
 @end
@@ -93,17 +94,41 @@
 #pragma mark----保存闹钟设置
 - (IBAction)getDate:(id)sender {
   
-    NSDate *date = [_dataPicker date];
-    NSLog(@"date = %@" , date);
-    NSString *tagStr = [NSString stringWithFormat:@"%d" , _clockButtonTag];
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:date forKey:tagStr];
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"123" object:dict];
+    //将NSdate转化为NSString
+    NSString *dateStr =[self stringFromFomate:[_dataPicker date] formate:@"HH:mm"];
+    //以":"切割
+    NSArray *dateArr = [dateStr componentsSeparatedByString:@":"];
+    NSString *hour = dateArr[0];
+    NSString *minute = dateArr[1];
+    //把设置信息保存到网络
+    NSDictionary *dic = @{
+                          @"index": [NSString stringWithFormat:@"%d" , _clockButtonTag],
+                          @"state":@"1" ,
+                          @"frequency": @"3" ,
+                          @"sleep_times":@"0" ,
+                          @"sleep_gap": @"0" ,
+                          @"hour":hour ,
+                          @"minute": minute ,
+                          @"vol_level":@"0" ,
+                          @"vol_type": @"1" ,
+                          @"fm_chnl":@"0" ,
+                          @"file_path":@"0"
+                          };
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeCustomView ;
-    hud.labelText = @"loading" ;
-    [self performSelector:@selector(hideHud) withObject:nil afterDelay:2.0];
+    NSMutableDictionary *dict = [NetDataService needCommand:@"2052" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"dev_sn" , @"alarm_info"] andNeedBobyArrValue:@[DEV_SN , dic]];
+    [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"loading" andViewCtl:self completeBlock:^(id result){
+        NSLog(@"%@" , result);
+    }];
+    
 }
+#pragma mark------NSDate转化NSString
+- (NSString*) stringFromFomate:(NSDate*) date formate:(NSString*)formate {
+	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+	[formatter setDateFormat:formate];
+	NSString *str = [formatter stringFromDate:date];
+	return str;
+}
+
 #pragma mark----设置重复日期
 - (IBAction)repeatAction:(id)sender {
     UIButton *button = (UIButton*)sender ;
@@ -134,9 +159,5 @@
     UIGraphicsEndImageContext();
     
     return image;
-}
-- (void)hideHud
-{
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 @end
