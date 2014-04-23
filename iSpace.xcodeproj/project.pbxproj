@@ -874,9 +874,6 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "莫景涛";
 				TargetAttributes = {
-					FB9F578C18EA561500BF120D = {
-						DevelopmentTeam = AQXK6TL9Z8;
-					};
 					FB9F57A718EA561600BF120D = {
 						TestTargetID = FB9F578C18EA561500BF120D;
 					};
