@@ -14,4 +14,5 @@
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 @property(nonatomic , assign)int index ;
+
 @end

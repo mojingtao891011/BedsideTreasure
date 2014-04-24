@@ -37,15 +37,7 @@
      [self updateDevices];
     [self registerNibCell];
     
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc]init];
-    refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refresh"];
-    [refreshControl addTarget:self action:@selector(refreshAction) forControlEvents: UIControlEventValueChanged ];
     
-   
-}
-- (void)refreshAction
-{
-    NSLog(@"sdd");
 }
 - (void)didReceiveMemoryWarning
 {
@@ -62,9 +54,16 @@
     
 }
 #pragma mark------UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2 ;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4 ;
+    if (section == 0) {
+        return 3;
+    }
+    return _devicesTotalArr.count - 1 ;
 }
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -90,7 +89,7 @@
 #pragma mark------UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *heightArr = @[@"80" , @"120" , @"120" , @"44"];
+    NSArray *heightArr = @[@"80" , @"120" , @"120" , @"120"];
     CGFloat height = [heightArr[indexPath.row] floatValue];
     return height ;
 }

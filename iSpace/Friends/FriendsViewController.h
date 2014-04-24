@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface FriendsViewController : BaseViewController
+@interface FriendsViewController : BaseViewController<UIPickerViewDataSource , UIPickerViewDelegate>
 
 
 @end
