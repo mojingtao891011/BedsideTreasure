@@ -18,18 +18,16 @@
 {
     [super setSelected:selected animated:animated];
 
-    
 }
 - (void)layoutSubviews
 {
     self.height = 44 ;
 }
-<<<<<<< HEAD
+
 - (IBAction)changeDevicesAction:(UIButton*)sender {
     sender.selected = !sender.selected ;
     [[NSNotificationCenter defaultCenter]postNotificationName:@"postNote" object:sender];
     }
-=======
 - (void)layoutSubviews
 {
     self.height = 44 ;
