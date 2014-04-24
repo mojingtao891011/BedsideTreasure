@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface OtherDevicesCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *changeButton;
 
 - (IBAction)changeDevicesAction:(id)sender;
 @end

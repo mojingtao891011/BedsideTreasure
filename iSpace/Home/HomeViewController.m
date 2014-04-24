@@ -33,11 +33,14 @@
 {
     [super viewDidLoad];
     _devicesTotalArr = [[NSMutableArray alloc]initWithCapacity:4];
-    _index = 0 ;
      [self updateDevices];
     [self registerNibCell];
+<<<<<<< HEAD
     
     
+=======
+
+>>>>>>> FETCH_HEAD
 }
 - (void)didReceiveMemoryWarning
 {
@@ -50,7 +53,6 @@
     [_homeTableView registerNib:[UINib nibWithNibName:@"WeatherCell" bundle:nil] forCellReuseIdentifier:@"WeatherCell"];
     [_homeTableView registerNib:[UINib nibWithNibName:@"AlarmCell" bundle:nil] forCellReuseIdentifier:@"AlarmCell"];
     [_homeTableView registerNib:[UINib nibWithNibName:@"OtherDevicesCell" bundle:nil] forCellReuseIdentifier:@"OtherDevicesCell"];
-    
     
 }
 #pragma mark------UITableViewDataSource
@@ -74,7 +76,7 @@
     NSArray *cellArr = @[nameCell , weatherCell , alarmCell , otherDevicesCell];
     
     if (_devicesTotalArr.count != 0) {
-        DevicesInfoModel *devicesModel = _devicesTotalArr[_index];
+        DevicesInfoModel *devicesModel = _devicesTotalArr[0];
         nameCell.devicesNameLabel.text = devicesModel.dev_name ;
         alarmCell.alarmInfoArr = [devicesModel.alermInfoArr mutableCopy];
         alarmCell.pushViewCtl = self ;
@@ -83,6 +85,9 @@
         [[NSUserDefaults standardUserDefaults]  synchronize];
         
     }
+    //用kvo来监听是否有切换设备动作
+    [otherDevicesCell addObserver:self forKeyPath:@"changeButton.selected" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    otherDevicesCell.changeButton.selected = _isSelected ;
     
     return cellArr[indexPath.row] ;
 }
@@ -140,5 +145,26 @@
     }
    
 }
-
+#pragma mark-----kvo
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+   
+    BOOL ischange = [change[@"new"] boolValue];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"可切换的设备" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+    for (int i= 1 ; i < _devicesTotalArr.count ; i++) {
+        DevicesInfoModel *model = _devicesTotalArr[i];
+        [actionSheet addButtonWithTitle:model.dev_name];
+    }
+    if (ischange) {
+        [actionSheet showInView:self.view];
+       
+    }
+}
+#pragma mark-----UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    _isSelected = NO ;
+    [_devicesTotalArr exchangeObjectAtIndex:0 withObjectAtIndex:buttonIndex];
+     [_homeTableView reloadData];
+}
 @end

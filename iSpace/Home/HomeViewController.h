@@ -8,11 +8,15 @@
 
 #import "BaseViewController.h"
 
-@interface HomeViewController : BaseViewController<UITableViewDataSource ,UITableViewDelegate >
+@interface HomeViewController : BaseViewController<UITableViewDataSource ,UITableViewDelegate , UIActionSheetDelegate>
 
 @property(nonatomic , retain)NSMutableArray *devicesTotalArr ;
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
+<<<<<<< HEAD
 @property(nonatomic , assign)int index ;
+=======
+@property(nonatomic , assign)BOOL isSelected ;
+>>>>>>> FETCH_HEAD
 
 @end

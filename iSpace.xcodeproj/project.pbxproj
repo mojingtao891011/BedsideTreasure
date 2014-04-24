@@ -59,7 +59,7 @@
 		FB2FF7F718F1ABA000DFA3C1 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB2FF7F518F1ABA000DFA3C1 /* AboutViewController.xib */; };
 		FB3484BC18F780CE00708232 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = FB3484B918F780CE00708232 /* 37x-Checkmark.png */; };
 		FB3484BD18F780CE00708232 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3484BB18F780CE00708232 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		FB34877C18F7D8A900708232 /* SetColckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB34877E18F7D8A900708232 /* SetColckViewController.xib */; };
+		FB34934D1909259300A9F300 /* MusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB34934C1909259300A9F300 /* MusicModel.m */; };
 		FB3995D418F008BC001EFA9D /* Clock.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3995D318F008BC001EFA9D /* Clock.m */; };
 		FB3995DD18F04141001EFA9D /* LookPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3995DB18F04141001EFA9D /* LookPassWordViewController.m */; };
 		FB3995DE18F04141001EFA9D /* LookPassWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3995DC18F04141001EFA9D /* LookPassWordViewController.xib */; };
@@ -73,7 +73,6 @@
 		FB52370A18EEB0D900ACDE50 /* bt_ring_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FB52370218EEB0D900ACDE50 /* bt_ring_pressed.png */; };
 		FB52370B18EEB0D900ACDE50 /* bt_setting_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FB52370318EEB0D900ACDE50 /* bt_setting_normal.png */; };
 		FB52370C18EEB0D900ACDE50 /* bt_setting_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = FB52370418EEB0D900ACDE50 /* bt_setting_pressed.png */; };
-		FB52371B18EEBF8C00ACDE50 /* SetColckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB52371918EEBF8C00ACDE50 /* SetColckViewController.m */; };
 		FB626BF918F8CCD200DE0B96 /* bt_ trigon_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB626BF818F8CCD200DE0B96 /* bt_ trigon_more@2x.png */; };
 		FB77DAB018FB8EF700A1675D /* AgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB77DAAE18FB8EF700A1675D /* AgreementViewController.m */; };
 		FB77DAB118FB8EF700A1675D /* AgreementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB77DAAF18FB8EF700A1675D /* AgreementViewController.xib */; };
@@ -134,6 +133,12 @@
 		FB9F57AC18EA561600BF120D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F579418EA561500BF120D /* UIKit.framework */; };
 		FB9F57B418EA561600BF120D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB9F57B218EA561600BF120D /* InfoPlist.strings */; };
 		FB9F57B618EA561600BF120D /* iSpaceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9F57B518EA561600BF120D /* iSpaceTests.m */; };
+		FBACBAC61908BCC700C0B880 /* DatePickTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBACBAC41908BCC700C0B880 /* DatePickTableViewCell.m */; };
+		FBACBAC71908BCC700C0B880 /* DatePickTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBACBAC51908BCC700C0B880 /* DatePickTableViewCell.xib */; };
+		FBACBAD11908BF5900C0B880 /* AlarmInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBACBACF1908BF5900C0B880 /* AlarmInfoTableViewCell.m */; };
+		FBACBAD21908BF5900C0B880 /* AlarmInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBACBAD01908BF5900C0B880 /* AlarmInfoTableViewCell.xib */; };
+		FBACBADB1908C2F600C0B880 /* SetColckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBACBAD91908C2F600C0B880 /* SetColckViewController.m */; };
+		FBACBADC1908C2F600C0B880 /* SetColckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBACBADA1908C2F600C0B880 /* SetColckViewController.xib */; };
 		FBBF7F2718FE866E00F2F4C9 /* bt_arrow_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBBF7F2618FE866E00F2F4C9 /* bt_arrow_down@2x.png */; };
 		FBBF7F2B18FE968100F2F4C9 /* DownloadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBF7F2918FE968100F2F4C9 /* DownloadTableViewCell.m */; };
 		FBBF7F2C18FE968100F2F4C9 /* DownloadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBBF7F2A18FE968100F2F4C9 /* DownloadTableViewCell.xib */; };
@@ -235,7 +240,8 @@
 		FB3484B918F780CE00708232 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
 		FB3484BA18F780CE00708232 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		FB3484BB18F780CE00708232 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		FB34877D18F7D8A900708232 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SetColckViewController.xib; sourceTree = "<group>"; };
+		FB34934B1909259300A9F300 /* MusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicModel.h; sourceTree = "<group>"; };
+		FB34934C1909259300A9F300 /* MusicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicModel.m; sourceTree = "<group>"; };
 		FB3995D218F008BC001EFA9D /* Clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clock.h; sourceTree = "<group>"; };
 		FB3995D318F008BC001EFA9D /* Clock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clock.m; sourceTree = "<group>"; };
 		FB3995DA18F04141001EFA9D /* LookPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookPassWordViewController.h; sourceTree = "<group>"; };
@@ -252,8 +258,6 @@
 		FB52370218EEB0D900ACDE50 /* bt_ring_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_ring_pressed.png; sourceTree = "<group>"; };
 		FB52370318EEB0D900ACDE50 /* bt_setting_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_setting_normal.png; sourceTree = "<group>"; };
 		FB52370418EEB0D900ACDE50 /* bt_setting_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_setting_pressed.png; sourceTree = "<group>"; };
-		FB52371818EEBF8C00ACDE50 /* SetColckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetColckViewController.h; sourceTree = "<group>"; };
-		FB52371918EEBF8C00ACDE50 /* SetColckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetColckViewController.m; sourceTree = "<group>"; };
 		FB626BF818F8CCD200DE0B96 /* bt_ trigon_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_ trigon_more@2x.png"; sourceTree = "<group>"; };
 		FB77DAAD18FB8EF700A1675D /* AgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgreementViewController.h; sourceTree = "<group>"; };
 		FB77DAAE18FB8EF700A1675D /* AgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgreementViewController.m; sourceTree = "<group>"; };
@@ -350,6 +354,15 @@
 		FB9F57B118EA561600BF120D /* iSpaceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iSpaceTests-Info.plist"; sourceTree = "<group>"; };
 		FB9F57B318EA561600BF120D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FB9F57B518EA561600BF120D /* iSpaceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iSpaceTests.m; sourceTree = "<group>"; };
+		FBACBAC31908BCC700C0B880 /* DatePickTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickTableViewCell.h; sourceTree = "<group>"; };
+		FBACBAC41908BCC700C0B880 /* DatePickTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickTableViewCell.m; sourceTree = "<group>"; };
+		FBACBAC51908BCC700C0B880 /* DatePickTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickTableViewCell.xib; sourceTree = "<group>"; };
+		FBACBACE1908BF5900C0B880 /* AlarmInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmInfoTableViewCell.h; sourceTree = "<group>"; };
+		FBACBACF1908BF5900C0B880 /* AlarmInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmInfoTableViewCell.m; sourceTree = "<group>"; };
+		FBACBAD01908BF5900C0B880 /* AlarmInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmInfoTableViewCell.xib; sourceTree = "<group>"; };
+		FBACBAD81908C2F600C0B880 /* SetColckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetColckViewController.h; sourceTree = "<group>"; };
+		FBACBAD91908C2F600C0B880 /* SetColckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetColckViewController.m; sourceTree = "<group>"; };
+		FBACBADA1908C2F600C0B880 /* SetColckViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetColckViewController.xib; sourceTree = "<group>"; };
 		FBBF7F2618FE866E00F2F4C9 /* bt_arrow_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_arrow_down@2x.png"; sourceTree = "<group>"; };
 		FBBF7F2818FE968100F2F4C9 /* DownloadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadTableViewCell.h; sourceTree = "<group>"; };
 		FBBF7F2918FE968100F2F4C9 /* DownloadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadTableViewCell.m; sourceTree = "<group>"; };
@@ -592,12 +605,7 @@
 				FB264D3D1907AA9600CD53D2 /* HomeViewController.m */,
 				FB264D3E1907AA9600CD53D2 /* HomeViewController.xib */,
 				FB264D1D1907A2E900CD53D2 /* homeCell */,
-				FB52371818EEBF8C00ACDE50 /* SetColckViewController.h */,
-				FB52371918EEBF8C00ACDE50 /* SetColckViewController.m */,
-				FB34877E18F7D8A900708232 /* SetColckViewController.xib */,
-				FB77DAB418FBB79A00A1675D /* ListViewController.h */,
-				FB77DAB518FBB79A00A1675D /* ListViewController.m */,
-				FB77DAB618FBB79A00A1675D /* ListViewController.xib */,
+				FBACBAC21908BC7E00C0B880 /* setAlarm */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -812,6 +820,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FBACBAC21908BC7E00C0B880 /* setAlarm */ = {
+			isa = PBXGroup;
+			children = (
+				FBACBAD81908C2F600C0B880 /* SetColckViewController.h */,
+				FBACBAD91908C2F600C0B880 /* SetColckViewController.m */,
+				FBACBADA1908C2F600C0B880 /* SetColckViewController.xib */,
+				FBACBAC31908BCC700C0B880 /* DatePickTableViewCell.h */,
+				FBACBAC41908BCC700C0B880 /* DatePickTableViewCell.m */,
+				FBACBAC51908BCC700C0B880 /* DatePickTableViewCell.xib */,
+				FBACBACE1908BF5900C0B880 /* AlarmInfoTableViewCell.h */,
+				FBACBACF1908BF5900C0B880 /* AlarmInfoTableViewCell.m */,
+				FBACBAD01908BF5900C0B880 /* AlarmInfoTableViewCell.xib */,
+				FB77DAB418FBB79A00A1675D /* ListViewController.h */,
+				FB77DAB518FBB79A00A1675D /* ListViewController.m */,
+				FB77DAB618FBB79A00A1675D /* ListViewController.xib */,
+			);
+			name = setAlarm;
+			sourceTree = "<group>";
+		};
 		FBC6976918FD2CDD001EED48 /* DataModle */ = {
 			isa = PBXGroup;
 			children = (
@@ -823,6 +850,8 @@
 				FB21E2C11904F59400E9B806 /* AlarmInfoModel.m */,
 				FB21E2C3190521E800E9B806 /* FMInfoModel.h */,
 				FB21E2C4190521E800E9B806 /* FMInfoModel.m */,
+				FB34934B1909259300A9F300 /* MusicModel.h */,
+				FB34934C1909259300A9F300 /* MusicModel.m */,
 			);
 			path = DataModle;
 			sourceTree = "<group>";
@@ -910,7 +939,6 @@
 				FB52370C18EEB0D900ACDE50 /* bt_setting_pressed.png in Resources */,
 				FB52370518EEB0D900ACDE50 /* bt_friends_normal.png in Resources */,
 				FBC6976718FD137A001EED48 /* bt_other_dev_normal@2x.png in Resources */,
-				FB34877C18F7D8A900708232 /* SetColckViewController.xib in Resources */,
 				FB2FF7E318F18F1300DFA3C1 /* AccountViewController.xib in Resources */,
 				FB77DAB818FBB79A00A1675D /* ListViewController.xib in Resources */,
 				FB2FF7DE18F11F9800DFA3C1 /* ResetPassWordViewController.xib in Resources */,
@@ -929,9 +957,12 @@
 				FB91CB5B18EBD5EB00DF91E3 /* ic_lock.png in Resources */,
 				FB91CB4718EBA7DE00DF91E3 /* SettingViewController.xib in Resources */,
 				FB91CB4318EBA7DE00DF91E3 /* LoginViewController.xib in Resources */,
+				FBACBAD21908BF5900C0B880 /* AlarmInfoTableViewCell.xib in Resources */,
+				FBACBADC1908C2F600C0B880 /* SetColckViewController.xib in Resources */,
 				FB0C003D18FF8652008DF97E /* MusicTableViewCell.xib in Resources */,
 				FB9F579B18EA561600BF120D /* InfoPlist.strings in Resources */,
 				FB2FF7F718F1ABA000DFA3C1 /* AboutViewController.xib in Resources */,
+				FBACBAC71908BCC700C0B880 /* DatePickTableViewCell.xib in Resources */,
 				FBBF7F2C18FE968100F2F4C9 /* DownloadTableViewCell.xib in Resources */,
 				FB9F57A318EA561600BF120D /* Images.xcassets in Resources */,
 				FB264D2C1907A34600CD53D2 /* AlarmCell.xib in Resources */,
@@ -1017,18 +1048,20 @@
 				FB90DDD618F8EC3000961273 /* SBJsonStreamWriter.m in Sources */,
 				FB21E2B01904B72600E9B806 /* SettingTableViewCell.m in Sources */,
 				FB90DECC18F926C500961273 /* ASIFormDataRequest.m in Sources */,
+				FBACBAD11908BF5900C0B880 /* AlarmInfoTableViewCell.m in Sources */,
 				FB0C009218FFDF1B008DF97E /* UserInfoModel.m in Sources */,
 				FB9F57A118EA561600BF120D /* AppDelegate.m in Sources */,
 				FB91CB1E18EBA77500DF91E3 /* BaseViewController.m in Sources */,
+				FBACBADB1908C2F600C0B880 /* SetColckViewController.m in Sources */,
 				FB2FF7F618F1ABA000DFA3C1 /* AboutViewController.m in Sources */,
 				FB3995DD18F04141001EFA9D /* LookPassWordViewController.m in Sources */,
 				FB0CCE881902D0AE0078FF18 /* AddMusicTableViewCell.m in Sources */,
 				FB90DECF18F926C500961273 /* ASINetworkQueue.m in Sources */,
 				FB90DDD818F8EC3000961273 /* SBJsonStreamWriterState.m in Sources */,
+				FB34934D1909259300A9F300 /* MusicModel.m in Sources */,
 				FB21E2C21904F59400E9B806 /* AlarmInfoModel.m in Sources */,
 				FB77DAB018FB8EF700A1675D /* AgreementViewController.m in Sources */,
 				FB3995E718F05217001EFA9D /* LookStyleViewController.m in Sources */,
-				FB52371B18EEBF8C00ACDE50 /* SetColckViewController.m in Sources */,
 				FB21E2C5190521E800E9B806 /* FMInfoModel.m in Sources */,
 				FB264D261907A32500CD53D2 /* WeatherCell.m in Sources */,
 				FB3995D418F008BC001EFA9D /* Clock.m in Sources */,
@@ -1036,6 +1069,7 @@
 				FB2FF7E218F18F1300DFA3C1 /* AccountViewController.m in Sources */,
 				FB2FF7E718F1918000DFA3C1 /* AccountTableViewCell.m in Sources */,
 				FB1D311D19037DDD0058AF50 /* StartRecordTableViewCell.m in Sources */,
+				FBACBAC61908BCC700C0B880 /* DatePickTableViewCell.m in Sources */,
 				FB90DEC918F926C500961273 /* ASIDataCompressor.m in Sources */,
 				FB91CB6118EBE63B00DF91E3 /* RegisterViewController.m in Sources */,
 				FB264D211907A31600CD53D2 /* DevicesNameCell.m in Sources */,
@@ -1069,14 +1103,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FB34877E18F7D8A900708232 /* SetColckViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FB34877D18F7D8A900708232 /* en */,
-			);
-			name = SetColckViewController.xib;
-			sourceTree = "<group>";
-		};
 		FB9F579918EA561600BF120D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
