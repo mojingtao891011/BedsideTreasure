@@ -8,6 +8,10 @@
 
 #import "BaseViewController.h"
 
-@interface ListViewController : BaseViewController
+
+@interface ListViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate>
+
+@property(nonatomic , retain)NSMutableArray *listArr ;
+@property (weak, nonatomic) IBOutlet UITableView *listTableView;
 
 @end

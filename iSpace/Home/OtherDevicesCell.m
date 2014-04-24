@@ -21,8 +21,12 @@
 
     // Configure the view for the selected state
 }
-
+- (void)layoutSubviews
+{
+    self.height = 44 ;
+}
 - (IBAction)changeDevicesAction:(UIButton*)sender {
     sender.selected = !sender.selected ;
+    
 }
 @end

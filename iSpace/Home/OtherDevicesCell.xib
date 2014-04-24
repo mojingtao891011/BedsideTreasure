@@ -36,6 +36,9 @@
                 </subviews>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="changeButton" destination="SR8-FG-9it" id="rFw-ah-12V"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>
