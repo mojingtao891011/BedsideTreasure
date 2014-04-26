@@ -9,8 +9,11 @@
 #import "WXBaseModel.h"
 
 @interface MusicModel : WXBaseModel
+
 @property(nonatomic , copy)NSString *musicName ;
 @property(nonatomic , copy)NSString *musicUrl ;
 @property(nonatomic , copy)NSString *musicId ;
 @property(nonatomic , copy)NSString *musicSize ;
+
++(MusicModel*)sharedManager ;
 @end

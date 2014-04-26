@@ -104,7 +104,6 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             _titleArr = @[@"使用手机号重设密码" , @"使用邮箱地址重设密码"] ;
             [_lookPassWordTableView reloadData];
-            NSLog(@"%@" ,_userInfoModel.phone_no);
         });
 
     }];

@@ -58,7 +58,7 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SettingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SettingTableViewCell"];
-    cell.imageView.image = [UIImage imageNamed:_imgameArr[indexPath.row]];
+    cell.imgView.image = [UIImage imageNamed:_imgameArr[indexPath.row]];
     cell.titleLabel.text = _dataSourceArr[indexPath.row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator ;
     return cell ;

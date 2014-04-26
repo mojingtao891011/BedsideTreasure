@@ -8,7 +8,9 @@
 
 #import "BaseViewController.h"
 
-@interface FriendsViewController : BaseViewController
+@interface FriendsViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *friendTableView;
+@property(nonatomic , retain)NSMutableArray *friendsModelArr ;
 
 @end

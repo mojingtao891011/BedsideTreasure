@@ -7,11 +7,15 @@
 //
 
 #import "BaseViewController.h"
-#import "AccountTableViewCell.h"
+#import "UserInfoModel.h"
 
 @interface AccountViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *accountTableView;
+
 @property(nonatomic , retain)NSArray *dataSourceArr ;
+@property(nonatomic , retain)NSMutableDictionary *userInfoDict;
+@property(nonatomic , retain)UserInfoModel *userInfoModel ;
+@property (weak, nonatomic) IBOutlet UITableView *accountTableView;
 @property (strong, nonatomic) IBOutlet UITableViewCell *exitButtonCell;
 - (IBAction)exitLand:(id)sender;
+
 @end

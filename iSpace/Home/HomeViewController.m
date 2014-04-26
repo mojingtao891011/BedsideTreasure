@@ -62,20 +62,20 @@
     AlarmCell  *alarmCell = [tableView dequeueReusableCellWithIdentifier:@"AlarmCell"];
     OtherDevicesCell  *otherDevicesCell = [tableView dequeueReusableCellWithIdentifier:@"OtherDevicesCell"];
     NSArray *cellArr = @[nameCell , weatherCell , alarmCell , otherDevicesCell];
+    otherDevicesCell.dele = self , otherDevicesCell.devicesTotalArr = [_devicesTotalArr mutableCopy];
+    otherDevicesCell.showViewCtl = self ;
     
     if (_devicesTotalArr.count != 0) {
         DevicesInfoModel *devicesModel = _devicesTotalArr[0];
         nameCell.devicesNameLabel.text = devicesModel.dev_name ;
         alarmCell.alarmInfoArr = [devicesModel.alermInfoArr mutableCopy];
         alarmCell.pushViewCtl = self ;
+        
         //保存设备索引
         [[NSUserDefaults standardUserDefaults] setObject:devicesModel.dev_sn forKey:@"dev_sn"];
         [[NSUserDefaults standardUserDefaults]  synchronize];
         
     }
-    //用kvo来监听是否有切换设备动作
-    [otherDevicesCell addObserver:self forKeyPath:@"changeButton.selected" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
-    otherDevicesCell.changeButton.selected = _isSelected ;
     
     return cellArr[indexPath.row] ;
 }
@@ -133,26 +133,11 @@
     }
    
 }
-#pragma mark-----kvo
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-   
-    BOOL ischange = [change[@"new"] boolValue];
-        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"可切换的设备" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
-    for (int i= 1 ; i < _devicesTotalArr.count ; i++) {
-        DevicesInfoModel *model = _devicesTotalArr[i];
-        [actionSheet addButtonWithTitle:model.dev_name];
-    }
-    if (ischange) {
-        [actionSheet showInView:self.view];
-       
-    }
-}
 #pragma mark-----UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    _isSelected = NO ;
     [_devicesTotalArr exchangeObjectAtIndex:0 withObjectAtIndex:buttonIndex];
      [_homeTableView reloadData];
+    NSLog(@"%d" ,buttonIndex);
 }
 @end

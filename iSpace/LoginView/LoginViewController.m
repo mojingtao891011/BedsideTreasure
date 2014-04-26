@@ -192,7 +192,7 @@
     NSMutableString *Mstr = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH];
     for (int i=0; i<CC_MD5_DIGEST_LENGTH; i++) {
         //x表示十六进制，%02X  意思是不足两位将用0补齐，如果多余两位则不影响
-        [Mstr appendFormat:@"%02X",result[i]];
+        [Mstr appendFormat:@"%02x",result[i]];
         
     }
     
@@ -216,6 +216,9 @@
         switch (_statusInt) {
         case 0:
             _count = 0 ;
+            //保存用户名
+            [[NSUserDefaults standardUserDefaults] setObject:_userName.text forKey:@"USERNAME"];
+            [[NSUserDefaults standardUserDefaults]  synchronize];
             [self presentViewController:tabBarViewCtl animated:YES completion:nil];
                 return;
             break;

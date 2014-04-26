@@ -9,6 +9,16 @@
 #import "MusicModel.h"
 
 @implementation MusicModel
+
+static  MusicModel  *shareManager ;
++(MusicModel*)sharedManager
+{
+    static dispatch_once_t once ;
+    dispatch_once (&once , ^{
+        shareManager = [[self alloc]init ];
+    });
+    return shareManager ;
+}
 - (NSDictionary*)attributeMapDictionary
 {
     NSDictionary *dict = @{

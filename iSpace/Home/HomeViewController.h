@@ -12,7 +12,5 @@
 
 @property(nonatomic , retain)NSMutableArray *devicesTotalArr ;
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
-@property(nonatomic , assign)BOOL isSelected ;
 
 @end

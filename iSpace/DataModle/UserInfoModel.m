@@ -26,10 +26,10 @@
     self.phone_no = accountInfoDict[@"phone_no"];
     self.uid = accountInfoDict[@"uid"];
     
-    NSArray *birthdayInfoArr = dataDic[@"detail"][@"birthday"];
-    self.year = birthdayInfoArr[0];
-    self.month = birthdayInfoArr[1];
-    self.date = birthdayInfoArr[2];
+    NSDictionary *birthdayInfoDict = dataDic[@"detail"][@"birthday"];
+    self.year = birthdayInfoDict[@"year"];
+    self.month = birthdayInfoDict[@"month"];
+    self.day = birthdayInfoDict[@"day"];
     
 }
 @end

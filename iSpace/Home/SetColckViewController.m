@@ -9,7 +9,7 @@
 #import "SetColckViewController.h"
 #import "DatePickTableViewCell.h"
 #import "AlarmInfoTableViewCell.h"
-
+#import "MusicModel.h"
 
 @interface SetColckViewController ()
 
@@ -43,6 +43,7 @@
 {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(submitAlarmInfo:) name:@"postAlarmInfo" object:nil];
+    NSLog(@"[MusicModel sharedManager] = %@" , [MusicModel sharedManager]);
     
 }
 - (void)didReceiveMemoryWarning
@@ -51,7 +52,7 @@
     [[NSNotificationCenter defaultCenter]removeObserver:self];
     
 }
-
+#pragma mark-----提交闹钟设置信息
 - (void)submitAlarmInfo:(NSNotification*)note
 {
     NSMutableArray *infoArr = [note object];
@@ -71,7 +72,9 @@
                           @"vol_level":@"0" ,
                           @"vol_type": @"1" ,
                           @"fm_chnl":@"0" ,
-                          @"file_path":@"0"
+                          @"file_path":@"0",
+                          @"file_id" : @"8" 
+                          
                           };
     
     NSMutableDictionary *dict = [NetDataService needCommand:@"2052" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"dev_sn" , @"alarm_info"] andNeedBobyArrValue:@[DEV_SN , dic]];

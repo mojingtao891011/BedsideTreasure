@@ -73,6 +73,10 @@
         }
     }];
     [request setFailedBlock:^{
+        //隐藏等待指示器
+        [MBProgressHUD hideHUDForView:viewCtl.view animated:YES];
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:@"网络不给力" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alertView show];
         //NSError *error = [request error];
        // block([error localizedDescription]);
     }];

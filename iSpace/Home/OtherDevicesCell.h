@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DevicesInfoModel.h"
 
 @interface OtherDevicesCell : UITableViewCell
+
+@property(nonatomic , assign)id<UIActionSheetDelegate>dele ;
+@property(nonatomic , retain)UIViewController *showViewCtl ;
+@property(nonatomic , retain)NSMutableArray *devicesTotalArr ;
 @property (weak, nonatomic) IBOutlet UIButton *changeButton;
 
 - (IBAction)changeDevicesAction:(id)sender;
