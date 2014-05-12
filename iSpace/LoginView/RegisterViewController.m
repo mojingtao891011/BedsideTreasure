@@ -133,20 +133,31 @@
 {
     
     //请求体
-    NSMutableDictionary *Dict = [NetDataService needCommand:@"2048" andNeedUserId:@"0" AndNeedBobyArrKey:@[@"name" , @"password" , @"email", @"phone_no"] andNeedBobyArrValue:@[_userName.text , _MD5Password , _email.text,  _phoneNumber.text]];
+    //用户名Base64加密
+    NSData *data = [_userName.text dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *baseUserName = [[NSString alloc] initWithData:[GTMBase64 encodeData:data] encoding:NSUTF8StringEncoding];
+    
+    NSMutableDictionary *Dict = nil ;
+    if (_phoneNumber.text.length == 0) {
+        Dict = [NetDataService needCommand:@"2048" andNeedUserId:@"-1" AndNeedBobyArrKey:@[@"name" , @"password" , @"email", @"phone_no"] andNeedBobyArrValue:@[baseUserName , _MD5Password , _email.text , @""]];
+
+    }else{
+        Dict = [NetDataService needCommand:@"2048" andNeedUserId:@"0" AndNeedBobyArrKey:@[@"name" , @"password" , @"email", @"phone_no"] andNeedBobyArrValue:@[_userName.text , _MD5Password , _email.text , _phoneNumber.text]];
+
+    }
     
     //请求网络
-    [NetDataService requestWithUrl:URl dictParams:Dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"Registering" andViewCtl:self completeBlock:^(id result){
-#warning result
-        NSLog(@"++++===%@" , result);
-        NSDictionary *returnInfoDict = result[@"message_body"];
-        //保存user_id
-        NSString *userID = returnInfoDict[@"uid"];
-        [[NSUserDefaults standardUserDefaults] setObject:userID forKey:@"uid"];
-        [[NSUserDefaults standardUserDefaults]  synchronize];
+    [NetDataService requestWithUrl:URl dictParams:Dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"注册中……" andViewCtl:self completeBlock:^(id result){
         
+        NSDictionary *returnInfoDict = result[@"message_body"];
         NSString *returnInt = returnInfoDict[@"error"];
         int infoInt = [returnInt intValue];
+        //保存user_id
+        if (infoInt == 0) {
+            NSString *userID = returnInfoDict[@"user_id"];
+            [[NSUserDefaults standardUserDefaults] setObject:userID forKey:@"uid"];
+            [[NSUserDefaults standardUserDefaults]  synchronize];
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self isSuccessRegister:infoInt];
         });
@@ -166,6 +177,9 @@
             _label.alpha = 1.0  , _userNameLabel.alpha = 1.0 ;
             _userNameLabel.text = _userName.text ;
             [_userNameLabel sizeToFit] ;
+            //注册成功保存用户名
+            [[NSUserDefaults standardUserDefaults] setObject:_userName.text forKey:@"USERNAME"];
+            [[NSUserDefaults standardUserDefaults]  synchronize];
             break;
         case -1:
             _label.alpha = 0.0  , _userNameLabel.alpha = 0.0 ;
@@ -241,7 +255,7 @@
         else{
             return [self isMobileNumber:_phoneNumber.text];
         }
-        return YES ;
+        
     }else{
         if (!isName) {
             _promptMessage = @"用户名不符合要求" ;

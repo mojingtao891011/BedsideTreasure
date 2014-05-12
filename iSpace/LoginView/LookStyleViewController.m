@@ -79,7 +79,7 @@
         NSDictionary *returnDict = result[@"message_body"] ;
         NSString *returnError = returnDict[@"error"] ;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+
             [self returnMainPage:returnError];
         });
 
@@ -136,7 +136,6 @@
         NSDictionary *returnInfo = result[@"message_body"];
         NSString *returnError = returnInfo[@"error"];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
             [self returmMain:returnError];
         });
     }];

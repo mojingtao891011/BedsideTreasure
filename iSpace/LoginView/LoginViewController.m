@@ -157,12 +157,15 @@
     }
     
    //请求体
+    //用户名Base64加密
+    NSData *data = [_userName.text dataUsingEncoding:NSUTF8StringEncoding];
+    _baseUserName = [[NSString alloc] initWithData:[GTMBase64 encodeData:data] encoding:NSUTF8StringEncoding];
     _MD5Password = [self md5:_passWord.text];
-    NSMutableDictionary *dict = [NetDataService needCommand:@"2049" andNeedUserId:@"0" AndNeedBobyArrKey:@[@"account" , @"password"] andNeedBobyArrValue:@[_userName.text,  _MD5Password]];
+    NSMutableDictionary *dict = [NetDataService needCommand:@"2049" andNeedUserId:@"0" AndNeedBobyArrKey:@[@"account" , @"password"] andNeedBobyArrValue:@[_baseUserName,  _MD5Password]];
     
     //请求网络
-    [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"Langing" andViewCtl:self completeBlock:^(id result){
-
+    [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:nil andViewCtl:self completeBlock:^(id result){
+        
         NSDictionary *returnInfo = result[@"message_body"];
         //保存用户ID
         NSString *userID = returnInfo[@"uid"];
@@ -217,7 +220,7 @@
         case 0:
             _count = 0 ;
             //保存用户名
-            [[NSUserDefaults standardUserDefaults] setObject:_userName.text forKey:@"USERNAME"];
+            [[NSUserDefaults standardUserDefaults] setObject:_baseUserName forKey:@"USERNAME"];
             [[NSUserDefaults standardUserDefaults]  synchronize];
             [self presentViewController:tabBarViewCtl animated:YES completion:nil];
                 return;
@@ -229,6 +232,7 @@
             _alertInfo.text = @"用户不存在" ;
             break;
         case -202:
+                [self presentViewController:tabBarViewCtl animated:YES completion:nil];
             _alertInfo.text = @"用户已登录" ;
             break;
         case -206:
@@ -302,14 +306,18 @@
     RegisterViewController *registerViewCtl = [[RegisterViewController alloc]init];
     [self.navigationController pushViewController:registerViewCtl animated:YES];
 }
-#pragma mark-----忘记密码框的确定按钮
+#pragma mark-----忘记密码框的确定按钮(和找回密码按钮)
 - (IBAction)forgetPassWord:(id)sender {
     
     UIButton *button = (UIButton*)sender ;
+    //用户名Base64加密
+    NSData *data = [_userName.text dataUsingEncoding:NSUTF8StringEncoding];
+    _baseUserName = [[NSString alloc] initWithData:[GTMBase64 encodeData:data] encoding:NSUTF8StringEncoding];
+
     if (button.tag == 100 ) {
         if (_userName.text.length != 0) {
             LookPassWordViewController *lookPassWordViewCtl = [[LookPassWordViewController alloc]init] ;
-            lookPassWordViewCtl.userName = _userName.text ;
+            lookPassWordViewCtl.userName = _baseUserName ;
             [self.navigationController pushViewController:lookPassWordViewCtl animated:YES];
         }else{
             self.userName_bg.layer.borderColor = [UIColor redColor].CGColor;
@@ -319,7 +327,7 @@
     }else{
          [button setBackgroundColor:buttonSelectedBackgundColor];
         LookPassWordViewController *lookPassWordViewCtl = [[LookPassWordViewController alloc]init] ;
-        lookPassWordViewCtl.userName = _userName.text ;
+        lookPassWordViewCtl.userName = _baseUserName ;
         [self.navigationController pushViewController:lookPassWordViewCtl animated:YES];
          self.alertView.top = ScreenHeight ;
     }

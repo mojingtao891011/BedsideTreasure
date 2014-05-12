@@ -10,4 +10,5 @@
 
 @interface HelpViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate>
 @property(nonatomic , retain)NSArray *dataSourceArr ;
+@property (weak, nonatomic) IBOutlet UITableView *helpTableView;
 @end

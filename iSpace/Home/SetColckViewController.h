@@ -9,6 +9,11 @@
 #import "BaseViewController.h"
 
 @interface SetColckViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate>
+{
+    NSMutableArray *_recordArr ;
+    NSMutableArray *_fmArr ;
+}
 @property (weak, nonatomic) IBOutlet UITableView *setAlarmTabelView;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datepickView;
 @property(nonatomic , assign)int clockButtonTag ;
 @end

@@ -12,6 +12,7 @@
 #import "RingViewController.h"
 #import "SettingViewController.h"
 #import "BaseNavViewController.h"
+#import "HomeViewController.h"
 
 @interface TabBarViewController ()
 @end

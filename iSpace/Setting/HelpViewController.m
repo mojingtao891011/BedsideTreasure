@@ -26,7 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.dataSourceArr = @[@"基本介绍" , @"注册/登录" , @"账号安全" , @"忘记密码" , @"iSpace" , @"下载安装" , @"功能问题" , @"支付购买" ];
+    self.dataSourceArr = @[@"基本介绍" , @"注册/登录" , @"账号安全" , @"忘记密码"  , @"下载安装" , @"功能问题" , @"支付购买" ];
+    [self setExtraCellLineHidden:_helpTableView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,10 +46,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator ;
-        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(10, 43, tableView.width-20, 1)];
-        lineView.backgroundColor = [UIColor lightGrayColor];
-        [cell.contentView addSubview:lineView];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator ;
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 13, 0, 20)];
         titleLabel.tag = 12 ;
         titleLabel.backgroundColor = [UIColor clearColor];
@@ -61,5 +59,11 @@
     label.textColor = FontColor;
     return cell ;
 }
-
+//UITableView隐藏多余的分割线
+- (void)setExtraCellLineHidden: (UITableView *)tableView{
+    UIView *view =[ [UIView alloc]init];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+    [tableView setTableHeaderView:view];
+}
 @end

@@ -32,6 +32,11 @@
     
     //一开始就主动请求获取用户信息
      [self startNetwork];
+    //保存用户名
+    [[NSUserDefaults standardUserDefaults] setObject:_userName forKey:@"USERNAME"];
+    [[NSUserDefaults standardUserDefaults]  synchronize];
+    
+    [self setExtraCellLineHidden:_lookPassWordTableView];
     
 }
 - (void)didReceiveMemoryWarning
@@ -52,9 +57,6 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         cell.backgroundColor = [UIColor clearColor];
         cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator ;
-        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(10, 43, tableView.width-20, 1)];
-        lineView.backgroundColor = [UIColor lightGrayColor];
-        [cell.contentView addSubview:lineView];
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 13, 0, 20)];
         titleLabel.tag = 11 ;
         [cell.contentView addSubview:titleLabel];
@@ -75,6 +77,14 @@
 
    
 }
+//UITableView隐藏多余的分割线
+- (void)setExtraCellLineHidden: (UITableView *)tableView{
+    UIView *view =[ [UIView alloc]init];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+    [tableView setTableHeaderView:view];
+}
+
 #pragma mark-----customAction
 #pragma mark-----请求网络数据（获取用户信息）
 - (void)startNetwork

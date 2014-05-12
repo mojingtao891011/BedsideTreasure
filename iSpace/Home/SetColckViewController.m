@@ -7,9 +7,8 @@
 //
 
 #import "SetColckViewController.h"
-#import "DatePickTableViewCell.h"
 #import "AlarmInfoTableViewCell.h"
-#import "MusicModel.h"
+#import "RecordModel.h"
 
 @interface SetColckViewController ()
 
@@ -30,77 +29,165 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     _fmArr = [[NSMutableArray alloc]initWithCapacity:10];
+    _recordArr = [[NSMutableArray alloc]initWithCapacity:10];
+    
+    [self getRecordInfo];
     [self registerNibCell];
     
 }
 - (void)registerNibCell
 {
-    [_setAlarmTabelView registerNib:[UINib nibWithNibName:@"DatePickTableViewCell" bundle:nil] forCellReuseIdentifier:@"DatePickTableViewCell"];
-     [_setAlarmTabelView registerNib:[UINib nibWithNibName:@"AlarmInfoTableViewCell" bundle:nil] forCellReuseIdentifier:@"AlarmInfoTableViewCell"];
+    [_setAlarmTabelView registerNib:[UINib nibWithNibName:@"AlarmInfoTableViewCell" bundle:nil] forCellReuseIdentifier:@"AlarmInfoTableViewCell"];
     
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(submitAlarmInfo:) name:@"postAlarmInfo" object:nil];
-    NSLog(@"[MusicModel sharedManager] = %@" , [MusicModel sharedManager]);
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(submitAlarmInfo:) name:@"AlarmInfo" object:nil];
+    
+    
+}
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
+    
     
 }
-#pragma mark-----提交闹钟设置信息
+#pragma mark-----UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1 ;
+}
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    AlarmInfoTableViewCell *alarmInfoCell = [tableView dequeueReusableCellWithIdentifier:@"AlarmInfoTableViewCell"];
+    
+    alarmInfoCell.pushViewCtl = self ;
+    alarmInfoCell.FMArr = [_fmArr mutableCopy];
+    alarmInfoCell.recordArr = [_recordArr mutableCopy];
+    
+    return alarmInfoCell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 255.0 ;
+}
+#pragma mark-----提交闹钟设置信息(note)
 - (void)submitAlarmInfo:(NSNotification*)note
 {
-    NSMutableArray *infoArr = [note object];
+    
+    NSString *dateStr = [self stringFromFomate:_datepickView.date formate:@"HH:mm"] ;
     //以":"切割
-    NSArray *dateArr = [[infoArr lastObject] componentsSeparatedByString:@":"];
+    NSArray *dateArr = [dateStr componentsSeparatedByString:@":"];
     NSString *hour = dateArr[0];
     NSString *minute = dateArr[1];
+    //频率、音量 、铃音类型 、FM频道 、音源路径 、音源 ID
+    NSMutableArray *infoArr = [note object];
+    NSString *frequency = infoArr[0] ;
+    NSString *vol_level = infoArr[1] ;
+    NSString *vol_type = infoArr[2] ;
+    NSString *fm_chnl = infoArr[3];
+    NSString *file_path = infoArr[4] ;
+    NSString *file_id = infoArr[5] ;
+   
     //把设置信息保存到网络
     NSDictionary *dic = @{
-                          @"index": [NSString stringWithFormat:@"%d" , _clockButtonTag],
-                          @"state":@"1" ,
-                          @"frequency": @"3" ,
-                          @"sleep_times":@"0" ,
-                          @"sleep_gap": @"0" ,
-                          @"hour":hour ,
-                          @"minute": minute ,
-                          @"vol_level":@"0" ,
-                          @"vol_type": @"1" ,
-                          @"fm_chnl":@"0" ,
-                          @"file_path":@"0",
-                          @"file_id" : @"8" 
+                          @"index": [NSString stringWithFormat:@"%d" , _clockButtonTag],        //闹钟的索引值
+                          @"state":@"1" ,                 //闹钟的开关状态
+                          @"frequency": frequency ,       //频率
+                          @"sleep_times":@"0" ,     //睡眠次数  
+                          @"sleep_gap": @"0" ,      //睡眠间隔
+                          @"hour":hour ,                //时
+                          @"minute": minute ,       //分
+                          @"vol_level":vol_level ,  //音量
+                          @"vol_type": vol_type ,         //铃音类型0 为语音;1 为音乐;2 为 FM;3 为系统
+                          @"fm_chnl":fm_chnl,           //FM频道
+                          @"file_path":file_path,          //音源路径
+                          @"file_id" : file_id             //音源 ID
                           
                           };
     
     NSMutableDictionary *dict = [NetDataService needCommand:@"2052" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"dev_sn" , @"alarm_info"] andNeedBobyArrValue:@[DEV_SN , dic]];
-    [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"loading" andViewCtl:self completeBlock:^(id result){
+    [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:nil andViewCtl:self completeBlock:^(id result){
         NSLog(@"%@" , result);
+        int errorInt = [result[@"message_body"][@"error"] intValue];
+        if (errorInt == 0) {
+            UIAlertView *alertView =[ [UIAlertView alloc]initWithTitle:nil message:@"闹钟设置成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] ;
+            [alertView show];
+        }else{
+            UIAlertView *alertView =[ [UIAlertView alloc]initWithTitle:nil message:@"闹钟设置失败，您到闹钟可能离线" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] ;
+            [alertView show];
+        }
+        
     }];
 
 }
-#pragma mark-----UITableViewDataSource 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+#pragma mark-----将NSDate转化为NSString
+- (NSString*) stringFromFomate:(NSDate*) date formate:(NSString*)formate
 {
-    return 2 ;
+	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+	[formatter setDateFormat:formate];
+	NSString *str = [formatter stringFromDate:date];
+	return str;
 }
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark-----从网络获取音乐、FM、录音
+- (void)getRecordInfo
 {
-    DatePickTableViewCell *datePickCell = [tableView dequeueReusableCellWithIdentifier:@"DatePickTableViewCell"];
-    AlarmInfoTableViewCell *alarmInfoCell = [tableView dequeueReusableCellWithIdentifier:@"AlarmInfoTableViewCell"];
-    NSArray *cellArr = @[datePickCell ,  alarmInfoCell ];
-    alarmInfoCell.pushViewCtl = self ;
+    //获取语音
+    NSMutableDictionary *musicDict = [NetDataService needCommand:@"2074" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"req_id"] andNeedBobyArrValue:@[@""]];
+    [NetDataService requestWithUrl:URl dictParams:musicDict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:nil andViewCtl:self completeBlock:^(id result){
+        
+        int errorInt = [result[@"message_body"][@"error"] intValue];
+        int totalInt = [result[@"message_body"][@"total"] intValue];
+        if (errorInt == 0 && totalInt != 0) {
+            NSArray *musicInfoArr = result[@"message_body"][@"info"] ;
+            for (NSDictionary *musicDict in musicInfoArr) {
+                RecordModel *recordModel = [[RecordModel alloc]initWithDataDic:musicDict];
+                [_recordArr addObject:recordModel];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_setAlarmTabelView reloadData];
+                [self getFMInfo];
+                
+            });
+        }
+    }];
     
-    return cellArr[indexPath.row];
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)getFMInfo
 {
-    NSArray *heightArr = @[@"240" , @"255"  ];
-    NSString *height = heightArr[indexPath.row];
-    return [height floatValue] ;
+    //获取FM
+    NSMutableDictionary *FMDict = [NetDataService needCommand:@"2053" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"dev_sn"] andNeedBobyArrValue:@[DEV_SN]];
+    [NetDataService requestWithUrl:URl dictParams:FMDict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:nil andViewCtl:self completeBlock:^(id result){
+        
+        int errorInt = [result[@"message_body"][@"error"] intValue];
+        int totalInt = [result[@"message_body"][@"fm_info"][@"total"] intValue];
+        if (errorInt == 0 && totalInt != 0) {
+            NSArray *FMlist = result[@"message_body"][@"fm_info"][@"list"];
+            for (NSString *FMChannel in FMlist) {
+                    [_fmArr addObject:FMChannel];
+            }
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_setAlarmTabelView reloadData];
+           
+        });
+    }];
+
 }
+//- (void)getRecordInfo
+//{
+//    //获取语音
+//    NSMutableDictionary *recordDict = [NetDataService needCommand:@"2075" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"req_id"] andNeedBobyArrValue:@[@""]];
+//    [NetDataService requestWithUrl:URl dictParams:recordDict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:nil andViewCtl:self completeBlock:^(id result){
+//        NSLog(@"record = %@" , result);
+//    }];
+//
+//}
 @end

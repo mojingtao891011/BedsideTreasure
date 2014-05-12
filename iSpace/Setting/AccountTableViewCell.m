@@ -24,6 +24,23 @@
 }
 - (void)layoutSubviews
 {
+    [super layoutSubviews];
+    
+    if ([_selectedSex isEqualToString:@"0"]) {
+        self.radioButton_b.selected = YES ;
+        self.radioButton.selected = NO ;
+    }else if ([_selectedSex isEqualToString:@"1"]){
+        self.radioButton.selected = YES ;
+        self.radioButton_b.selected = NO ;
+    }
+
+}
+- (IBAction)selectedAction:(UIButton *)sender {
+    if (sender.tag == 1) {
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"selectedSexNote" object:@"1"];
+    }else{
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"selectedSexNote" object:@"0"];
+    }
     
 }
 @end
