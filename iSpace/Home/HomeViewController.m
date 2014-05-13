@@ -69,8 +69,12 @@
         
         for (int i = 0 ; i < _alarmInfoArr.count ; i++) {
             AlarmInfoModel *alarmModel = _alarmInfoArr[i] ;
-            NSString *hour = nil ;
-            NSString *minute = nil ;
+            NSLog(@"==%@ , %@" , alarmModel.hour , alarmModel.minute);
+            if (alarmModel.hour.length ==0  || alarmModel.minute.length == 0) {
+                return ;
+            }
+            NSString *hour = alarmModel.hour ;
+            NSString *minute = alarmModel.minute ;
             if ([alarmModel.hour intValue] <= 9) {
                 hour = [NSString stringWithFormat:@"0%@" , alarmModel.hour];
             }
@@ -81,16 +85,15 @@
             //把NSString转化为NSDate
             NSDate* date = [self dateFromFomate:timeStr formate:@"HH:mm"];
             
-            AlarmClock *clock = _clockArr[i];
+            AlarmClock *clock = _clockArr[0];
             clock.time = date ;
             [clock setNeedsDisplay];
             
-            UILabel *timeLabel = _clockLabelArr[i];
-            timeLabel.text = timeStr ;
-            [timeLabel sizeToFit];
+            UILabel *timeLabel = _clockLabelArr[i] ;
+            
+            timeLabel.text = timeStr;
             
         }
-
     }
 
 }

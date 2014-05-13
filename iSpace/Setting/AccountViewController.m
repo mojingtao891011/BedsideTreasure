@@ -358,8 +358,17 @@
         _birthday =[NSString stringWithFormat:@"%@-%@-%@",_userInfoModel.year , _userInfoModel.month , _userInfoModel.day];
         _city = _userInfoModel.city ;
         _pic_url = _userInfoModel.pic_url ;
+        /*BASE64加密、解密 GTMBase64.h /GTMDefines.h
+        使用方式如下：
+        加密：
         
-        _userInfoArr = [NSMutableArray arrayWithObjects:_pic_url ,_userInfoModel.name ,  _userInfoModel.sex , _birthday , _city , _userInfoModel.phone_no , _userInfoModel.email , @"", nil];
+        [[NSString alloc] initWithData:[GTMBase64 encodeData:datatoencode]                   encoding:NSUTF8StringEncoding];
+        解密：
+        
+        [[NSString alloc] initWithData:[GTMBase64 decodeString:datatodecode]                    encoding:NSUTF8StringEncoding];
+         */
+        NSString *userName = [[NSString alloc]initWithData:[GTMBase64 decodeString:_userInfoModel.name] encoding:NSUTF8StringEncoding];
+        _userInfoArr = [NSMutableArray arrayWithObjects:_pic_url ,userName ,  _userInfoModel.sex , _birthday , _city , _userInfoModel.phone_no , _userInfoModel.email , @"", nil];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             _sex = _userInfoModel.sex ;

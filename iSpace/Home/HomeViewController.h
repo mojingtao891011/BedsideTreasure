@@ -27,8 +27,9 @@
 @property (weak, nonatomic) IBOutlet AlarmClock *clock4;
 @property (weak, nonatomic) IBOutlet UILabel *label1;
 @property (weak, nonatomic) IBOutlet UILabel *label2;
-@property (weak, nonatomic) IBOutlet AlarmClock *label3;
-@property (weak, nonatomic) IBOutlet AlarmClock *label4;
+@property (weak, nonatomic) IBOutlet UILabel *label3;
+@property (weak, nonatomic) IBOutlet UILabel *label4;
+
 
 - (IBAction)clickAlarmClockAction:(UIButton *)sender;
 

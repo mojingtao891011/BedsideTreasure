@@ -174,22 +174,6 @@
     }else{
         NSArray *oldItems = [_myCollection items];
         NSArray *newItems = [oldItems arrayByAddingObjectsFromArray:[mediaItemCollection items]];
-//        //NSArray *newItems = [mediaItemCollection items];
-//        NSMutableArray *newItems = [[NSMutableArray alloc]initWithArray:mediaItemCollection.items];
-//        
-//        for (MPMediaItem *newMusicItems in newItems) {
-//            NSNumber *newMusic_id = [newMusicItems valueForProperty:MPMediaItemPropertyPersistentID];
-//            for (MPMediaItem *oldMusicItems in oldItems) {
-//                NSNumber *oldMusic_id = [oldMusicItems valueForProperty:MPMediaItemPropertyPersistentID];
-//                if ([newMusic_id isEqualToNumber:oldMusic_id]) {
-//                   // NSLog(@"===>>%@" , [newMusicItems valueForProperty:MPMediaItemPropertyTitle]);
-//                    //[newItems removeObject:newMusicItems];
-//                    
-//                    
-//                }
-//            }
-//            
-//        }
          NSArray *mergerItems = [oldItems arrayByAddingObjectsFromArray:newItems];
         _myCollection = [[MPMediaItemCollection alloc]initWithItems:mergerItems];
         [_musicListTableView reloadData];
