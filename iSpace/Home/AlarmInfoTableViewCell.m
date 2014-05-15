@@ -10,6 +10,7 @@
 #import "ListViewController.h"
 #import "RecordModel.h"
 #import "AddLocalMusicViewController.h"
+#import "AddMusicViewController.h"
 
 @implementation AlarmInfoTableViewCell
 
@@ -157,10 +158,10 @@
     listViewCtl.titleLabel.text = [NSString stringWithFormat:@"%@列表", _RingStyleTitleStr] ;
     [listViewCtl.titleLabel sizeToFit];
     
-    static AddLocalMusicViewController *addLocalMusicCtl = nil ;
+    static AddMusicViewController *addLocalMusicCtl = nil ;
     if ([_RingStyleTitleStr isEqualToString:@"音乐"])  {
         if (addLocalMusicCtl == nil) {
-             addLocalMusicCtl = [[AddLocalMusicViewController alloc]init];
+             addLocalMusicCtl = [[AddMusicViewController alloc]init];
         }
         [_pushViewCtl.navigationController pushViewController:addLocalMusicCtl animated:YES];
         return ;

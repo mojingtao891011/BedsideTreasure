@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddMusicViewController">
+            <connections>
+                <outlet property="musicTableView" destination="alz-82-EiN" id="VdV-Oa-su9"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wifiCell" destination="sbB-SB-gwk" id="CFS-Zh-cjj"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="alz-82-EiN">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="GHk-CF-GRS"/>
+                        <outlet property="delegate" destination="-1" id="TWT-5c-ohW"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="alz-82-EiN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3dm-SR-2XR"/>
+                <constraint firstAttribute="trailing" secondItem="alz-82-EiN" secondAttribute="trailing" id="D03-JE-dRG"/>
+                <constraint firstItem="alz-82-EiN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="HOe-cA-m7i"/>
+                <constraint firstAttribute="bottom" secondItem="alz-82-EiN" secondAttribute="bottom" id="i0g-GA-pDy"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+        </view>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="sbB-SB-gwk">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sbB-SB-gwk" id="JgU-wo-zIN">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="导入音乐" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApA-BC-OIu">
+                        <rect key="frame" x="142" y="11" width="68" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi_normal.png" translatesAutoresizingMaskIntoConstraints="NO" id="gna-cz-l7O">
+                        <rect key="frame" x="110" y="8" width="27" height="27"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="27" id="gUo-uc-YgK"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ApA-BC-OIu" firstAttribute="centerY" secondItem="gna-cz-l7O" secondAttribute="centerY" id="NsK-Vz-IOa"/>
+                    <constraint firstItem="ApA-BC-OIu" firstAttribute="centerY" secondItem="JgU-wo-zIN" secondAttribute="centerY" id="RrG-1r-mdF"/>
+                    <constraint firstItem="gna-cz-l7O" firstAttribute="leading" secondItem="JgU-wo-zIN" secondAttribute="leading" constant="110" id="XGb-ZI-dtZ"/>
+                    <constraint firstItem="gna-cz-l7O" firstAttribute="top" secondItem="JgU-wo-zIN" secondAttribute="top" constant="8" id="rQz-ih-380"/>
+                    <constraint firstItem="ApA-BC-OIu" firstAttribute="leading" secondItem="gna-cz-l7O" secondAttribute="trailing" constant="5" id="uMb-Pg-btw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="wifi_normal.png" width="55" height="55"/>
+    </resources>
+</document>

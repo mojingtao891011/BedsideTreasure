@@ -7,6 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8791E531924CE02009E688B /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E1D1924CE02009E688B /* DDData.m */; };
+		B8791E541924CE02009E688B /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E1F1924CE02009E688B /* DDNumber.m */; };
+		B8791E551924CE02009E688B /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E211924CE02009E688B /* DDRange.m */; };
+		B8791E561924CE02009E688B /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E231924CE02009E688B /* DDAbstractDatabaseLogger.m */; };
+		B8791E571924CE02009E688B /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E251924CE02009E688B /* DDASLLogger.m */; };
+		B8791E581924CE02009E688B /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E271924CE02009E688B /* DDFileLogger.m */; };
+		B8791E591924CE02009E688B /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E291924CE02009E688B /* DDLog.m */; };
+		B8791E5A1924CE02009E688B /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E2B1924CE02009E688B /* DDTTYLogger.m */; };
+		B8791E5B1924CE02009E688B /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E2E1924CE02009E688B /* ContextFilterLogFormatter.m */; };
+		B8791E5C1924CE02009E688B /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E301924CE02009E688B /* DispatchQueueLogFormatter.m */; };
+		B8791E5D1924CE02009E688B /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E321924CE02009E688B /* GCDAsyncSocket.m */; };
+		B8791E5E1924CE02009E688B /* HTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E341924CE02009E688B /* HTTPAuthenticationRequest.m */; };
+		B8791E5F1924CE02009E688B /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E361924CE02009E688B /* HTTPConnection.m */; };
+		B8791E601924CE02009E688B /* HTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E391924CE02009E688B /* HTTPMessage.m */; };
+		B8791E611924CE02009E688B /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E3C1924CE02009E688B /* HTTPServer.m */; };
+		B8791E621924CE02009E688B /* MultipartFormDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E3F1924CE02009E688B /* MultipartFormDataParser.m */; };
+		B8791E631924CE02009E688B /* MultipartMessageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E411924CE02009E688B /* MultipartMessageHeader.m */; };
+		B8791E641924CE02009E688B /* MultipartMessageHeaderField.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E431924CE02009E688B /* MultipartMessageHeaderField.m */; };
+		B8791E651924CE02009E688B /* HTTPAsyncFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E461924CE02009E688B /* HTTPAsyncFileResponse.m */; };
+		B8791E661924CE02009E688B /* HTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E481924CE02009E688B /* HTTPDataResponse.m */; };
+		B8791E671924CE02009E688B /* HTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E4A1924CE02009E688B /* HTTPDynamicFileResponse.m */; };
+		B8791E681924CE02009E688B /* HTTPErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E4C1924CE02009E688B /* HTTPErrorResponse.m */; };
+		B8791E691924CE02009E688B /* HTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E4E1924CE02009E688B /* HTTPFileResponse.m */; };
+		B8791E6A1924CE02009E688B /* HTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E501924CE02009E688B /* HTTPRedirectResponse.m */; };
+		B8791E6B1924CE02009E688B /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E521924CE02009E688B /* WebSocket.m */; };
+		B8791E6E1924CE50009E688B /* website in Resources */ = {isa = PBXBuildFile; fileRef = B8791E6D1924CE50009E688B /* website */; };
+		B8791E781924CED7009E688B /* AddMusicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8791E6F1924CED7009E688B /* AddMusicCell.xib */; };
+		B8791E791924CED7009E688B /* AddMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E711924CED7009E688B /* AddMusicViewController.m */; };
+		B8791E7A1924CED7009E688B /* AddMusicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8791E721924CED7009E688B /* AddMusicViewController.xib */; };
+		B8791E7B1924CED7009E688B /* AYHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E741924CED7009E688B /* AYHTTPConnection.m */; };
+		B8791E7C1924CED7009E688B /* WifiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8791E761924CED7009E688B /* WifiViewController.m */; };
+		B8791E7D1924CED7009E688B /* WifiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8791E771924CED7009E688B /* WifiViewController.xib */; };
+		B8791E801924CEF6009E688B /* wifi_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = B8791E7E1924CEF6009E688B /* wifi_normal.png */; };
+		B8791E811924CEF6009E688B /* wifi_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = B8791E7F1924CEF6009E688B /* wifi_pressed.png */; };
 		FB0059A7191B4A870025C69E /* CityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0059A5191B4A870025C69E /* CityListViewController.m */; };
 		FB0059A8191B4A870025C69E /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB0059A6191B4A870025C69E /* CityTableViewCell.xib */; };
 		FB079B8519021B0100847ED8 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB079B8419021B0100847ED8 /* MediaPlayer.framework */; };
@@ -186,6 +220,70 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B8791E1C1924CE02009E688B /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDData.h; sourceTree = "<group>"; };
+		B8791E1D1924CE02009E688B /* DDData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDData.m; sourceTree = "<group>"; };
+		B8791E1E1924CE02009E688B /* DDNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNumber.h; sourceTree = "<group>"; };
+		B8791E1F1924CE02009E688B /* DDNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNumber.m; sourceTree = "<group>"; };
+		B8791E201924CE02009E688B /* DDRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDRange.h; sourceTree = "<group>"; };
+		B8791E211924CE02009E688B /* DDRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDRange.m; sourceTree = "<group>"; };
+		B8791E221924CE02009E688B /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		B8791E231924CE02009E688B /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		B8791E241924CE02009E688B /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		B8791E251924CE02009E688B /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		B8791E261924CE02009E688B /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		B8791E271924CE02009E688B /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		B8791E281924CE02009E688B /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		B8791E291924CE02009E688B /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		B8791E2A1924CE02009E688B /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		B8791E2B1924CE02009E688B /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		B8791E2D1924CE02009E688B /* ContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		B8791E2E1924CE02009E688B /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		B8791E2F1924CE02009E688B /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		B8791E301924CE02009E688B /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		B8791E311924CE02009E688B /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		B8791E321924CE02009E688B /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		B8791E331924CE02009E688B /* HTTPAuthenticationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPAuthenticationRequest.h; sourceTree = "<group>"; };
+		B8791E341924CE02009E688B /* HTTPAuthenticationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPAuthenticationRequest.m; sourceTree = "<group>"; };
+		B8791E351924CE02009E688B /* HTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPConnection.h; sourceTree = "<group>"; };
+		B8791E361924CE02009E688B /* HTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPConnection.m; sourceTree = "<group>"; };
+		B8791E371924CE02009E688B /* HTTPLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPLogging.h; sourceTree = "<group>"; };
+		B8791E381924CE02009E688B /* HTTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPMessage.h; sourceTree = "<group>"; };
+		B8791E391924CE02009E688B /* HTTPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPMessage.m; sourceTree = "<group>"; };
+		B8791E3A1924CE02009E688B /* HTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPResponse.h; sourceTree = "<group>"; };
+		B8791E3B1924CE02009E688B /* HTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPServer.h; sourceTree = "<group>"; };
+		B8791E3C1924CE02009E688B /* HTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPServer.m; sourceTree = "<group>"; };
+		B8791E3E1924CE02009E688B /* MultipartFormDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartFormDataParser.h; sourceTree = "<group>"; };
+		B8791E3F1924CE02009E688B /* MultipartFormDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipartFormDataParser.m; sourceTree = "<group>"; };
+		B8791E401924CE02009E688B /* MultipartMessageHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartMessageHeader.h; sourceTree = "<group>"; };
+		B8791E411924CE02009E688B /* MultipartMessageHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipartMessageHeader.m; sourceTree = "<group>"; };
+		B8791E421924CE02009E688B /* MultipartMessageHeaderField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartMessageHeaderField.h; sourceTree = "<group>"; };
+		B8791E431924CE02009E688B /* MultipartMessageHeaderField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipartMessageHeaderField.m; sourceTree = "<group>"; };
+		B8791E451924CE02009E688B /* HTTPAsyncFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPAsyncFileResponse.h; sourceTree = "<group>"; };
+		B8791E461924CE02009E688B /* HTTPAsyncFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPAsyncFileResponse.m; sourceTree = "<group>"; };
+		B8791E471924CE02009E688B /* HTTPDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPDataResponse.h; sourceTree = "<group>"; };
+		B8791E481924CE02009E688B /* HTTPDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPDataResponse.m; sourceTree = "<group>"; };
+		B8791E491924CE02009E688B /* HTTPDynamicFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPDynamicFileResponse.h; sourceTree = "<group>"; };
+		B8791E4A1924CE02009E688B /* HTTPDynamicFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPDynamicFileResponse.m; sourceTree = "<group>"; };
+		B8791E4B1924CE02009E688B /* HTTPErrorResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPErrorResponse.h; sourceTree = "<group>"; };
+		B8791E4C1924CE02009E688B /* HTTPErrorResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPErrorResponse.m; sourceTree = "<group>"; };
+		B8791E4D1924CE02009E688B /* HTTPFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPFileResponse.h; sourceTree = "<group>"; };
+		B8791E4E1924CE02009E688B /* HTTPFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPFileResponse.m; sourceTree = "<group>"; };
+		B8791E4F1924CE02009E688B /* HTTPRedirectResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRedirectResponse.h; sourceTree = "<group>"; };
+		B8791E501924CE02009E688B /* HTTPRedirectResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPRedirectResponse.m; sourceTree = "<group>"; };
+		B8791E511924CE02009E688B /* WebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocket.h; sourceTree = "<group>"; };
+		B8791E521924CE02009E688B /* WebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocket.m; sourceTree = "<group>"; };
+		B8791E6D1924CE50009E688B /* website */ = {isa = PBXFileReference; lastKnownFileType = folder; path = website; sourceTree = "<group>"; };
+		B8791E6F1924CED7009E688B /* AddMusicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddMusicCell.xib; sourceTree = "<group>"; };
+		B8791E701924CED7009E688B /* AddMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMusicViewController.h; sourceTree = "<group>"; };
+		B8791E711924CED7009E688B /* AddMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMusicViewController.m; sourceTree = "<group>"; };
+		B8791E721924CED7009E688B /* AddMusicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddMusicViewController.xib; sourceTree = "<group>"; };
+		B8791E731924CED7009E688B /* AYHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHTTPConnection.h; sourceTree = "<group>"; };
+		B8791E741924CED7009E688B /* AYHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHTTPConnection.m; sourceTree = "<group>"; };
+		B8791E751924CED7009E688B /* WifiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiViewController.h; sourceTree = "<group>"; };
+		B8791E761924CED7009E688B /* WifiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiViewController.m; sourceTree = "<group>"; };
+		B8791E771924CED7009E688B /* WifiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WifiViewController.xib; sourceTree = "<group>"; };
+		B8791E7E1924CEF6009E688B /* wifi_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi_normal.png; sourceTree = "<group>"; };
+		B8791E7F1924CEF6009E688B /* wifi_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi_pressed.png; sourceTree = "<group>"; };
 		FB0059A4191B4A870025C69E /* CityListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityListViewController.h; sourceTree = "<group>"; };
 		FB0059A5191B4A870025C69E /* CityListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityListViewController.m; sourceTree = "<group>"; };
 		FB0059A6191B4A870025C69E /* CityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityTableViewCell.xib; sourceTree = "<group>"; };
@@ -455,6 +553,123 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B8791E191924CDD1009E688B /* wifiAddMusic */ = {
+			isa = PBXGroup;
+			children = (
+				B8791E6F1924CED7009E688B /* AddMusicCell.xib */,
+				B8791E701924CED7009E688B /* AddMusicViewController.h */,
+				B8791E711924CED7009E688B /* AddMusicViewController.m */,
+				B8791E721924CED7009E688B /* AddMusicViewController.xib */,
+				B8791E731924CED7009E688B /* AYHTTPConnection.h */,
+				B8791E741924CED7009E688B /* AYHTTPConnection.m */,
+				B8791E751924CED7009E688B /* WifiViewController.h */,
+				B8791E761924CED7009E688B /* WifiViewController.m */,
+				B8791E771924CED7009E688B /* WifiViewController.xib */,
+				B8791E6C1924CE45009E688B /* Resources */,
+				B8791E1A1924CE02009E688B /* CocoaHTTPServer */,
+			);
+			name = wifiAddMusic;
+			sourceTree = "<group>";
+		};
+		B8791E1A1924CE02009E688B /* CocoaHTTPServer */ = {
+			isa = PBXGroup;
+			children = (
+				B8791E1B1924CE02009E688B /* Categories */,
+				B8791E221924CE02009E688B /* DDAbstractDatabaseLogger.h */,
+				B8791E231924CE02009E688B /* DDAbstractDatabaseLogger.m */,
+				B8791E241924CE02009E688B /* DDASLLogger.h */,
+				B8791E251924CE02009E688B /* DDASLLogger.m */,
+				B8791E261924CE02009E688B /* DDFileLogger.h */,
+				B8791E271924CE02009E688B /* DDFileLogger.m */,
+				B8791E281924CE02009E688B /* DDLog.h */,
+				B8791E291924CE02009E688B /* DDLog.m */,
+				B8791E2A1924CE02009E688B /* DDTTYLogger.h */,
+				B8791E2B1924CE02009E688B /* DDTTYLogger.m */,
+				B8791E2C1924CE02009E688B /* Extensions */,
+				B8791E311924CE02009E688B /* GCDAsyncSocket.h */,
+				B8791E321924CE02009E688B /* GCDAsyncSocket.m */,
+				B8791E331924CE02009E688B /* HTTPAuthenticationRequest.h */,
+				B8791E341924CE02009E688B /* HTTPAuthenticationRequest.m */,
+				B8791E351924CE02009E688B /* HTTPConnection.h */,
+				B8791E361924CE02009E688B /* HTTPConnection.m */,
+				B8791E371924CE02009E688B /* HTTPLogging.h */,
+				B8791E381924CE02009E688B /* HTTPMessage.h */,
+				B8791E391924CE02009E688B /* HTTPMessage.m */,
+				B8791E3A1924CE02009E688B /* HTTPResponse.h */,
+				B8791E3B1924CE02009E688B /* HTTPServer.h */,
+				B8791E3C1924CE02009E688B /* HTTPServer.m */,
+				B8791E3D1924CE02009E688B /* Mime */,
+				B8791E441924CE02009E688B /* Responses */,
+				B8791E511924CE02009E688B /* WebSocket.h */,
+				B8791E521924CE02009E688B /* WebSocket.m */,
+			);
+			path = CocoaHTTPServer;
+			sourceTree = "<group>";
+		};
+		B8791E1B1924CE02009E688B /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B8791E1C1924CE02009E688B /* DDData.h */,
+				B8791E1D1924CE02009E688B /* DDData.m */,
+				B8791E1E1924CE02009E688B /* DDNumber.h */,
+				B8791E1F1924CE02009E688B /* DDNumber.m */,
+				B8791E201924CE02009E688B /* DDRange.h */,
+				B8791E211924CE02009E688B /* DDRange.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		B8791E2C1924CE02009E688B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B8791E2D1924CE02009E688B /* ContextFilterLogFormatter.h */,
+				B8791E2E1924CE02009E688B /* ContextFilterLogFormatter.m */,
+				B8791E2F1924CE02009E688B /* DispatchQueueLogFormatter.h */,
+				B8791E301924CE02009E688B /* DispatchQueueLogFormatter.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B8791E3D1924CE02009E688B /* Mime */ = {
+			isa = PBXGroup;
+			children = (
+				B8791E3E1924CE02009E688B /* MultipartFormDataParser.h */,
+				B8791E3F1924CE02009E688B /* MultipartFormDataParser.m */,
+				B8791E401924CE02009E688B /* MultipartMessageHeader.h */,
+				B8791E411924CE02009E688B /* MultipartMessageHeader.m */,
+				B8791E421924CE02009E688B /* MultipartMessageHeaderField.h */,
+				B8791E431924CE02009E688B /* MultipartMessageHeaderField.m */,
+			);
+			path = Mime;
+			sourceTree = "<group>";
+		};
+		B8791E441924CE02009E688B /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				B8791E451924CE02009E688B /* HTTPAsyncFileResponse.h */,
+				B8791E461924CE02009E688B /* HTTPAsyncFileResponse.m */,
+				B8791E471924CE02009E688B /* HTTPDataResponse.h */,
+				B8791E481924CE02009E688B /* HTTPDataResponse.m */,
+				B8791E491924CE02009E688B /* HTTPDynamicFileResponse.h */,
+				B8791E4A1924CE02009E688B /* HTTPDynamicFileResponse.m */,
+				B8791E4B1924CE02009E688B /* HTTPErrorResponse.h */,
+				B8791E4C1924CE02009E688B /* HTTPErrorResponse.m */,
+				B8791E4D1924CE02009E688B /* HTTPFileResponse.h */,
+				B8791E4E1924CE02009E688B /* HTTPFileResponse.m */,
+				B8791E4F1924CE02009E688B /* HTTPRedirectResponse.h */,
+				B8791E501924CE02009E688B /* HTTPRedirectResponse.m */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		B8791E6C1924CE45009E688B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B8791E6D1924CE50009E688B /* website */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		FB0C003E18FF891D008DF97E /* RingCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,6 +840,7 @@
 				FBAAC4D2192114A400A89F25 /* HomeViewController.h */,
 				FBAAC4D3192114A400A89F25 /* HomeViewController.m */,
 				FBAAC4D4192114A400A89F25 /* HomeViewController.xib */,
+				B8791E191924CDD1009E688B /* wifiAddMusic */,
 				FBACBAC21908BC7E00C0B880 /* setAlarm */,
 			);
 			path = Home;
@@ -710,6 +926,8 @@
 		FB91CB5118EBD5EB00DF91E3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B8791E7E1924CEF6009E688B /* wifi_normal.png */,
+				B8791E7F1924CEF6009E688B /* wifi_pressed.png */,
 				FBAAC4D71921189C00A89F25 /* 未标题-1.png */,
 				FBAAC4D81921189C00A89F25 /* 未标题-2.png */,
 				FBAAC4D91921189C00A89F25 /* 未标题-3.png */,
@@ -996,6 +1214,7 @@
 				FBC6976418FD1071001EED48 /* a_2.gif in Resources */,
 				FB781CB4191268AD0073E2FA /* ChangePasswordViewController.xib in Resources */,
 				FB3995DE18F04141001EFA9D /* LookPassWordViewController.xib in Resources */,
+				B8791E7D1924CED7009E688B /* WifiViewController.xib in Resources */,
 				FB20EFD5190B96C9008E5C15 /* AddFriendsViewController.xib in Resources */,
 				FB52370C18EEB0D900ACDE50 /* bt_setting_pressed.png in Resources */,
 				FB5D11061910EFF3003FD2E7 /* BingPhoneViewController.xib in Resources */,
@@ -1008,15 +1227,18 @@
 				FB77DAB818FBB79A00A1675D /* ListViewController.xib in Resources */,
 				FB2FF7DE18F11F9800DFA3C1 /* ResetPassWordViewController.xib in Resources */,
 				FB91CB5A18EBD5EB00DF91E3 /* ic_default_avatar.png in Resources */,
+				B8791E801924CEF6009E688B /* wifi_normal.png in Resources */,
 				FB2FC9AE190A41D60086B289 /* FriendsCell.xib in Resources */,
 				FB21E2CD19061D4A00E9B806 /* bt_radio_normal.png in Resources */,
 				FB91CB5D18EBD5EB00DF91E3 /* ic_user.png in Resources */,
 				FBBF7F3318FE9C0B00F2F4C9 /* bt_download_normal@2x.png in Resources */,
 				FBC6971718FCE671001EED48 /* ic_bluetooth_off@2x.png in Resources */,
 				FB21E2B81904B88900E9B806 /* ic_feedback@2x.png in Resources */,
+				B8791E781924CED7009E688B /* AddMusicCell.xib in Resources */,
 				FB91CB5918EBD5EB00DF91E3 /* bt_checkbox_selected.png in Resources */,
 				FB0C004318FF894E008DF97E /* RecordTableViewCell.xib in Resources */,
 				FB21E2BD1904B89800E9B806 /* ic_update@2x.png in Resources */,
+				B8791E6E1924CE50009E688B /* website in Resources */,
 				FB0C003818FF6482008DF97E /* bt_add_music@2x.png in Resources */,
 				FB3484BC18F780CE00708232 /* 37x-Checkmark.png in Resources */,
 				FB91CB5B18EBD5EB00DF91E3 /* ic_lock.png in Resources */,
@@ -1040,6 +1262,7 @@
 				FBBF7F3018FE9B2500F2F4C9 /* bt_play@2x.png in Resources */,
 				FB0CCE891902D0AE0078FF18 /* AddMusicTableViewCell.xib in Resources */,
 				FB52370718EEB0D900ACDE50 /* bt_home_normal.png in Resources */,
+				B8791E7A1924CED7009E688B /* AddMusicViewController.xib in Resources */,
 				FB7E4AF819172A28006552FD /* ListCell.xib in Resources */,
 				FB91CB3F18EBA7DE00DF91E3 /* FriendsViewController.xib in Resources */,
 				FBBF7F3418FE9C0B00F2F4C9 /* bt_download_pressed@2x.png in Resources */,
@@ -1055,6 +1278,7 @@
 				FB52370B18EEB0D900ACDE50 /* bt_setting_normal.png in Resources */,
 				FB21E2B41904B88000E9B806 /* ic_agreement@2x.png in Resources */,
 				FB2FC9B2190A4C640086B289 /* ic_bookmark.png in Resources */,
+				B8791E811924CEF6009E688B /* wifi_pressed.png in Resources */,
 				FBBF7F2718FE866E00F2F4C9 /* bt_arrow_down@2x.png in Resources */,
 				FB1D311E19037DDD0058AF50 /* StartRecordTableViewCell.xib in Resources */,
 				FB2FC9B6190A52CC0086B289 /* ic_add.png in Resources */,
@@ -1097,15 +1321,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8791E5E1924CE02009E688B /* HTTPAuthenticationRequest.m in Sources */,
+				B8791E7B1924CED7009E688B /* AYHTTPConnection.m in Sources */,
+				B8791E641924CE02009E688B /* MultipartMessageHeaderField.m in Sources */,
+				B8791E591924CE02009E688B /* DDLog.m in Sources */,
+				B8791E661924CE02009E688B /* HTTPDataResponse.m in Sources */,
 				FBAAC4D01921147A00A89F25 /* AlarmClock.m in Sources */,
 				FB91CB4418EBA7DE00DF91E3 /* RingViewController.m in Sources */,
 				FB90DDD918F8EC3000961273 /* SBJsonWriter.m in Sources */,
+				B8791E551924CE02009E688B /* DDRange.m in Sources */,
+				B8791E691924CE02009E688B /* HTTPFileResponse.m in Sources */,
 				FB4A701C1918AFCE00A7A055 /* VerifiedViewController.m in Sources */,
 				FB77DAB718FBB79A00A1675D /* ListViewController.m in Sources */,
 				FB2FF7DD18F11F9800DFA3C1 /* ResetPassWordViewController.m in Sources */,
 				FB90DE4518F91A3C00961273 /* NSNumber+Message.m in Sources */,
 				FB91CB4218EBA7DE00DF91E3 /* LoginViewController.m in Sources */,
 				FB0C003C18FF8652008DF97E /* MusicTableViewCell.m in Sources */,
+				B8791E621924CE02009E688B /* MultipartFormDataParser.m in Sources */,
 				FB91CB4C18EBA7FE00DF91E3 /* TabBarViewController.m in Sources */,
 				FB91CB3E18EBA7DE00DF91E3 /* FriendsViewController.m in Sources */,
 				FB90DE4618F91A3C00961273 /* NSString+URLEncoding.m in Sources */,
@@ -1114,26 +1346,37 @@
 				FB91CB4918EBA7DE00DF91E3 /* UIViewExt.m in Sources */,
 				FB0C004218FF894E008DF97E /* RecordTableViewCell.m in Sources */,
 				FB3484BD18F780CE00708232 /* MBProgressHUD.m in Sources */,
+				B8791E601924CE02009E688B /* HTTPMessage.m in Sources */,
 				FB0C004718FF8A30008DF97E /* FMTableViewCell.m in Sources */,
+				B8791E681924CE02009E688B /* HTTPErrorResponse.m in Sources */,
 				FB90DDD718F8EC3000961273 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				FB20EFCD190B8EB0008E5C15 /* SDWebImageDownloader.m in Sources */,
 				FB20EFCF190B8EB0008E5C15 /* UIButton+WebCache.m in Sources */,
 				FB90DDD618F8EC3000961273 /* SBJsonStreamWriter.m in Sources */,
+				B8791E7C1924CED7009E688B /* WifiViewController.m in Sources */,
 				FB20EFD0190B8EB0008E5C15 /* UIImageView+WebCache.m in Sources */,
 				FB166B77191B951A001D756D /* FriendInfoModel.m in Sources */,
+				B8791E581924CE02009E688B /* DDFileLogger.m in Sources */,
 				FB20EFBC190B847A008E5C15 /* FriendsInfoModel.m in Sources */,
 				FBACBAD11908BF5900C0B880 /* AlarmInfoTableViewCell.m in Sources */,
 				FB0C009218FFDF1B008DF97E /* UserInfoModel.m in Sources */,
+				B8791E571924CE02009E688B /* DDASLLogger.m in Sources */,
 				FB9F57A118EA561600BF120D /* AppDelegate.m in Sources */,
+				B8791E631924CE02009E688B /* MultipartMessageHeader.m in Sources */,
 				FB91CB1E18EBA77500DF91E3 /* BaseViewController.m in Sources */,
 				FB5D117319115CE0003FD2E7 /* NetDataService.m in Sources */,
 				FBACBADB1908C2F600C0B880 /* SetColckViewController.m in Sources */,
+				B8791E5A1924CE02009E688B /* DDTTYLogger.m in Sources */,
 				FB20EFD4190B96C9008E5C15 /* AddFriendsViewController.m in Sources */,
 				FB0059A7191B4A870025C69E /* CityListViewController.m in Sources */,
+				B8791E651924CE02009E688B /* HTTPAsyncFileResponse.m in Sources */,
 				FBB632B219125F760095BED4 /* BingEmailViewController.m in Sources */,
 				FBD09B06191DD2AC009D28DB /* GTMBase64.m in Sources */,
+				B8791E5C1924CE02009E688B /* DispatchQueueLogFormatter.m in Sources */,
 				FB20EFD9190B97D4008E5C15 /* SearchListCell.m in Sources */,
 				FB3995DD18F04141001EFA9D /* LookPassWordViewController.m in Sources */,
+				B8791E531924CE02009E688B /* DDData.m in Sources */,
+				B8791E5D1924CE02009E688B /* GCDAsyncSocket.m in Sources */,
 				FB781CB3191268AD0073E2FA /* ChangePasswordViewController.m in Sources */,
 				FB0CCE881902D0AE0078FF18 /* AddMusicTableViewCell.m in Sources */,
 				FB5D117419115CE0003FD2E7 /* NetRequest.m in Sources */,
@@ -1141,25 +1384,34 @@
 				FB81B94F191C7EA500F3A04A /* AddLocalMusicViewController.m in Sources */,
 				FB34934D1909259300A9F300 /* RecordModel.m in Sources */,
 				FB21E2C21904F59400E9B806 /* AlarmInfoModel.m in Sources */,
+				B8791E6B1924CE02009E688B /* WebSocket.m in Sources */,
 				FBAAC4D5192114A400A89F25 /* HomeViewController.m in Sources */,
 				FB77DAB018FB8EF700A1675D /* AgreementViewController.m in Sources */,
 				FB3995E718F05217001EFA9D /* LookStyleViewController.m in Sources */,
+				B8791E541924CE02009E688B /* DDNumber.m in Sources */,
 				FB3995D418F008BC001EFA9D /* Clock.m in Sources */,
 				FB5D11051910EFF3003FD2E7 /* BingPhoneViewController.m in Sources */,
+				B8791E611924CE02009E688B /* HTTPServer.m in Sources */,
 				FB9F579D18EA561600BF120D /* main.m in Sources */,
 				FB2FF7E218F18F1300DFA3C1 /* AccountViewController.m in Sources */,
+				B8791E791924CED7009E688B /* AddMusicViewController.m in Sources */,
+				B8791E671924CE02009E688B /* HTTPDynamicFileResponse.m in Sources */,
 				FB2FF7E718F1918000DFA3C1 /* AccountTableViewCell.m in Sources */,
 				FB1D311D19037DDD0058AF50 /* StartRecordTableViewCell.m in Sources */,
+				B8791E561924CE02009E688B /* DDAbstractDatabaseLogger.m in Sources */,
 				FB91CB6118EBE63B00DF91E3 /* RegisterViewController.m in Sources */,
 				FB2FC9AD190A41D60086B289 /* FriendsCell.m in Sources */,
 				FBAAC4D11921147A00A89F25 /* AlarmClockBgView.m in Sources */,
+				B8791E5F1924CE02009E688B /* HTTPConnection.m in Sources */,
 				FBC6976F18FD2FDD001EED48 /* DevicesInfoModel.m in Sources */,
 				FB948FB2191CD43400288C6A /* FeedbackViewController.m in Sources */,
+				B8791E6A1924CE02009E688B /* HTTPRedirectResponse.m in Sources */,
 				FB20EFCC190B8EB0008E5C15 /* SDImageCache.m in Sources */,
 				FB20EFCE190B8EB0008E5C15 /* SDWebImageManager.m in Sources */,
 				FB91CB1D18EBA77500DF91E3 /* BaseNavViewController.m in Sources */,
 				FB2FF7EC18F1A8D200DFA3C1 /* HelpViewController.m in Sources */,
 				FB91CB4618EBA7DE00DF91E3 /* SettingViewController.m in Sources */,
+				B8791E5B1924CE02009E688B /* ContextFilterLogFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

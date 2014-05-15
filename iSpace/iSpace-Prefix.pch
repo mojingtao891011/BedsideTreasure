@@ -33,4 +33,12 @@
 #define ViewBackgroundColor  [UIColor colorWithRed:236/255.0 green:249/255.0 blue:248/255.0 alpha:1.0];
 #define FontColor [UIColor blackColor]
 
+#define UPLOADSTART @"uploadstart"
+
+#define UPLOADING @"uploading"
+
+#define UPLOADEND @"uploadend"
+
+#define UPLOADISCONNECTED @"uploadisconnected"
+
 #endif
