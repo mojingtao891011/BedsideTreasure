@@ -52,6 +52,11 @@
     [_musicTableView reloadData];
     
 }
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [player pause];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -66,6 +71,7 @@
     NSError *error ;
     //读取Document目录下内容列表
     listArr = [fileManager contentsOfDirectoryAtPath:document error:&error];
+    
 }
 #pragma mark-----UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -116,6 +122,7 @@
     player.volume = 1.0 ;
     [player prepareToPlay];
     [player play];
+    [fileHandle closeFile];
 }
 //UITableView隐藏多余的分割线
 - (void)setExtraCellLineHidden: (UITableView *)tableView

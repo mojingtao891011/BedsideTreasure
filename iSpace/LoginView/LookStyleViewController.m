@@ -28,8 +28,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    _cellArr = @[_firstCell , _sencondCell , _threeCell];
     [self searchStyle:_searchStyle];
+    [self setExtraCellLineHidden:_tableView];
     
 }
 
@@ -38,6 +39,29 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark-----UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _cellArr.count ;
+}
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = _cellArr[indexPath.row];
+    return cell ;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *heightArr = @[@"44" , @"44" , @"60"];
+    return [heightArr[indexPath.row] floatValue];
+}
+//UITableView隐藏多余的分割线
+- (void)setExtraCellLineHidden: (UITableView *)tableView{
+    UIView *view =[ [UIView alloc]init];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+    [tableView setTableHeaderView:view];
+}
+
 #pragma mark----判断是那种找回方式
 - (void)searchStyle:(NSString*)index
 {
@@ -133,6 +157,7 @@
     
     //请求网络
     [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"Sending" andViewCtl:self completeBlock:^(id result){
+        NSLog(@"%@" , result);
         NSDictionary *returnInfo = result[@"message_body"];
         NSString *returnError = returnInfo[@"error"];
         dispatch_async(dispatch_get_main_queue(), ^{

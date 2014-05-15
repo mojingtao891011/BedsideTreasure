@@ -137,18 +137,13 @@
     NSData *data = [_userName.text dataUsingEncoding:NSUTF8StringEncoding];
     NSString *baseUserName = [[NSString alloc] initWithData:[GTMBase64 encodeData:data] encoding:NSUTF8StringEncoding];
     
-    NSMutableDictionary *Dict = nil ;
-    if (_phoneNumber.text.length == 0) {
-        Dict = [NetDataService needCommand:@"2048" andNeedUserId:@"-1" AndNeedBobyArrKey:@[@"name" , @"password" , @"email", @"phone_no"] andNeedBobyArrValue:@[baseUserName , _MD5Password , _email.text , @""]];
+   
+    NSMutableDictionary *Dict  = [NetDataService needCommand:@"2048" andNeedUserId:@"0" AndNeedBobyArrKey:@[@"name" , @"password" , @"email"] andNeedBobyArrValue:@[baseUserName , _MD5Password , _email.text]];
 
-    }else{
-        Dict = [NetDataService needCommand:@"2048" andNeedUserId:@"0" AndNeedBobyArrKey:@[@"name" , @"password" , @"email", @"phone_no"] andNeedBobyArrValue:@[_userName.text , _MD5Password , _email.text , _phoneNumber.text]];
 
-    }
-    
     //请求网络
     [NetDataService requestWithUrl:URl dictParams:Dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"注册中……" andViewCtl:self completeBlock:^(id result){
-        
+        NSLog(@"%@" , result);
         NSDictionary *returnInfoDict = result[@"message_body"];
         NSString *returnInt = returnInfoDict[@"error"];
         int infoInt = [returnInt intValue];
@@ -221,14 +216,14 @@
 {
     //用户名不能为纯数字,不能带标点符号,编码后的总长度不能超过 32 个字节
     BOOL isName ;
-    NSString * regexNumber = @"^[0-9]{1,32}$"; //都为数字
+    NSString * regexNumber = @"^[0-9]{1,32}$"; //都为数字[A-Za-z0-9]
     NSPredicate *predAlphabet = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regexNumber];
     BOOL isNumber = [predAlphabet evaluateWithObject:_userName.text] ;
     if (isNumber) {
         isName = NO ;
     }
     else {
-        NSString * regex = @"^[A-Za-z0-9]{1,32}$";//都有字母、数字
+        NSString * regex = @"^[a-zA-Z0-9\u4e00-\u9fa5]{1,32}$";//都有字母、数字 、中文
         NSPredicate *predNumber = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
         BOOL isRegex = [predNumber evaluateWithObject:_userName.text] ;
         isName = isRegex ;

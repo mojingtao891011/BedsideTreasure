@@ -8,9 +8,14 @@
 
 #import "BaseViewController.h"
 
-@interface ResetPassWordViewController : BaseViewController<UITextFieldDelegate , UIAlertViewDelegate>
+@interface ResetPassWordViewController : BaseViewController<UITextFieldDelegate , UIAlertViewDelegate , UITableViewDataSource , UITableViewDelegate>
 
 @property(nonatomic , copy)NSString *captcha ;
+@property(nonatomic , retain)NSArray *cellArr ;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UITableViewCell *firstCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *sencondCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *threeCell;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPassword;
 
