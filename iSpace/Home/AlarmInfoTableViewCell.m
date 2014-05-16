@@ -122,7 +122,9 @@
  //进音乐列表选（接收选中通知）
 - (void)selectedMusicNote:(NSNotification*)musicNote
 {
-    [_musicArr exchangeObjectAtIndex:0 withObjectAtIndex:[[musicNote object] integerValue]];
+    [[NSUserDefaults standardUserDefaults] setObject:[musicNote object] forKey:@"musicName"];
+    [[NSUserDefaults standardUserDefaults]  synchronize];
+    
     [self titleCorrespondList:@"音乐"];
 }
 - (void)selectedFMNote:(NSNotification*)FMnote
@@ -193,7 +195,12 @@
 {
    
     if ([title isEqualToString:@"音乐"]) {
-        _showTitle.text = @"当前无音乐信息" ;
+        NSString *musicName = [[NSUserDefaults standardUserDefaults]objectForKey:@"musicName"] ;
+        if (musicName.length == 0) {
+            _showTitle.text = @"点击进入音乐列表" ;
+        }else{
+            _showTitle.text = musicName ;
+        }
         
     }else if ([title isEqualToString:@"广播"]){
         if (_FMArr.count != 0) {

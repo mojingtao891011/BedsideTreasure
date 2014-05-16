@@ -40,6 +40,15 @@
     
     self.dataSourceArr = @[@"头像" , @"用户名" , @"性别" , @"生日" , @"城市" , @"绑定手机" , @"绑定邮箱"  ,@"更改密码"  ];
     
+    //添加保存按钮
+    UIButton *saveButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [saveButton setFrame:CGRectMake(20, 0, 50, 20)];
+    [saveButton setTitle:@"保 存" forState:UIControlStateNormal];
+    [saveButton setTitle:@"保 存" forState:UIControlStateSelected];
+    [saveButton addTarget:self action:@selector(saveUserInfo:) forControlEvents:UIControlEventTouchUpInside ];
+    UIBarButtonItem *saveBarButton = [[UIBarButtonItem alloc]initWithCustomView:saveButton];
+    self.navigationItem.rightBarButtonItem = saveBarButton ;
+    
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -54,14 +63,19 @@
     [super viewWillDisappear:animated];
     _dateBgView.hidden = YES ;
     _markView.hidden = YES ;
-    NSLog(@"%@ , %@ , %@" , _birthday , _sex , _city);
-     //[self saveUserInfoAction:_birthday andSex:_sex andCity:_city];
     //[[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+#pragma mark-----保存修改
+- (void)saveUserInfo:(UIButton*)saveButton
+{
+    NSLog(@"%@ , %@ , %@" , _birthday , _sex , _city);
+        [self saveUserInfoAction:_birthday andSex:_sex andCity:_city];
+
 }
 #pragma mark-----note
 - (void)selectedSexNote:(NSNotification*)note
@@ -86,7 +100,7 @@
 #pragma mark----- 此页面保存、性别、生日、城市
 - (void)saveUserInfoAction:(NSString*)userBirthday andSex:(NSString*)userSex andCity:(NSString*)userCity
 {
-    
+    NSString *bsae64City =[[NSString alloc]initWithData:[GTMBase64 encodeData:[userCity dataUsingEncoding:NSUTF8StringEncoding]] encoding:NSUTF8StringEncoding];
     //以"-"切割
     NSArray *birthdayArr = [userBirthday componentsSeparatedByString:@"-"];
     
@@ -99,7 +113,7 @@
     NSDictionary *baseDict = @{
                                @"acc_info": accInfoDict,
                                @"sex" :userSex ,
-                               @"city" :userCity ,
+                               @"city" :bsae64City ,
                                @"pic_url":@"",
                                @"pic_id" :@"-1"
                                };
@@ -277,7 +291,7 @@
         
         int errorInt = [result[@"message_body"][@"error"] intValue];
         if (errorInt == 0) {
-           // @"http://115.29.199.95:23000/iSpaceSvr/?cmd=3000&uid=79&fid=631&uts=1399448645&rid=-1&tpn=0"
+           //拼接上传地址 @"http://115.29.199.95:23000/iSpaceSvr/?cmd=3000&uid=79&fid=631&uts=1399448645&rid=-1&tpn=0"
             NSString *host = result[@"message_body"][@"host"] ;
             NSString *port = result[@"message_body"][@"port"] ;
             NSString *param = result[@"message_body"][@"param"] ;
@@ -285,7 +299,7 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            //获取_pic_url 、_pic_id
+            //通过拼接上传地址获取_pic_url 、_pic_id
             [NetDataService requestWithUrl:_appendUrl postData:imgData httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:nil andViewCtls:self completeBlock:^(id result){
                 
                 _pic_url = result[@"message_body"][@"url"];
@@ -356,18 +370,9 @@
         //保存用户信息到用户信息模型
         _userInfoModel = [[UserInfoModel alloc]initWithDataDic:retrunDict];
         _birthday =[NSString stringWithFormat:@"%@-%@-%@",_userInfoModel.year , _userInfoModel.month , _userInfoModel.day];
-        _city = _userInfoModel.city ;
         _pic_url = _userInfoModel.pic_url ;
-        /*BASE64加密、解密 GTMBase64.h /GTMDefines.h
-        使用方式如下：
-        加密：
-        
-        [[NSString alloc] initWithData:[GTMBase64 encodeData:datatoencode]                   encoding:NSUTF8StringEncoding];
-        解密：
-        
-        [[NSString alloc] initWithData:[GTMBase64 decodeString:datatodecode]                    encoding:NSUTF8StringEncoding];
-         */
         NSString *userName = [[NSString alloc]initWithData:[GTMBase64 decodeString:_userInfoModel.name] encoding:NSUTF8StringEncoding];
+        _city = [[NSString alloc]initWithData:[GTMBase64 decodeData:[_userInfoModel.city dataUsingEncoding:NSUTF8StringEncoding]] encoding:NSUTF8StringEncoding];
         _userInfoArr = [NSMutableArray arrayWithObjects:_pic_url ,userName ,  _userInfoModel.sex , _birthday , _city , _userInfoModel.phone_no , _userInfoModel.email , @"", nil];
         
         dispatch_async(dispatch_get_main_queue(), ^{

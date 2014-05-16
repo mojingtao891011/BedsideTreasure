@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "DevicesInfoModel.h"
 #import "SetColckViewController.h"
+#import "WeatherInfo.h"
 
 @interface HomeViewController ()
 
@@ -33,8 +34,11 @@
     _devicesTotalArr = [[NSMutableArray alloc]initWithCapacity:4];
     _clockArr = @[_clock1 , _clock2 , _clock3 , _clock4];
     _clockLabelArr = @[_label1 , _label2 , _label3 , _label4];
+   
     [self updateDevices];
 
+
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,14 +66,20 @@
 {
     if (_devicesTotalArr.count != 0) {
         DevicesInfoModel *devicesModel = _devicesTotalArr[0];
+        _devicesCity = devicesModel.dev_city ;
         //保存设备索引
         [[NSUserDefaults standardUserDefaults] setObject:devicesModel.dev_sn forKey:@"dev_sn"];
         [[NSUserDefaults standardUserDefaults]  synchronize];
         _alarmInfoArr = [devicesModel.alermInfoArr mutableCopy];
-        
-        for (int i = 0 ; i < _alarmInfoArr.count ; i++) {
+        int lenght = 0 ;
+        if (_alarmInfoArr.count > 4) {
+            lenght = 4 ;
+        }
+        else{
+            lenght = _alarmInfoArr.count ;
+        }
+        for (int i = 0 ; i < lenght ; i++) {
             AlarmInfoModel *alarmModel = _alarmInfoArr[i] ;
-            NSLog(@"==%@ , %@" , alarmModel.hour , alarmModel.minute);
             if (alarmModel.hour.length ==0  || alarmModel.minute.length == 0) {
                 return ;
             }
@@ -85,7 +95,7 @@
             //把NSString转化为NSDate
             NSDate* date = [self dateFromFomate:timeStr formate:@"HH:mm"];
             
-            AlarmClock *clock = _clockArr[0];
+            AlarmClock *clock = _clockArr[i];
             clock.time = date ;
             [clock setNeedsDisplay];
             
@@ -95,10 +105,12 @@
             
         }
     }
+    [self getWeatherInfo];
 
 }
 #pragma mark------把NSString转化为NSDate
-- (NSDate *) dateFromFomate:(NSString *)datestring formate:(NSString*)formate {
+- (NSDate *) dateFromFomate:(NSString *)datestring formate:(NSString*)formate
+{
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:formate];
     NSLocale* local =[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] ;
@@ -147,6 +159,7 @@
             NSDictionary *dev_list = returnDict[@"dev_list"];
             
             NSArray *listArr = dev_list[@"list"] ;
+        
             for (NSDictionary *deviceDict in listArr) {
                 //  把闹钟信息装进模型里
                 DevicesInfoModel *devicesInfoModel = [[DevicesInfoModel alloc]initWithDataDic:deviceDict];
@@ -157,14 +170,42 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self updateDevicesComplete:returnInt];
+            
         });
     }];
 }
-
+#pragma mark-----获取天气信息
+- (void)getWeatherInfo
+{
+        
+    NSString *devicesCity = [[NSString alloc]initWithData:[GTMBase64 encodeData:[@"深圳" dataUsingEncoding:NSUTF8StringEncoding]] encoding:NSUTF8StringEncoding];
+    NSMutableDictionary *dict = [NetDataService needCommand:@"2076" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"req_id" , @"city"] andNeedBobyArrValue:@[@"-1" , devicesCity]];
+    
+    [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:nil andViewCtl:self completeBlock:^(id result){
+        
+        NSDictionary *returnDict = result[@"message_body"];
+        int errorInt = [returnDict[@"error"] intValue];
+        WeatherInfo *weatherInfoModel = nil ;
+        if (errorInt == 0) {
+            weatherInfoModel = [[WeatherInfo alloc]initWithDataDic:returnDict] ;
+            
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (errorInt == 0) {
+                _devicesCityLabel.text = [[NSString alloc]initWithData:[GTMBase64 decodeData:[_devicesCity dataUsingEncoding:NSUTF8StringEncoding]] encoding:NSUTF8StringEncoding] ,[_devicesCityLabel sizeToFit];
+                _TemperatureLabel.text = weatherInfoModel.tempreature ,[_TemperatureLabel sizeToFit];
+                _weatherStatus.text = weatherInfoModel.weather , [_weatherStatus sizeToFit];
+                _dateLabel.text = weatherInfoModel.datetime , [_dateLabel sizeToFit];
+                _weekLabel.text = weatherInfoModel.title , [_weekLabel sizeToFit] ;
+                
+            }
+        });
+    }];
+}
 #pragma mark-----后台更新设备完成后反馈回来的数据
 - (void)updateDevicesComplete:(int)infoInt
 {
-    if (infoInt != 0) {
+    if (_devicesTotalArr.count== 0) {
         UIView *maskView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
         maskView.alpha = 0.3 ;
         maskView.backgroundColor = [UIColor lightGrayColor];
@@ -173,6 +214,7 @@
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"友情提示" message:@"该页面不可操作，亲～你可能还未绑定设备哦" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
         [alertView show];
     }else{
+
         [self updateAlertInfo];
        
     }

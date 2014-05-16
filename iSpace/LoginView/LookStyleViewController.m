@@ -153,7 +153,7 @@
 - (IBAction)sendCaptchaAction:(id)sender {
     
     //请求体
-    NSMutableDictionary *dict = [NetDataService needCommand:@"2058" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"request_id" , @"goal" ] andNeedBobyArrValue:@[ @"0" , _searchStyle ]] ;
+    NSMutableDictionary *dict = [NetDataService needCommand:@"2058" andNeedUserId:@"0" AndNeedBobyArrKey:@[@"request_id" , @"goal" ,@"receiver"] andNeedBobyArrValue:@[ @"1" , _searchStyle  ,@""]] ;
     
     //请求网络
     [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"Sending" andViewCtl:self completeBlock:^(id result){

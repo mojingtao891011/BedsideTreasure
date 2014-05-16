@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="AlarmInfo" representedClassName="AlarmInfo" syncable="YES">
+        <attribute name="file_path" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fm_chnl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="frequency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hour" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="minute" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sleep_gap" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sleep_times" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vol_level" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vol_type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="devicesInfo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DevicesInfo" inverseName="alarmInfoModel" inverseEntity="DevicesInfo" syncable="YES"/>
+    </entity>
+    <entity name="DevicesInfo" representedClassName="DevicesInfo" syncable="YES">
+        <attribute name="bt_state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dev_city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dev_idx" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dev_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dev_online" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dev_sn" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="alarmInfoModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AlarmInfo" inverseName="devicesInfo" inverseEntity="AlarmInfo" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="DevicesInfo" positionX="-45" positionY="0" width="128" height="148"/>
+        <element name="AlarmInfo" positionX="-18" positionY="72" width="128" height="223"/>
+    </elements>
+</model>

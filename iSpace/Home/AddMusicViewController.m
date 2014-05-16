@@ -123,6 +123,9 @@
     [player prepareToPlay];
     [player play];
     [fileHandle closeFile];
+    
+    //postMusicModel
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"postMusicModel" object:fileName];
 }
 //UITableView隐藏多余的分割线
 - (void)setExtraCellLineHidden: (UITableView *)tableView

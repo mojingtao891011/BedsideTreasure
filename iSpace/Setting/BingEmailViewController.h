@@ -8,8 +8,12 @@
 
 #import "BaseViewController.h"
 
-@interface BingEmailViewController : BaseViewController
-
+@interface BingEmailViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property(nonatomic , retain)NSArray *cellArr ;
+@property (strong, nonatomic) IBOutlet UITableViewCell *firstCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *sencondCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *threeCell;
 @property (weak, nonatomic) IBOutlet UITextField *emailAddress;
 @property (weak, nonatomic) IBOutlet UITextField *verifiedInfo;
 - (IBAction)sendVerified:(UIButton *)sender;

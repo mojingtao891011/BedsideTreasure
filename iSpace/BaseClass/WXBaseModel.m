@@ -2,8 +2,8 @@
 //  WXBaseModel.m
 //  MTWeibo
 //
-//  Created by wei.chen on 11-9-22.
-//  Copyright 2011年 www.iphonetrain.com 无限互联ios开发培训中心 All rights reserved.
+//  Created by bear on 14-5-16.
+//  Copyright (c) 2014年 莫景涛. All rights reserved.
 //
 
 #import "WXBaseModel.h"

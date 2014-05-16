@@ -16,6 +16,8 @@
 @property(retain, nonatomic)NSArray *clockArr ;
 @property(retain, nonatomic)NSArray *clockLabelArr ;
 @property(retain , nonatomic)NSMutableArray *alarmInfoArr ;
+@property(nonatomic , copy)NSString *devicesCity ;
+
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
 @property (strong, nonatomic) IBOutlet UITableViewCell *iSpaceNameCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *iSpaceWeathCell;
@@ -30,6 +32,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *label3;
 @property (weak, nonatomic) IBOutlet UILabel *label4;
 
+@property (weak, nonatomic) IBOutlet UILabel *devicesCityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *TemperatureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *weekLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *weatherImg;
+@property (weak, nonatomic) IBOutlet UILabel *weatherStatus;
+@property (weak, nonatomic) IBOutlet UILabel *AverageTemp;
 
 - (IBAction)clickAlarmClockAction:(UIButton *)sender;
 

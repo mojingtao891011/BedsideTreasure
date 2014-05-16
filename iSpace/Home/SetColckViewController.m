@@ -181,13 +181,4 @@
     }];
 
 }
-//- (void)getRecordInfo
-//{
-//    //获取语音
-//    NSMutableDictionary *recordDict = [NetDataService needCommand:@"2075" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"req_id"] andNeedBobyArrValue:@[@""]];
-//    [NetDataService requestWithUrl:URl dictParams:recordDict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:nil andViewCtl:self completeBlock:^(id result){
-//        NSLog(@"record = %@" , result);
-//    }];
-//
-//}
 @end

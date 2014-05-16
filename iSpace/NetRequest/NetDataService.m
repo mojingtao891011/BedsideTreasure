@@ -23,7 +23,7 @@
     
     //请求体、把请求体的headKey和headValue装进字典里
     NSMutableDictionary *bobyDic =[NSMutableDictionary dictionaryWithObjects:bobyArrValue forKeys:bobyArrkey];
-    
+    //NSLog(@"%@" , bobyDic);
     //把请求体与 请求头装进字典里
     NSMutableDictionary *Dict =[[NSMutableDictionary alloc]init];
     [Dict setObject:headDic forKey:@"message_head"] ;

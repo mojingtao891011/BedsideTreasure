@@ -13,11 +13,14 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+    #import"AppDelegate.h"
     #import "UIViewExt.h"
     #import <QuartzCore/QuartzCore.h>
     #import "NetDataService.h"
     #import "GTMBase64.h"
 
+ 
 #define URl @"http://115.29.199.95:21000/iSpaceSvr/ios"
 #define  USER_ID  [[NSUserDefaults standardUserDefaults]objectForKey:@"uid"]
 #define  DEV_SN   [[NSUserDefaults standardUserDefaults]objectForKey:@"dev_sn"]

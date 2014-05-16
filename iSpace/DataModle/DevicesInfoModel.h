@@ -16,6 +16,7 @@
 @property (nonatomic , copy)NSString                    *dev_city;      //设备所在城市
 @property (nonatomic , copy)NSString                    *dev_name;  //设备名字
 @property (nonatomic , copy)NSString                    *bt_state ;      //BT状态
+
 @property (nonatomic , retain)NSMutableArray      *fm_list;  //设备FM信息
 @property (nonatomic , retain)AlarmInfoModel      *alermInfo;             //设备闹钟信息
 @property(nonatomic , retain)NSMutableArray      *alermInfoArr;       //这个设备设置了几个闹钟
