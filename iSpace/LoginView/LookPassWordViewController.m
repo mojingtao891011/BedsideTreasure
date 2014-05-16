@@ -35,6 +35,11 @@
     //保存用户名
     [[NSUserDefaults standardUserDefaults] setObject:_userName forKey:@"USERNAME"];
     [[NSUserDefaults standardUserDefaults]  synchronize];
+<<<<<<< HEAD
+=======
+    
+    [self setExtraCellLineHidden:_lookPassWordTableView];
+>>>>>>> FETCH_HEAD
     
 }
 - (void)didReceiveMemoryWarning
@@ -55,9 +60,6 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         cell.backgroundColor = [UIColor clearColor];
         cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator ;
-        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(10, 43, tableView.width-20, 1)];
-        lineView.backgroundColor = [UIColor lightGrayColor];
-        [cell.contentView addSubview:lineView];
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 13, 0, 20)];
         titleLabel.tag = 11 ;
         [cell.contentView addSubview:titleLabel];
@@ -78,6 +80,14 @@
 
    
 }
+//UITableView隐藏多余的分割线
+- (void)setExtraCellLineHidden: (UITableView *)tableView{
+    UIView *view =[ [UIView alloc]init];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+    [tableView setTableHeaderView:view];
+}
+
 #pragma mark-----customAction
 #pragma mark-----请求网络数据（获取用户信息）
 - (void)startNetwork
@@ -86,7 +96,7 @@
     NSMutableDictionary *Dict = [NetDataService needCommand:@"2063" andNeedUserId:@"0" AndNeedBobyArrKey:@[@"account"] andNeedBobyArrValue:@[_userName]];
     
     //请求网络
-    [NetDataService requestWithUrl:URl dictParams:Dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"Loading" andViewCtl:self completeBlock:^(id result){
+    [NetDataService requestWithUrl:URl dictParams:Dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:nil andViewCtl:self completeBlock:^(id result){
         
         NSDictionary *retrunDict = result[@"message_body"] ;
         NSString *errorInt = retrunDict[@"error"];

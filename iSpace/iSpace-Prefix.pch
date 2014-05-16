@@ -13,16 +13,19 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+    #import"AppDelegate.h"
     #import "UIViewExt.h"
     #import <QuartzCore/QuartzCore.h>
-    #import "MBProgressHUD.h"
     #import "NetDataService.h"
-    #import "Reachability.h"
+    #import "GTMBase64.h"
 
-#define URl @"http://113.10.139.200:25000/iSpaceSvr/ios"
+ 
+#define URl @"http://115.29.199.95:21000/iSpaceSvr/ios"
 #define  USER_ID  [[NSUserDefaults standardUserDefaults]objectForKey:@"uid"]
 #define  DEV_SN   [[NSUserDefaults standardUserDefaults]objectForKey:@"dev_sn"]
 #define  USERNAME   [[NSUserDefaults standardUserDefaults]objectForKey:@"USERNAME"]
+#define  REFRESHTABLEVIEW @"RefreshTableView"
 
 #define  ScreenHeight [UIScreen mainScreen].bounds.size.height
 #define  ScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -32,5 +35,13 @@
 #define buttonSelectedBackgundColor [UIColor colorWithRed:36/255.0 green:215/255.0 blue:205/255.0 alpha:1.0]
 #define ViewBackgroundColor  [UIColor colorWithRed:236/255.0 green:249/255.0 blue:248/255.0 alpha:1.0];
 #define FontColor [UIColor blackColor]
+
+#define UPLOADSTART @"uploadstart"
+
+#define UPLOADING @"uploading"
+
+#define UPLOADEND @"uploadend"
+
+#define UPLOADISCONNECTED @"uploadisconnected"
 
 #endif

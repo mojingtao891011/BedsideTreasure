@@ -8,9 +8,13 @@
 
 #import "BaseViewController.h"
 
+<<<<<<< HEAD
 @interface FriendsViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate>
+=======
+@interface FriendsViewController : BaseViewController
+>>>>>>> FETCH_HEAD
 
-@property (weak, nonatomic) IBOutlet UITableView *friendTableView;
-@property(nonatomic , retain)NSMutableArray *friendsModelArr ;
+
+- (IBAction)fetchData:(UIButton *)sender;
 
 @end

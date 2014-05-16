@@ -10,7 +10,11 @@
 
 
 @interface ListViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate>
-
+{
+    NSInteger  _selectedRow ;
+    BOOL _isHidden ;
+    NSString *_imgName ;
+}
 @property(nonatomic , retain)NSMutableArray *listArr ;
 
 @property (weak, nonatomic) IBOutlet UITableView *listTableView;

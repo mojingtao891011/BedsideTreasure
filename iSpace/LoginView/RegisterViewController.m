@@ -133,6 +133,7 @@
 {
     
     //请求体
+<<<<<<< HEAD
     NSMutableDictionary *Dict = nil ;
     if (_phoneNumber.text.length == 0) {
         Dict = [NetDataService needCommand:@"2048" andNeedUserId:@"0" AndNeedBobyArrKey:@[@"name" , @"password" , @"email", @"phone_no"] andNeedBobyArrValue:@[_userName.text , _MD5Password , _email.text , @""]];
@@ -141,18 +142,32 @@
         Dict = [NetDataService needCommand:@"2048" andNeedUserId:@"0" AndNeedBobyArrKey:@[@"name" , @"password" , @"email", @"phone_no"] andNeedBobyArrValue:@[_userName.text , _MD5Password , _email.text , _phoneNumber.text]];
 
     }
+=======
+    //用户名Base64加密
+    NSData *data = [_userName.text dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *baseUserName = [[NSString alloc] initWithData:[GTMBase64 encodeData:data] encoding:NSUTF8StringEncoding];
+>>>>>>> FETCH_HEAD
     
+   
+    NSMutableDictionary *Dict  = [NetDataService needCommand:@"2048" andNeedUserId:@"0" AndNeedBobyArrKey:@[@"name" , @"password" , @"email"] andNeedBobyArrValue:@[baseUserName , _MD5Password , _email.text]];
+
+
     //请求网络
     [NetDataService requestWithUrl:URl dictParams:Dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"注册中……" andViewCtl:self completeBlock:^(id result){
+<<<<<<< HEAD
 
+=======
+        NSLog(@"%@" , result);
+>>>>>>> FETCH_HEAD
         NSDictionary *returnInfoDict = result[@"message_body"];
-        //保存user_id
-        NSString *userID = returnInfoDict[@"uid"];
-        [[NSUserDefaults standardUserDefaults] setObject:userID forKey:@"uid"];
-        [[NSUserDefaults standardUserDefaults]  synchronize];
-        
         NSString *returnInt = returnInfoDict[@"error"];
         int infoInt = [returnInt intValue];
+        //保存user_id
+        if (infoInt == 0) {
+            NSString *userID = returnInfoDict[@"user_id"];
+            [[NSUserDefaults standardUserDefaults] setObject:userID forKey:@"uid"];
+            [[NSUserDefaults standardUserDefaults]  synchronize];
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self isSuccessRegister:infoInt];
         });
@@ -216,14 +231,14 @@
 {
     //用户名不能为纯数字,不能带标点符号,编码后的总长度不能超过 32 个字节
     BOOL isName ;
-    NSString * regexNumber = @"^[0-9]{1,32}$"; //都为数字
+    NSString * regexNumber = @"^[0-9]{1,32}$"; //都为数字[A-Za-z0-9]
     NSPredicate *predAlphabet = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regexNumber];
     BOOL isNumber = [predAlphabet evaluateWithObject:_userName.text] ;
     if (isNumber) {
         isName = NO ;
     }
     else {
-        NSString * regex = @"^[A-Za-z0-9]{1,32}$";//都有字母、数字
+        NSString * regex = @"^[a-zA-Z0-9\u4e00-\u9fa5]{1,32}$";//都有字母、数字 、中文
         NSPredicate *predNumber = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
         BOOL isRegex = [predNumber evaluateWithObject:_userName.text] ;
         isName = isRegex ;

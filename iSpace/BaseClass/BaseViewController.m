@@ -43,6 +43,7 @@
 
    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,5 +54,6 @@
 - (void)backAction
 {
     [self.navigationController popViewControllerAnimated:YES];
+    
 }
 @end

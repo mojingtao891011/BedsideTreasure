@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UITextField *passWord;
 @property (nonatomic , retain)NSString *MD5Password ;
+@property(nonatomic , copy)NSString *baseUserName ;
 
 - (IBAction)loginAction:(id)sender;
 - (IBAction)RegisterAction:(id)sender;

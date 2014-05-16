@@ -18,7 +18,13 @@
 @property(nonatomic , copy)NSString *RingStyleTitleStr ;
 @property(nonatomic , assign)int repeatDates ;
 
+<<<<<<< HEAD
 @property(nonatomic , retain)NSArray *listTitleArr ;
+=======
+@property(nonatomic , retain)NSMutableArray *musicArr ;
+@property(nonatomic , retain)NSMutableArray *FMArr ;
+@property(nonatomic , retain)NSMutableArray *recordArr ;
+>>>>>>> FETCH_HEAD
 
 
 - (IBAction)selectRingStyleAction:(id)sender;

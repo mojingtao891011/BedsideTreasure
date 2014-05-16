@@ -10,7 +10,12 @@
 
 @interface SetColckViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate>
 {
+<<<<<<< HEAD
     NSMutableArray *_listArr ;
+=======
+    NSMutableArray *_recordArr ;
+    NSMutableArray *_fmArr ;
+>>>>>>> FETCH_HEAD
 }
 @property (weak, nonatomic) IBOutlet UITableView *setAlarmTabelView;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datepickView;

@@ -25,7 +25,6 @@
 - (void)setAttributes:(NSDictionary *)dataDic
 {
     [super setAttributes:dataDic];
-   
     NSDictionary *alarmDict = dataDic[@"alarm_info"] ;
     NSString *totalStr = alarmDict[@"total"] ;
     int total = totalStr.intValue ;
@@ -41,7 +40,16 @@
     }
 
     }
+    //fm信息
+    int fmTotal = [dataDic[@"fm_info"][@"total"] intValue] ;
+    if (fmTotal != 0) {
+        self.fm_list = dataDic[@"fm_info"][@"list"];
     }
+    //管理员信息
+    self.owerInfo = [[FriendInfoModel alloc]initWithDataDic:dataDic[@"owner"]];
+    //密友信息
+    self.friendInfo = [[FriendInfoModel alloc]initWithDataDic:dataDic[@"friend"]];
+}
 
 
 @end

@@ -7,12 +7,14 @@
 //
 
 #import "FriendsViewController.h"
-#import "FriendsCell.h"
-#import "friendsInfoModel.h"
-#import "AddFriendsViewController.h"
+#import "DevicesInfo.h"
+#import "DevicesInfoModel.h"
 
 @interface FriendsViewController ()
-
+{
+    AppDelegate *dele ;
+    NSMutableArray *devicesTotalArr ;
+}
 @end
 
 @implementation FriendsViewController
@@ -29,17 +31,11 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    [super viewDidLoad] ;
+    devicesTotalArr = [[NSMutableArray alloc]initWithCapacity:5];
+    dele = [UIApplication sharedApplication].delegate ;
     
-     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addFriendsAction:)];
-    self.navigationItem.rightBarButtonItem = barButtonItem ;
-    
-    [_friendTableView registerNib:[UINib nibWithNibName:@"FriendsCell" bundle:nil] forCellReuseIdentifier:@"FriendsCell"];
-    [self setExtraCellLineHidden:_friendTableView];
-    
-    //获取好友信息列表
-    _friendsModelArr = [[NSMutableArray alloc]initWithCapacity:10];
-    [self getFriendsList];
+   // [self updateDevices];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,6 +43,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+<<<<<<< HEAD
 #pragma mark----UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -102,12 +99,62 @@
                FriendsInfoModel *friendsModel = [[FriendsInfoModel alloc]initWithDataDic:friendsDict];
                 [_friendsModelArr addObject:friendsModel];
             }
+=======
+#pragma mark-----登录成功在后台更新设备
+-(void)updateDevices
+{
+    
+    //请求体
+    NSMutableDictionary *dict = [NetDataService needCommand:@"2051" andNeedUserId:USER_ID AndNeedBobyArrKey:@[ @"dev_type"] andNeedBobyArrValue:@[ @"-1" ]];
+    
+    //请求网络
+    [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"updateing" andViewCtl:self completeBlock:^(id result){
+        
+        NSDictionary *returnDict = result[@"message_body"];
+        NSString *returnInfo = returnDict[@"error"];
+        int returnInt = [returnInfo intValue];
+        
+        //如果等于0说明有绑定设备
+        if (returnInt == 0) {
+            NSDictionary *dev_list = returnDict[@"dev_list"];
+>>>>>>> FETCH_HEAD
             
+            NSArray *listArr = dev_list[@"list"] ;
+            for (NSDictionary *deviceDict in listArr) {
+                
+                 DevicesInfo*devicesInfoModel = [NSEntityDescription insertNewObjectForEntityForName:@"DevicesInfo" inManagedObjectContext:[dele managedObjectContext]];
+                devicesInfoModel.dev_city = deviceDict[@"dev_city"];
+                devicesInfoModel.dev_idx = deviceDict[@"dev_idx"];
+                devicesInfoModel.dev_name = deviceDict[@"dev_name"];
+                devicesInfoModel.dev_online = deviceDict[@"dev_online"];
+                devicesInfoModel.dev_sn = deviceDict[@"dev_sn"];
+                
+                [devicesTotalArr addObject:devicesInfoModel];
+                [[dele managedObjectContext]save:nil] ;
+            }
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            [_friendTableView reloadData];
+            
         });
     }];
 }
+<<<<<<< HEAD
+=======
+- (IBAction)fetchData:(UIButton *)sender
+{
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"DevicesInfo" inManagedObjectContext:[dele managedObjectContext]];
+    fetchRequest.entity = entity ;
+    NSArray *listOfProjects = [[dele managedObjectContext] executeFetchRequest:fetchRequest error:nil];
+    if (listOfProjects.count == 0) {
+        NSLog(@"no prejects");
+    }else{
+        [listOfProjects enumerateObjectsUsingBlock:^(id obj , NSUInteger idx , BOOL *stop){
+            NSLog(@"%@", [obj dev_name]);
+        }];
+    }
+}
+>>>>>>> FETCH_HEAD
 @end
