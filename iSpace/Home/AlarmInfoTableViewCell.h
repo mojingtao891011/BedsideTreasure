@@ -15,7 +15,11 @@
 @property(nonatomic , assign)BOOL isOpenRingType ;
 @property(nonatomic , copy)NSString *sound ;
 @property(nonatomic , retain)UIViewController *pushViewCtl ;
-@property(nonatomic , copy)NSString *titleStr ;
+@property(nonatomic , copy)NSString *RingStyleTitleStr ;
+@property(nonatomic , assign)int repeatDates ;
+
+@property(nonatomic , retain)NSArray *listTitleArr ;
+
 
 - (IBAction)selectRingStyleAction:(id)sender;
 - (IBAction)ringSoundButtonActin:(UIButton *)sender;

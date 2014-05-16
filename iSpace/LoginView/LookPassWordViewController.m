@@ -32,6 +32,9 @@
     
     //一开始就主动请求获取用户信息
      [self startNetwork];
+    //保存用户名
+    [[NSUserDefaults standardUserDefaults] setObject:_userName forKey:@"USERNAME"];
+    [[NSUserDefaults standardUserDefaults]  synchronize];
     
 }
 - (void)didReceiveMemoryWarning

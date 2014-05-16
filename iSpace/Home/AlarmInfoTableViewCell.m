@@ -8,25 +8,30 @@
 
 #import "AlarmInfoTableViewCell.h"
 #import "ListViewController.h"
+#import "MusicModel.h"
 
 @implementation AlarmInfoTableViewCell
 
 - (void)awakeFromNib
 {
-    self.styleView.height = 30 ;
-    _styleView.clipsToBounds = YES ;
-    _sound = @"5" ;
-    _titleStr = @"音乐" ;
+    
 }
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+}
+- (void)layoutSubviews
+{
+    self.styleView.height = 30 ;
+    _styleView.clipsToBounds = YES ;
+    _RingStyleTitleStr = @"音乐" ;
+    MusicModel *musicModel = _listTitleArr[0];
+    _showTitle.text = musicModel.musicName;
 }
 #pragma mark----响铃方式（音乐、语音、FM）
-- (IBAction)selectRingStyleAction:(UIButton*)sender {
+- (IBAction)selectRingStyleAction:(UIButton*)sender
+{
   
     if (!_isOpenRingType) {
         [UIView animateWithDuration:0.5 animations:^{
@@ -42,19 +47,21 @@
         _isOpenRingType = !_isOpenRingType ;
         return ;
     }
-    
-    _titleStr = [sender titleForState:UIControlStateNormal];
+    //更换标题
+    _RingStyleTitleStr = [sender titleForState:UIControlStateNormal];
     NSString *changeTitle = [_showButton titleForState:UIControlStateNormal];
-    [_showButton setTitle:_titleStr forState:UIControlStateNormal];
+    [_showButton setTitle:_RingStyleTitleStr forState:UIControlStateNormal];
     [sender setTitle:changeTitle forState:UIControlStateNormal];
+    
     _isOpenRingType = !_isOpenRingType ;
     
     //kvo 来监听响铃方式改变时对应列表也跟着变
-    [self titleCorrespondList:_titleStr];
+    [self titleCorrespondList:_RingStyleTitleStr];
 
 }
 #pragma mark----闹钟音量是否渐渐加大
-- (IBAction)ringSoundButtonActin:(UIButton *)sender {
+- (IBAction)ringSoundButtonActin:(UIButton *)sender
+{
     sender.selected = !sender.selected ;
     if (sender.selected) {
         _sound = @"0xFF" ;
@@ -65,30 +72,67 @@
 #pragma mark----点确定按钮
 - (IBAction)saveAlarmSetInfoAction:(id)sender
 {
-    NSArray * infoArr = @[@"1", @"1" , _sound ];
-    NSMutableArray * mutableInfoArr = [NSMutableArray arrayWithArray:infoArr];
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"AlarmInfo" object:mutableInfoArr];
+    if (_sound.length == 0) {
+        _sound = @"5" ;
+    }
+    static int vol_type = 0 ;          //铃音类型0 为语音;1 为音乐;2 为 FM;3 为系统
+    if ([_RingStyleTitleStr isEqualToString:@"语音"]) {
+        vol_type = 0 ;
+    }else if ([_RingStyleTitleStr isEqualToString:@"音乐"]){
+        vol_type = 1 ;
+    }else if ([_RingStyleTitleStr isEqualToString:@"FM"]){
+        vol_type = 2 ;
+    }else{
+        vol_type = 3 ;
+    }
+    // @"file_path":@"0",   音源路径    @"file_id" : @"8"           音源 ID
+    NSString *file_path =[NSString new];
+    NSString *file_id = [NSString new];
+    if ([MusicModel sharedManager].musicUrl.length != 0) {
+        
+        file_path = [MusicModel sharedManager].musicUrl ;
+        file_id = [MusicModel sharedManager].musicId ;
+
+   }
+    //频率、音量 、铃音类型 、音源路径 、音源 ID
+    NSArray * infoArr = @[ [NSNumber numberWithInt:_repeatDates] , _sound , [NSNumber numberWithInt:vol_type] , file_path , file_id];
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"AlarmInfo" object:infoArr];
     
 }
 #pragma mark----设置重复的日期
 - (IBAction)setRepeatDate:(UIButton*)sender
 {
+    NSArray *frequencyArr = @[@"64" , @"1" , @"2" ,@"4" , @"8" , @"16" , @"32"];
+    NSString *strInt = frequencyArr[sender.tag];
     sender.selected = !sender.selected ;
     if (sender.selected) {
          [sender setBackgroundImage:[self imageWithColor:buttonBackgundColor] forState:UIControlStateSelected];
+         _repeatDates = _repeatDates + strInt.intValue;
+    }else{
+        _repeatDates = _repeatDates - strInt.intValue;
     }
-    
+     
 }
+
 #pragma mark----ring列表
 - (IBAction)pushRingList:(id)sender
 {
-    ListViewController *listViewCtl = [[ListViewController alloc]init];
-    listViewCtl.titleLabel.text = [NSString stringWithFormat:@"%@列表", _titleStr] ;
+    static  ListViewController *listViewCtl = nil ;
+    if (listViewCtl == nil) {
+        listViewCtl = [[ListViewController alloc]init];
+    }
+    listViewCtl.titleLabel.text = [NSString stringWithFormat:@"%@列表", _RingStyleTitleStr] ;
     [listViewCtl.titleLabel sizeToFit];
+    
+    if ([_RingStyleTitleStr isEqualToString:@"音乐"])  {
+        listViewCtl.listArr =_listTitleArr[0];
+    }
     [_pushViewCtl.navigationController pushViewController:listViewCtl animated:YES];
 }
 #pragma mark----重复－－点击时的背景色
--(UIImage *)imageWithColor:(UIColor *)color {
+-(UIImage *)imageWithColor:(UIColor *)color
+{
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -104,16 +148,13 @@
 #pragma mark----根据响铃方式标题对应相应列表
 - (void)titleCorrespondList:(NSString*)title
 {
-    NSMutableArray *musicArr = [NSMutableArray arrayWithObjects:@"江南stlye", nil] ;
-    NSMutableArray *recordArr = [NSMutableArray arrayWithObjects:@"20140415", nil];
-    NSMutableArray *FMArr = [NSMutableArray arrayWithObjects:@"深圳交通", nil];
     NSString *showStr ;
     if ([title isEqualToString:@"音乐"]) {
-        showStr = musicArr[0];
+        showStr = _listTitleArr[0];
     }else if ([title isEqualToString:@"广播"]){
-        showStr = FMArr[0];
+        showStr = _listTitleArr[0];;
     }else if ([title isEqualToString:@"语音"]){
-        showStr = recordArr[0];
+        showStr = _listTitleArr[0];
     }
     
     _showTitle.text = showStr ;

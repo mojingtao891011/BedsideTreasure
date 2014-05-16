@@ -12,6 +12,7 @@
 @interface ListViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate>
 
 @property(nonatomic , retain)NSMutableArray *listArr ;
+
 @property (weak, nonatomic) IBOutlet UITableView *listTableView;
 
 @end

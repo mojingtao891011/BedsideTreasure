@@ -53,6 +53,7 @@
 {
     SearchListCell *searchListCell = [tableView dequeueReusableCellWithIdentifier:@"SearchListCell"];
     searchListCell.friendsInfoModel = _friendsArr[indexPath.row];
+    searchListCell.showAlerViewCtl = self ;
     return searchListCell ;
 }
 #pragma mark-----UITableViewDelegate
@@ -81,8 +82,10 @@
     if (_friendsName.text != 0) {
         [_friendsArr removeAllObjects];
     }
-    
-    NSMutableDictionary *dict = [NetDataService needCommand:@"2068" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"account"] andNeedBobyArrValue:@[_friendsName.text]];
+    NSMutableDictionary *dict  = nil ;
+    if (_friendsName.text == 0) {
+        dict = [NetDataService needCommand:@"2068" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"account"] andNeedBobyArrValue:@[@""]];
+    }
     [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"正在搜索……" andViewCtl:self completeBlock:^(id result){
         NSArray *returnArr = result[@"message_body"][@"list"];
         for (NSDictionary *dict in returnArr) {

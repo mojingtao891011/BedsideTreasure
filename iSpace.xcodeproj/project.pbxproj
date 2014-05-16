@@ -19,6 +19,8 @@
 		FB0C009218FFDF1B008DF97E /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0C009118FFDF1B008DF97E /* UserInfoModel.m */; };
 		FB0CCE881902D0AE0078FF18 /* AddMusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0CCE861902D0AE0078FF18 /* AddMusicTableViewCell.m */; };
 		FB0CCE891902D0AE0078FF18 /* AddMusicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB0CCE871902D0AE0078FF18 /* AddMusicTableViewCell.xib */; };
+		FB1637091915FA630086BCE3 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB1637071915FA630086BCE3 /* SetViewController.m */; };
+		FB16370A1915FA630086BCE3 /* SetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB1637081915FA630086BCE3 /* SetViewController.xib */; };
 		FB1D311D19037DDD0058AF50 /* StartRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB1D311B19037DDD0058AF50 /* StartRecordTableViewCell.m */; };
 		FB1D311E19037DDD0058AF50 /* StartRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB1D311C19037DDD0058AF50 /* StartRecordTableViewCell.xib */; };
 		FB1D312019037F490058AF50 /* ic_mouse@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB1D311F19037F490058AF50 /* ic_mouse@2x.png */; };
@@ -147,8 +149,6 @@
 		FB9F57AC18EA561600BF120D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9F579418EA561500BF120D /* UIKit.framework */; };
 		FB9F57B418EA561600BF120D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB9F57B218EA561600BF120D /* InfoPlist.strings */; };
 		FB9F57B618EA561600BF120D /* iSpaceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9F57B518EA561600BF120D /* iSpaceTests.m */; };
-		FBACBAC61908BCC700C0B880 /* DatePickTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBACBAC41908BCC700C0B880 /* DatePickTableViewCell.m */; };
-		FBACBAC71908BCC700C0B880 /* DatePickTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBACBAC51908BCC700C0B880 /* DatePickTableViewCell.xib */; };
 		FBACBAD11908BF5900C0B880 /* AlarmInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBACBACF1908BF5900C0B880 /* AlarmInfoTableViewCell.m */; };
 		FBACBAD21908BF5900C0B880 /* AlarmInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBACBAD01908BF5900C0B880 /* AlarmInfoTableViewCell.xib */; };
 		FBACBADB1908C2F600C0B880 /* SetColckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBACBAD91908C2F600C0B880 /* SetColckViewController.m */; };
@@ -198,6 +198,9 @@
 		FB0CCE851902D0AE0078FF18 /* AddMusicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMusicTableViewCell.h; sourceTree = "<group>"; };
 		FB0CCE861902D0AE0078FF18 /* AddMusicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMusicTableViewCell.m; sourceTree = "<group>"; };
 		FB0CCE871902D0AE0078FF18 /* AddMusicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddMusicTableViewCell.xib; sourceTree = "<group>"; };
+		FB1637061915FA620086BCE3 /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
+		FB1637071915FA630086BCE3 /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
+		FB1637081915FA630086BCE3 /* SetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetViewController.xib; sourceTree = "<group>"; };
 		FB1D311A19037DDD0058AF50 /* StartRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartRecordTableViewCell.h; sourceTree = "<group>"; };
 		FB1D311B19037DDD0058AF50 /* StartRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartRecordTableViewCell.m; sourceTree = "<group>"; };
 		FB1D311C19037DDD0058AF50 /* StartRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartRecordTableViewCell.xib; sourceTree = "<group>"; };
@@ -395,9 +398,6 @@
 		FB9F57B118EA561600BF120D /* iSpaceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iSpaceTests-Info.plist"; sourceTree = "<group>"; };
 		FB9F57B318EA561600BF120D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FB9F57B518EA561600BF120D /* iSpaceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iSpaceTests.m; sourceTree = "<group>"; };
-		FBACBAC31908BCC700C0B880 /* DatePickTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickTableViewCell.h; sourceTree = "<group>"; };
-		FBACBAC41908BCC700C0B880 /* DatePickTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickTableViewCell.m; sourceTree = "<group>"; };
-		FBACBAC51908BCC700C0B880 /* DatePickTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickTableViewCell.xib; sourceTree = "<group>"; };
 		FBACBACE1908BF5900C0B880 /* AlarmInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmInfoTableViewCell.h; sourceTree = "<group>"; };
 		FBACBACF1908BF5900C0B880 /* AlarmInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmInfoTableViewCell.m; sourceTree = "<group>"; };
 		FBACBAD01908BF5900C0B880 /* AlarmInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmInfoTableViewCell.xib; sourceTree = "<group>"; };
@@ -675,6 +675,9 @@
 				FB264D3C1907AA9600CD53D2 /* HomeViewController.h */,
 				FB264D3D1907AA9600CD53D2 /* HomeViewController.m */,
 				FB264D3E1907AA9600CD53D2 /* HomeViewController.xib */,
+				FB1637061915FA620086BCE3 /* SetViewController.h */,
+				FB1637071915FA630086BCE3 /* SetViewController.m */,
+				FB1637081915FA630086BCE3 /* SetViewController.xib */,
 				FB264D1D1907A2E900CD53D2 /* homeCell */,
 				FBACBAC21908BC7E00C0B880 /* setAlarm */,
 			);
@@ -900,9 +903,6 @@
 				FBACBAD81908C2F600C0B880 /* SetColckViewController.h */,
 				FBACBAD91908C2F600C0B880 /* SetColckViewController.m */,
 				FBACBADA1908C2F600C0B880 /* SetColckViewController.xib */,
-				FBACBAC31908BCC700C0B880 /* DatePickTableViewCell.h */,
-				FBACBAC41908BCC700C0B880 /* DatePickTableViewCell.m */,
-				FBACBAC51908BCC700C0B880 /* DatePickTableViewCell.xib */,
 				FBACBACE1908BF5900C0B880 /* AlarmInfoTableViewCell.h */,
 				FBACBACF1908BF5900C0B880 /* AlarmInfoTableViewCell.m */,
 				FBACBAD01908BF5900C0B880 /* AlarmInfoTableViewCell.xib */,
@@ -1033,6 +1033,7 @@
 				FB21E2BD1904B89800E9B806 /* ic_update@2x.png in Resources */,
 				FB0C003818FF6482008DF97E /* bt_add_music@2x.png in Resources */,
 				FB3484BC18F780CE00708232 /* 37x-Checkmark.png in Resources */,
+				FB16370A1915FA630086BCE3 /* SetViewController.xib in Resources */,
 				FB91CB5B18EBD5EB00DF91E3 /* ic_lock.png in Resources */,
 				FB91CB4718EBA7DE00DF91E3 /* SettingViewController.xib in Resources */,
 				FB91CB4318EBA7DE00DF91E3 /* LoginViewController.xib in Resources */,
@@ -1041,7 +1042,6 @@
 				FB0C003D18FF8652008DF97E /* MusicTableViewCell.xib in Resources */,
 				FB9F579B18EA561600BF120D /* InfoPlist.strings in Resources */,
 				FB2FF7F718F1ABA000DFA3C1 /* AboutViewController.xib in Resources */,
-				FBACBAC71908BCC700C0B880 /* DatePickTableViewCell.xib in Resources */,
 				FBBF7F2C18FE968100F2F4C9 /* DownloadTableViewCell.xib in Resources */,
 				FB9F57A318EA561600BF120D /* Images.xcassets in Resources */,
 				FB264D2C1907A34600CD53D2 /* AlarmCell.xib in Resources */,
@@ -1156,7 +1156,6 @@
 				FB2FF7E218F18F1300DFA3C1 /* AccountViewController.m in Sources */,
 				FB2FF7E718F1918000DFA3C1 /* AccountTableViewCell.m in Sources */,
 				FB1D311D19037DDD0058AF50 /* StartRecordTableViewCell.m in Sources */,
-				FBACBAC61908BCC700C0B880 /* DatePickTableViewCell.m in Sources */,
 				FB90DEC918F926C500961273 /* ASIDataCompressor.m in Sources */,
 				FB91CB6118EBE63B00DF91E3 /* RegisterViewController.m in Sources */,
 				FB2FC9AD190A41D60086B289 /* FriendsCell.m in Sources */,
@@ -1168,6 +1167,7 @@
 				FB2FF7EC18F1A8D200DFA3C1 /* HelpViewController.m in Sources */,
 				FB90DECD18F926C500961273 /* ASIHTTPRequest.m in Sources */,
 				FB91CB4618EBA7DE00DF91E3 /* SettingViewController.m in Sources */,
+				FB1637091915FA630086BCE3 /* SetViewController.m in Sources */,
 				FB90DED018F926C500961273 /* Reachability.m in Sources */,
 				FB2FF7F118F1AB4A00DFA3C1 /* FeedbackViewController.m in Sources */,
 				FB264D2B1907A34600CD53D2 /* AlarmCell.m in Sources */,

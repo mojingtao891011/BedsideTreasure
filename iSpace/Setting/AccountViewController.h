@@ -12,8 +12,9 @@
 @interface AccountViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate>
 
 @property(nonatomic , retain)NSArray *dataSourceArr ;
-@property(nonatomic , retain)NSMutableDictionary *userInfoDict;
+@property(nonatomic , retain)NSArray *userInfoArr;
 @property(nonatomic , retain)UserInfoModel *userInfoModel ;
+@property (strong, nonatomic) IBOutlet UIView *dataPickView;
 @property (weak, nonatomic) IBOutlet UITableView *accountTableView;
 @property (strong, nonatomic) IBOutlet UITableViewCell *exitButtonCell;
 - (IBAction)exitLand:(id)sender;

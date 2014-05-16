@@ -83,7 +83,10 @@
 }
 #pragma mark-----customAction（添加好友）
 - (void)addFriendsAction:(UIButton*)sender {
-    AddFriendsViewController *addFriendsViewCtl = [[AddFriendsViewController alloc]init];
+    AddFriendsViewController *addFriendsViewCtl = nil ;
+    if (addFriendsViewCtl == nil) {
+         addFriendsViewCtl = [[AddFriendsViewController alloc]init];
+    }
     [self.navigationController pushViewController:addFriendsViewCtl animated:YES];
 }
 #pragma mark-----获取好友列表
@@ -93,7 +96,7 @@
     [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"loading" andViewCtl:self completeBlock:^(id result){
         
         NSDictionary *returnDict = result[@"message_body"];
-        if ([returnDict[@"error"] intValue] == 0) {
+        if ([returnDict[@"error"] intValue] == 0 && [returnDict[@"list"] isKindOfClass:[NSDictionary class]]) {
             for (NSDictionary *friendsDict in returnDict[@"list"])
             {
                FriendsInfoModel *friendsModel = [[FriendsInfoModel alloc]initWithDataDic:friendsDict];

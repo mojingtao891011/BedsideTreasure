@@ -10,7 +10,15 @@
 
 @interface AccountTableViewCell : UITableViewCell
 
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *radioButton;
+@property (weak, nonatomic) IBOutlet UILabel *bodyLabel;
+@property (weak, nonatomic) IBOutlet UIButton *radioButton_b;
+@property (weak, nonatomic) IBOutlet UILabel *girlLabel;
+@property (weak, nonatomic) IBOutlet UIButton *pushButton;
+
+- (IBAction)selectedAction:(UIButton *)sender;
 @end

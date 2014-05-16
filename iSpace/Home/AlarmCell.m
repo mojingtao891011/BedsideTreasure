@@ -8,6 +8,7 @@
 
 #import "AlarmCell.h"
 #import "SetColckViewController.h"
+#import "SetViewController.h"
 
 @implementation AlarmCell
 
@@ -56,8 +57,10 @@
 }
 
 - (IBAction)clickClockButtonActioon:(UIButton*)sender {
-    SetColckViewController *setClockViewCtl = [[SetColckViewController alloc]init];
-    setClockViewCtl.clockButtonTag = sender.tag ;
-    [_pushViewCtl.navigationController pushViewController:setClockViewCtl animated:YES];
+//    SetColckViewController *setClockViewCtl = [[SetColckViewController alloc]init];
+//    setClockViewCtl.clockButtonTag = sender.tag ;
+//    [_pushViewCtl.navigationController pushViewController:setClockViewCtl animated:YES];
+    SetViewController *testView = [[SetViewController alloc]init];
+    [_pushViewCtl.navigationController pushViewController:testView animated:YES];
 }
 @end

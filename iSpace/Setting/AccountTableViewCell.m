@@ -22,8 +22,15 @@
 
     // Configure the view for the selected state
 }
-- (void)layoutSubviews
-{
+- (IBAction)selectedAction:(UIButton *)sender {
     
+        for (UIView *v  in self.subviews) {
+        if ( [v isKindOfClass:[UIButton class]]) {
+            UIButton *button = (UIButton*)v ;
+            button.selected = NO ;
+        }
+    }
+    sender.selected = !sender.selected ;
+   
 }
 @end

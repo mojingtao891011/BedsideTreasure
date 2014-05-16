@@ -31,13 +31,10 @@
     
     [self loadUserInfo];
     [self.accountTableView registerNib:[UINib nibWithNibName:@"AccountTableViewCell" bundle:nil] forCellReuseIdentifier:@"AccountTableViewCell"];
-    self.dataSourceArr = @[@"头像" , @"用户名" , @"性别" , @"生日" , @"城市" , @"绑定手机" , @"绑定邮箱" , @"密码保护" ,@"更改密码" , @"手势密码" ];
-    for (NSString *key in _dataSourceArr) {
-        if (_userInfoDict == nil) {
-            _userInfoDict = [[NSMutableDictionary alloc]initWithCapacity:10];
-        }
-        [_userInfoDict setObject:@"" forKey:key];
-    }
+    [self setExtraCellLineHidden:_accountTableView];
+    
+    self.dataSourceArr = @[@"头像" , @"用户名" , @"性别" , @"生日" , @"城市" , @"绑定手机" , @"绑定邮箱"  ,@"更改密码" , @"手势密码" ];
+    
 }
 - (void)didReceiveMemoryWarning
 {
@@ -47,35 +44,58 @@
 #pragma mark-----UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 2 ;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section==0) {
-        return self.dataSourceArr.count ;
+         return self.dataSourceArr.count ;
     }
     return 1 ;
+   
 }
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        AccountTableViewCell *accountCell = [tableView dequeueReusableCellWithIdentifier:@"AccountTableViewCell"];
-        accountCell.titleLabel.text = self.dataSourceArr[indexPath.row] ;
-        if (indexPath.row == 0) {
-            [self drawUserImageView:accountCell] ;
-            accountCell.valueLabel.alpha = 0.0 ;
-        }else{
-           accountCell.valueLabel.text = _userInfoDict[_dataSourceArr[indexPath.row]];
-        }
-
-        return accountCell ;
+    if (indexPath.section == 1) {
+        
+            return _exitButtonCell ;
+       
     }
-    return _exitButtonCell ;
+    AccountTableViewCell *accountCell = [tableView dequeueReusableCellWithIdentifier:@"AccountTableViewCell"];
+    if (indexPath.row == 0) {
+        accountCell.valueLabel.hidden = YES ;
+        [self drawUserImageView:accountCell];
+    }else if(indexPath.row == 2){
+        accountCell.radioButton.hidden = NO ;
+        accountCell.bodyLabel.hidden = NO ;
+        accountCell.radioButton_b.hidden = NO ;
+        accountCell.girlLabel.hidden = NO ;
+         accountCell.valueLabel.hidden = YES ;
+    }
+    if (indexPath.row > 4) {
+        accountCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator ;
+    }else{
+        accountCell.accessoryType = UITableViewCellAccessoryNone ;
+    }
+    if ([_userInfoModel.sex isEqualToString:@"0"]) {
+        accountCell.radioButton_b.selected = YES ;
+    }else if ([_userInfoModel.sex isEqualToString:@"1"]){
+        accountCell.radioButton.selected = YES ;
+    }
+    if (indexPath.row == 3 || indexPath.row == 4) {
+        accountCell.pushButton.hidden = NO ;
+    }
+    accountCell.titleLabel.text = _dataSourceArr[indexPath.row];
+    accountCell.valueLabel.text = _userInfoArr[indexPath.row];
+    return accountCell ;
+    
 }
 #pragma mark-----UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.row == 3) {
+        
+    }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -84,6 +104,14 @@
     }
     return 44 ;
 }
+//UITableView隐藏多余的分割线
+- (void)setExtraCellLineHidden: (UITableView *)tableView{
+    UIView *view =[ [UIView alloc]init];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+    [tableView setTableHeaderView:view];
+}
+
 - (void)drawUserImageView : (AccountTableViewCell*)cell
 {
     UIImageView * imageView = [[UIImageView alloc] init];
@@ -122,12 +150,8 @@
         //保存用户信息到用户信息模型
         _userInfoModel = [[UserInfoModel alloc]initWithDataDic:retrunDict];
         NSString *birthday =[NSString stringWithFormat:@"%@.%@.%@",_userInfoModel.year , _userInfoModel.month , _userInfoModel.day];
-        NSArray*userInfoArr = @[_userInfoModel.name , _userInfoModel.sex , birthday , _userInfoModel.city , _userInfoModel.phone_no , _userInfoModel.email , @"" , @"" , @"是"] ;
-
-        for (int i = 1; i < _dataSourceArr.count; i++) {
-            [_userInfoDict setObject:userInfoArr[i-1] forKey:_dataSourceArr[i]];
-        }
-    
+        _userInfoArr = @[@"" ,_userInfoModel.name , _userInfoModel.sex , birthday , _userInfoModel.city , _userInfoModel.phone_no , _userInfoModel.email , @"" , @"未设置"];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [_accountTableView reloadData];
             

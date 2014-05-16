@@ -67,14 +67,21 @@
 {
     
     if (indexPath.row == 0) {
-        AccountViewController *accountViewCtl = [[AccountViewController alloc]init];
-        [self.navigationController pushViewController:accountViewCtl animated:YES];
+        AccountViewController *accountViewCtl = nil ;
+        if (accountViewCtl == nil) {
+            accountViewCtl = [[AccountViewController alloc]init];
+        }
+          [self.navigationController pushViewController:accountViewCtl animated:YES];
     }
     else if(indexPath.row == 1){
-        HelpViewController *helpViewCtl = [[HelpViewController alloc]init];
+        HelpViewController *helpViewCtl = nil ;
+        if (helpViewCtl == nil) {
+            helpViewCtl = [[HelpViewController alloc]init];
+        }
         [self.navigationController pushViewController:helpViewCtl animated:YES];
     }
     else if (indexPath.row == 2){
+        
         AboutViewController *aboutViewCtl = [[AboutViewController alloc]init];
         [self.navigationController pushViewController:aboutViewCtl animated:YES];
     }

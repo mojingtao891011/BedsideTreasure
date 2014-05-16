@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "FriendsInfoModel.h"
 
-@interface SearchListCell : UITableViewCell
+@interface SearchListCell : UITableViewCell<UIAlertViewDelegate>
+
 @property(nonatomic , retain)FriendsInfoModel   *friendsInfoModel ;
+@property(nonatomic , retain)UIViewController *showAlerViewCtl ;
 @property (weak, nonatomic) IBOutlet UIImageView *friendsImg;
 @property (weak, nonatomic) IBOutlet UILabel *friendsName;
 @property (weak, nonatomic) IBOutlet UILabel *friendsSex;
 @property (weak, nonatomic) IBOutlet UILabel *friendsCity;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
+- (IBAction)addFriendsAction:(id)sender;
+
 @end
