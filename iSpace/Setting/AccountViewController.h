@@ -12,6 +12,11 @@
 @interface AccountViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate , UIActionSheetDelegate , UIActionSheetDelegate , UINavigationControllerDelegate , UIImagePickerControllerDelegate>
 
 @property(nonatomic , retain)NSArray *dataSourceArr ;
+<<<<<<< HEAD
+@property(nonatomic , retain)NSArray *userInfoArr;
+@property(nonatomic , retain)UserInfoModel *userInfoModel ;
+@property (strong, nonatomic) IBOutlet UIView *dataPickView;
+=======
 @property(nonatomic , retain)NSMutableArray *userInfoArr;
 @property(nonatomic , retain)UserInfoModel *userInfoModel ;
 @property(nonatomic , copy)NSString *sex ;
@@ -30,6 +35,7 @@
 - (IBAction)cancelDateAction:(id)sender;
 
 
+>>>>>>> FETCH_HEAD
 @property (weak, nonatomic) IBOutlet UITableView *accountTableView;
 @property (strong, nonatomic) IBOutlet UITableViewCell *exitButtonCell;
 - (IBAction)exitLand:(id)sender;

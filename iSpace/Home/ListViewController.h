@@ -16,6 +16,7 @@
     NSString *_imgName ;
 }
 @property(nonatomic , retain)NSMutableArray *listArr ;
+
 @property (weak, nonatomic) IBOutlet UITableView *listTableView;
 
 @end

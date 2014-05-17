@@ -35,8 +35,11 @@
     //保存用户名
     [[NSUserDefaults standardUserDefaults] setObject:_userName forKey:@"USERNAME"];
     [[NSUserDefaults standardUserDefaults]  synchronize];
+<<<<<<< HEAD
+=======
     
     [self setExtraCellLineHidden:_lookPassWordTableView];
+>>>>>>> FETCH_HEAD
     
 }
 - (void)didReceiveMemoryWarning

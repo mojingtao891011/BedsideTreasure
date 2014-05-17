@@ -5,7 +5,11 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< HEAD
+	<string>DE34DEC8-FC3A-4C23-883B-0C3018183EDC</string>
+=======
 	<string>E3A36D9A-36D3-4968-871B-4056C96CD9E4</string>
+>>>>>>> FETCH_HEAD
 	<key>IDESourceControlProjectName</key>
 	<string>iSpace</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>

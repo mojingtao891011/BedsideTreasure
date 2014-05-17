@@ -29,10 +29,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+<<<<<<< HEAD
+    [self getRingListInfo];
+=======
      _fmArr = [[NSMutableArray alloc]initWithCapacity:10];
     _recordArr = [[NSMutableArray alloc]initWithCapacity:10];
     
     [self getRecordInfo];
+>>>>>>> FETCH_HEAD
     [self registerNibCell];
     
 }
@@ -44,6 +48,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+<<<<<<< HEAD
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(submitAlarmInfo:) name:@"AlarmInfo" object:nil];
+    
+=======
+>>>>>>> FETCH_HEAD
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(submitAlarmInfo:) name:@"AlarmInfo" object:nil];
     
@@ -78,7 +87,29 @@
 {
     return 255.0 ;
 }
+<<<<<<< HEAD
+#pragma mark-----UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1 ;
+}
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    AlarmInfoTableViewCell *alarmInfoCell = [tableView dequeueReusableCellWithIdentifier:@"AlarmInfoTableViewCell"];
+    
+    alarmInfoCell.pushViewCtl = self ;
+    alarmInfoCell.listTitleArr = [_listArr mutableCopy];
+    
+    return alarmInfoCell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 255.0 ;
+}
+#pragma mark-----提交闹钟设置信息
+=======
 #pragma mark-----提交闹钟设置信息(note)
+>>>>>>> FETCH_HEAD
 - (void)submitAlarmInfo:(NSNotification*)note
 {
     
@@ -87,14 +118,23 @@
     NSArray *dateArr = [dateStr componentsSeparatedByString:@":"];
     NSString *hour = dateArr[0];
     NSString *minute = dateArr[1];
+<<<<<<< HEAD
+    
+=======
     //频率、音量 、铃音类型 、FM频道 、音源路径 、音源 ID
+>>>>>>> FETCH_HEAD
     NSMutableArray *infoArr = [note object];
     NSString *frequency = infoArr[0] ;
     NSString *vol_level = infoArr[1] ;
     NSString *vol_type = infoArr[2] ;
+<<<<<<< HEAD
+    NSString *file_path = infoArr[3] ;
+    NSString *file_id = infoArr[4] ;
+=======
     NSString *fm_chnl = infoArr[3];
     NSString *file_path = infoArr[4] ;
     NSString *file_id = infoArr[5] ;
+>>>>>>> FETCH_HEAD
    
     //把设置信息保存到网络
     NSDictionary *dic = @{
@@ -107,13 +147,22 @@
                           @"minute": minute ,       //分
                           @"vol_level":vol_level ,  //音量
                           @"vol_type": vol_type ,         //铃音类型0 为语音;1 为音乐;2 为 FM;3 为系统
+<<<<<<< HEAD
+                          @"fm_chnl":@"0" ,           //FM频道
+=======
                           @"fm_chnl":fm_chnl,           //FM频道
+>>>>>>> FETCH_HEAD
                           @"file_path":file_path,          //音源路径
                           @"file_id" : file_id             //音源 ID
                           
                           };
     
     NSMutableDictionary *dict = [NetDataService needCommand:@"2052" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"dev_sn" , @"alarm_info"] andNeedBobyArrValue:@[DEV_SN , dic]];
+<<<<<<< HEAD
+//    [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"loading" andViewCtl:self completeBlock:^(id result){
+//        NSLog(@"%@" , result);
+//    }];
+=======
     [NetDataService requestWithUrl:URl dictParams:dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:nil andViewCtl:self completeBlock:^(id result){
         NSLog(@"%@" , result);
         int errorInt = [result[@"message_body"][@"error"] intValue];
@@ -126,10 +175,49 @@
         }
         
     }];
+>>>>>>> FETCH_HEAD
 
 }
 #pragma mark-----将NSDate转化为NSString
 - (NSString*) stringFromFomate:(NSDate*) date formate:(NSString*)formate
+<<<<<<< HEAD
+{
+	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+	[formatter setDateFormat:formate];
+	NSString *str = [formatter stringFromDate:date];
+	return str;
+}
+#pragma mark-----从网络获取音乐、FM、录音
+- (void)getRingListInfo
+{
+    //获取音乐
+    NSMutableDictionary *musicDict = [NetDataService needCommand:@"2074" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"req_id"] andNeedBobyArrValue:@[@""]];
+    [NetDataService requestWithUrl:URl dictParams:musicDict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:nil andViewCtl:self completeBlock:^(id result){
+        int errorInt = [result[@"message_body"][@"error"] intValue];
+        if (errorInt == 0 && [result[@"message_body"][@"info"] isKindOfClass:[NSArray class]]) {
+            
+            NSArray *musicInfoArr = result[@"message_body"][@"info"] ;
+            MusicModel *musicModel = [[MusicModel alloc]initWithDataDic:musicInfoArr[0]];
+            if (_listArr == nil) {
+                _listArr = [[NSMutableArray alloc]initWithCapacity:10];
+            }
+            [_listArr addObject:musicModel];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_setAlarmTabelView reloadData];
+            });
+        }
+    }];
+//    //获取FM
+//    NSMutableDictionary *FMDict = [NetDataService needCommand:@"2053" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"dev_sn"] andNeedBobyArrValue:@[DEV_SN]];
+//    [NetDataService requestWithUrl:URl dictParams:FMDict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:nil andViewCtl:self completeBlock:^(id result){
+//        NSLog(@"%@" , result);
+//    }];
+//    //获取语音
+//    NSMutableDictionary *recordDict = [NetDataService needCommand:@"2075" andNeedUserId:USER_ID AndNeedBobyArrKey:@[@"req_id"] andNeedBobyArrValue:@[@""]];
+//    [NetDataService requestWithUrl:URl dictParams:recordDict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:nil andViewCtl:self completeBlock:^(id result){
+//        NSLog(@"%@" , result);
+//    }];
+=======
 {
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:formate];
@@ -179,6 +267,7 @@
            
         });
     }];
+>>>>>>> FETCH_HEAD
 
 }
 @end

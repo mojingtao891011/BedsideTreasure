@@ -8,7 +8,11 @@
 
 #import "BaseViewController.h"
 
+<<<<<<< HEAD
+@interface FriendsViewController : BaseViewController<UITableViewDataSource , UITableViewDelegate>
+=======
 @interface FriendsViewController : BaseViewController
+>>>>>>> FETCH_HEAD
 
 
 - (IBAction)fetchData:(UIButton *)sender;

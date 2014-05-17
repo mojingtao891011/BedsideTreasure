@@ -70,7 +70,11 @@
 {
     
     if (indexPath.row == 0) {
+<<<<<<< HEAD
+        AccountViewController *accountViewCtl = nil ;
+=======
        static  AccountViewController *accountViewCtl = nil ;
+>>>>>>> FETCH_HEAD
         if (accountViewCtl == nil) {
             accountViewCtl = [[AccountViewController alloc]init];
         }
@@ -83,9 +87,16 @@
         }
         [self.navigationController pushViewController:helpViewCtl animated:YES];
     }
+<<<<<<< HEAD
+    else if (indexPath.row == 2){
+        
+        AboutViewController *aboutViewCtl = [[AboutViewController alloc]init];
+        [self.navigationController pushViewController:aboutViewCtl animated:YES];
+=======
     else if (indexPath.row == 5){
         FeedbackViewController *feedbackCtl = [[FeedbackViewController alloc]init];
         [self.navigationController pushViewController:feedbackCtl animated:YES];
+>>>>>>> FETCH_HEAD
     }
     
 }

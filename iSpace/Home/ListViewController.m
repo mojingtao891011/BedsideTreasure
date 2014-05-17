@@ -28,7 +28,10 @@
 {
     [super viewDidLoad];
     
+<<<<<<< HEAD
+=======
     _imgName = @"bt_radio_normal" ;
+>>>>>>> FETCH_HEAD
     [self setExtraCellLineHidden:_listTableView];
 }
 
@@ -49,6 +52,8 @@
     if (listCell == nil) {
         listCell = [[NSBundle mainBundle]loadNibNamed:@"ListCell" owner:self options:nil][0];
     }
+<<<<<<< HEAD
+=======
    UIImageView *radioImg = (UIImageView*)[listCell.contentView viewWithTag:1];
    UIImageView *clockImg = (UIImageView*)[listCell.contentView viewWithTag:3];
     if (indexPath.row == _selectedRow) {
@@ -59,6 +64,7 @@
         clockImg.hidden = YES ;
     }
     UILabel *nameLabel = (UILabel*)[listCell.contentView viewWithTag:2];
+>>>>>>> FETCH_HEAD
     
     if ([self.titleLabel.text isEqualToString:@"音乐列表"])
     {
@@ -98,9 +104,34 @@
     }
 
 }
+<<<<<<< HEAD
+#pragma mark-----UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   
+    if ([self.titleLabel.text isEqualToString:@"音乐列表"]) {
+        MusicModel *model = _listArr[indexPath.row];
+        [MusicModel sharedManager].musicName = model.musicName ;
+        [MusicModel sharedManager].musicUrl = model.musicUrl ;
+        [MusicModel sharedManager].musicId = model.musicId ;
+        //发送更改标题通知
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"postTitle" object:model.musicName];
+    }
+    else if ([self.titleLabel.text isEqualToString:@"语音列表"]) {
+        
+    }
+    else if ([self.titleLabel.text isEqualToString:@"广播列表"]) {
+        
+    }
+
+}
+//UITableView隐藏多余的分割线
+- (void)setExtraCellLineHidden: (UITableView *)tableView{
+=======
 //UITableView隐藏多余的分割线
 - (void)setExtraCellLineHidden: (UITableView *)tableView
 {
+>>>>>>> FETCH_HEAD
     UIView *view =[ [UIView alloc]init];
     view.backgroundColor = [UIColor clearColor];
     [tableView setTableFooterView:view];

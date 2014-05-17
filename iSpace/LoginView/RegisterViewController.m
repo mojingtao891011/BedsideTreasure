@@ -133,9 +133,20 @@
 {
     
     //请求体
+<<<<<<< HEAD
+    NSMutableDictionary *Dict = nil ;
+    if (_phoneNumber.text.length == 0) {
+        Dict = [NetDataService needCommand:@"2048" andNeedUserId:@"0" AndNeedBobyArrKey:@[@"name" , @"password" , @"email", @"phone_no"] andNeedBobyArrValue:@[_userName.text , _MD5Password , _email.text , @""]];
+
+    }else{
+        Dict = [NetDataService needCommand:@"2048" andNeedUserId:@"0" AndNeedBobyArrKey:@[@"name" , @"password" , @"email", @"phone_no"] andNeedBobyArrValue:@[_userName.text , _MD5Password , _email.text , _phoneNumber.text]];
+
+    }
+=======
     //用户名Base64加密
     NSData *data = [_userName.text dataUsingEncoding:NSUTF8StringEncoding];
     NSString *baseUserName = [[NSString alloc] initWithData:[GTMBase64 encodeData:data] encoding:NSUTF8StringEncoding];
+>>>>>>> FETCH_HEAD
     
    
     NSMutableDictionary *Dict  = [NetDataService needCommand:@"2048" andNeedUserId:@"0" AndNeedBobyArrKey:@[@"name" , @"password" , @"email"] andNeedBobyArrValue:@[baseUserName , _MD5Password , _email.text]];
@@ -143,7 +154,11 @@
 
     //请求网络
     [NetDataService requestWithUrl:URl dictParams:Dict httpMethod:@"POST" AndisWaitActivity:YES AndWaitActivityTitle:@"注册中……" andViewCtl:self completeBlock:^(id result){
+<<<<<<< HEAD
+
+=======
         NSLog(@"%@" , result);
+>>>>>>> FETCH_HEAD
         NSDictionary *returnInfoDict = result[@"message_body"];
         NSString *returnInt = returnInfoDict[@"error"];
         int infoInt = [returnInt intValue];

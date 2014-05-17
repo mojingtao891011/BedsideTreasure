@@ -38,6 +38,10 @@
     [self.accountTableView registerNib:[UINib nibWithNibName:@"AccountTableViewCell" bundle:nil] forCellReuseIdentifier:@"AccountTableViewCell"];
     [self setExtraCellLineHidden:_accountTableView];
     
+<<<<<<< HEAD
+    self.dataSourceArr = @[@"头像" , @"用户名" , @"性别" , @"生日" , @"城市" , @"绑定手机" , @"绑定邮箱"  ,@"更改密码" , @"手势密码" ];
+    
+=======
     self.dataSourceArr = @[@"头像" , @"用户名" , @"性别" , @"生日" , @"城市" , @"绑定手机" , @"绑定邮箱"  ,@"更改密码"  ];
     
     //添加保存按钮
@@ -64,6 +68,7 @@
     _dateBgView.hidden = YES ;
     _markView.hidden = YES ;
     //[[NSNotificationCenter defaultCenter]removeObserver:self];
+>>>>>>> FETCH_HEAD
 }
 - (void)didReceiveMemoryWarning
 {
@@ -155,6 +160,10 @@
     }
     AccountTableViewCell *accountCell = [tableView dequeueReusableCellWithIdentifier:@"AccountTableViewCell"];
     if (indexPath.row == 0) {
+<<<<<<< HEAD
+        accountCell.valueLabel.hidden = YES ;
+        [self drawUserImageView:accountCell];
+=======
         accountCell.titleLabel.hidden = YES ;
         accountCell.valueLabel.hidden = YES ;
         UILabel *userLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 25, 50, 20)];
@@ -169,20 +178,37 @@
         [imageView setImageWithURL:[NSURL URLWithString:_pic_url] placeholderImage:[UIImage imageNamed:@"ic_test_head"]];
         [accountCell.contentView addSubview:imageView];
         
+>>>>>>> FETCH_HEAD
     }else if(indexPath.row == 2){
         accountCell.radioButton.hidden = NO ;
         accountCell.bodyLabel.hidden = NO ;
         accountCell.radioButton_b.hidden = NO ;
         accountCell.girlLabel.hidden = NO ;
          accountCell.valueLabel.hidden = YES ;
+<<<<<<< HEAD
+    }
+=======
         accountCell.selectionStyle = UITableViewCellSelectionStyleNone ;
     }
     
+>>>>>>> FETCH_HEAD
     if (indexPath.row > 4) {
         accountCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator ;
     }else{
         accountCell.accessoryType = UITableViewCellAccessoryNone ;
     }
+<<<<<<< HEAD
+    if ([_userInfoModel.sex isEqualToString:@"0"]) {
+        accountCell.radioButton_b.selected = YES ;
+    }else if ([_userInfoModel.sex isEqualToString:@"1"]){
+        accountCell.radioButton.selected = YES ;
+    }
+    if (indexPath.row == 3 || indexPath.row == 4) {
+        accountCell.pushButton.hidden = NO ;
+    }
+    accountCell.titleLabel.text = _dataSourceArr[indexPath.row];
+    accountCell.valueLabel.text = _userInfoArr[indexPath.row];
+=======
     
     if (indexPath.row == 3 || indexPath.row == 4) {
         accountCell.pushButton.hidden = NO ;
@@ -192,12 +218,17 @@
     accountCell.valueLabel.text = _userInfoArr[indexPath.row];
     accountCell.selectedSex = _sex ;
     
+>>>>>>> FETCH_HEAD
     return accountCell ;
     
 }
 #pragma mark-----UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+<<<<<<< HEAD
+    if (indexPath.row == 3) {
+        
+=======
     if (indexPath.section == 0 && indexPath.row == 0) {
         UIActionSheet *actionsheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"拍照" otherButtonTitles:@"用户相册", nil];
         [actionsheet showInView:self.view];
@@ -231,6 +262,7 @@
     {
         ChangePasswordViewController *changePasswordViewCtl = [[ChangePasswordViewController alloc]init];
         [self.navigationController pushViewController:changePasswordViewCtl animated:YES] ;
+>>>>>>> FETCH_HEAD
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -244,15 +276,24 @@
     return 44 ;
 }
 //UITableView隐藏多余的分割线
+<<<<<<< HEAD
+- (void)setExtraCellLineHidden: (UITableView *)tableView{
+=======
 - (void)setExtraCellLineHidden: (UITableView *)tableView
 {
+>>>>>>> FETCH_HEAD
     UIView *view =[ [UIView alloc]init];
     view.backgroundColor = [UIColor clearColor];
     [tableView setTableFooterView:view];
     [tableView setTableHeaderView:view];
 }
+<<<<<<< HEAD
+
+- (void)drawUserImageView : (AccountTableViewCell*)cell
+=======
 #pragma mark-----UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+>>>>>>> FETCH_HEAD
 {
     
     UIImagePickerControllerSourceType sourceType ; //照片类型（是结构体）
@@ -369,11 +410,16 @@
         }
         //保存用户信息到用户信息模型
         _userInfoModel = [[UserInfoModel alloc]initWithDataDic:retrunDict];
+<<<<<<< HEAD
+        NSString *birthday =[NSString stringWithFormat:@"%@.%@.%@",_userInfoModel.year , _userInfoModel.month , _userInfoModel.day];
+        _userInfoArr = @[@"" ,_userInfoModel.name , _userInfoModel.sex , birthday , _userInfoModel.city , _userInfoModel.phone_no , _userInfoModel.email , @"" , @"未设置"];
+=======
         _birthday =[NSString stringWithFormat:@"%@-%@-%@",_userInfoModel.year , _userInfoModel.month , _userInfoModel.day];
         _pic_url = _userInfoModel.pic_url ;
         NSString *userName = [[NSString alloc]initWithData:[GTMBase64 decodeString:_userInfoModel.name] encoding:NSUTF8StringEncoding];
         _city = [[NSString alloc]initWithData:[GTMBase64 decodeData:[_userInfoModel.city dataUsingEncoding:NSUTF8StringEncoding]] encoding:NSUTF8StringEncoding];
         _userInfoArr = [NSMutableArray arrayWithObjects:_pic_url ,userName ,  _userInfoModel.sex , _birthday , _city , _userInfoModel.phone_no , _userInfoModel.email , @"", nil];
+>>>>>>> FETCH_HEAD
         
         dispatch_async(dispatch_get_main_queue(), ^{
             _sex = _userInfoModel.sex ;

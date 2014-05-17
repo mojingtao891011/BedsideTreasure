@@ -32,6 +32,11 @@
     [super viewDidLoad];
     _cellArr = @[_iSpaceNameCell , _iSpaceWeathCell , _iSpaceClockCell , _iSpaceOtherCell];
     _devicesTotalArr = [[NSMutableArray alloc]initWithCapacity:4];
+<<<<<<< HEAD
+     [self updateDevices];
+    [self registerNibCell];
+
+=======
     _clockArr = @[_clock1 , _clock2 , _clock3 , _clock4];
     _clockLabelArr = @[_label1 , _label2 , _label3 , _label4];
    
@@ -39,6 +44,7 @@
 
 
     
+>>>>>>> FETCH_HEAD
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,6 +57,12 @@
 {
     return _cellArr.count ;
 }
+<<<<<<< HEAD
+#pragma mark------UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 4 ;
+=======
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *homeCell = _cellArr[indexPath.row];
@@ -60,6 +72,7 @@
 {
     NSArray *heightRowArr = @[@"100" , @"120" , @"160" , @"60"];
     return [heightRowArr[indexPath.row] floatValue];
+>>>>>>> FETCH_HEAD
 }
 #pragma mark-----更新闹钟信息
 - (void)updateAlertInfo
@@ -111,12 +124,18 @@
 #pragma mark------把NSString转化为NSDate
 - (NSDate *) dateFromFomate:(NSString *)datestring formate:(NSString*)formate
 {
+<<<<<<< HEAD
+    NSArray *heightArr = @[@"80" , @"120" , @"120" , @"44"];
+    CGFloat height = [heightArr[indexPath.row] floatValue];
+    return height ;
+=======
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:formate];
     NSLocale* local =[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] ;
     [formatter setLocale: local];
     NSDate *date = [formatter dateFromString:datestring];
     return date;
+>>>>>>> FETCH_HEAD
 }
 
 #pragma mark-----点击闹钟进入闹钟设置界面

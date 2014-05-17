@@ -8,14 +8,21 @@
 
 #import "AlarmInfoTableViewCell.h"
 #import "ListViewController.h"
+<<<<<<< HEAD
+#import "MusicModel.h"
+=======
 #import "RecordModel.h"
 #import "AddLocalMusicViewController.h"
 #import "AddMusicViewController.h"
+>>>>>>> FETCH_HEAD
 
 @implementation AlarmInfoTableViewCell
 
 - (void)awakeFromNib
 {
+<<<<<<< HEAD
+    
+=======
     _RingStyleTitleStr = @"音乐" ;
     
     //进音乐列表选（接收选中通知）
@@ -27,6 +34,7 @@
     //进语音列表选（接收选中通知）
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(selectedRecordNote:) name:@"postRecordModel" object:nil];
 
+>>>>>>> FETCH_HEAD
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
@@ -35,12 +43,20 @@
 }
 - (void)layoutSubviews
 {
+<<<<<<< HEAD
+    self.styleView.height = 30 ;
+    _styleView.clipsToBounds = YES ;
+    _RingStyleTitleStr = @"音乐" ;
+    MusicModel *musicModel = _listTitleArr[0];
+    _showTitle.text = musicModel.musicName;
+=======
     [super layoutSubviews];
     self.styleView.height = 30 ;
     _styleView.clipsToBounds = YES ;
     NSString *showStr =  [_showButton titleForState:UIControlStateNormal];
     [self titleCorrespondList:showStr];
    
+>>>>>>> FETCH_HEAD
 }
 #pragma mark----响铃方式（音乐、语音、FM）
 - (IBAction)selectRingStyleAction:(UIButton*)sender
@@ -85,6 +101,35 @@
 #pragma mark----点确定按钮
 - (IBAction)saveAlarmSetInfoAction:(id)sender
 {
+<<<<<<< HEAD
+    if (_sound.length == 0) {
+        _sound = @"5" ;
+    }
+    static int vol_type = 0 ;          //铃音类型0 为语音;1 为音乐;2 为 FM;3 为系统
+    if ([_RingStyleTitleStr isEqualToString:@"语音"]) {
+        vol_type = 0 ;
+    }else if ([_RingStyleTitleStr isEqualToString:@"音乐"]){
+        vol_type = 1 ;
+    }else if ([_RingStyleTitleStr isEqualToString:@"FM"]){
+        vol_type = 2 ;
+    }else{
+        vol_type = 3 ;
+    }
+    // @"file_path":@"0",   音源路径    @"file_id" : @"8"           音源 ID
+    NSString *file_path =[NSString new];
+    NSString *file_id = [NSString new];
+    if ([MusicModel sharedManager].musicUrl.length != 0) {
+        
+        file_path = [MusicModel sharedManager].musicUrl ;
+        file_id = [MusicModel sharedManager].musicId ;
+
+   }
+    //频率、音量 、铃音类型 、音源路径 、音源 ID
+    NSArray * infoArr = @[ [NSNumber numberWithInt:_repeatDates] , _sound , [NSNumber numberWithInt:vol_type] , file_path , file_id];
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"AlarmInfo" object:infoArr];
+=======
+>>>>>>> FETCH_HEAD
     
     if (_sound.length == 0) {
         _sound = @"5" ;
@@ -156,6 +201,18 @@
 #pragma mark----ring列表
 - (IBAction)pushRingList:(id)sender
 {
+<<<<<<< HEAD
+    static  ListViewController *listViewCtl = nil ;
+    if (listViewCtl == nil) {
+        listViewCtl = [[ListViewController alloc]init];
+    }
+    listViewCtl.titleLabel.text = [NSString stringWithFormat:@"%@列表", _RingStyleTitleStr] ;
+    [listViewCtl.titleLabel sizeToFit];
+    
+    if ([_RingStyleTitleStr isEqualToString:@"音乐"])  {
+        listViewCtl.listArr =_listTitleArr[0];
+    }
+=======
     ListViewController *listViewCtl = [[ListViewController alloc]init];
     listViewCtl.titleLabel.text = [NSString stringWithFormat:@"%@列表", _RingStyleTitleStr] ;
     [listViewCtl.titleLabel sizeToFit];
@@ -173,6 +230,7 @@
         listViewCtl.listArr =[_recordArr copy];
     }
 
+>>>>>>> FETCH_HEAD
     [_pushViewCtl.navigationController pushViewController:listViewCtl animated:YES];
 }
 #pragma mark----重复－－点击时的背景色
@@ -193,6 +251,18 @@
 #pragma mark----根据响铃方式标题对应相应列表
 - (void)titleCorrespondList:(NSString*)title
 {
+<<<<<<< HEAD
+    NSString *showStr ;
+    if ([title isEqualToString:@"音乐"]) {
+        showStr = _listTitleArr[0];
+    }else if ([title isEqualToString:@"广播"]){
+        showStr = _listTitleArr[0];;
+    }else if ([title isEqualToString:@"语音"]){
+        showStr = _listTitleArr[0];
+    }
+    
+    _showTitle.text = showStr ;
+=======
    
     if ([title isEqualToString:@"音乐"]) {
         NSString *musicName = [[NSUserDefaults standardUserDefaults]objectForKey:@"musicName"] ;
@@ -218,6 +288,7 @@
             _showTitle.text = @"当前无语音信息" ;
         }
    }
+>>>>>>> FETCH_HEAD
     
 }
 @end

@@ -19,6 +19,8 @@
 @property(nonatomic , copy)NSString *devicesCity ;
 
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
+<<<<<<< HEAD
+=======
 @property (strong, nonatomic) IBOutlet UITableViewCell *iSpaceNameCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *iSpaceWeathCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *iSpaceClockCell;
@@ -41,6 +43,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *AverageTemp;
 
 - (IBAction)clickAlarmClockAction:(UIButton *)sender;
+>>>>>>> FETCH_HEAD
 
 - (IBAction)changeDevicesAction:(UIButton *)sender;
 @end

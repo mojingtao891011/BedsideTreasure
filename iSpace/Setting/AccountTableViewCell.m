@@ -22,6 +22,9 @@
 
     // Configure the view for the selected state
 }
+<<<<<<< HEAD
+- (IBAction)selectedAction:(UIButton *)sender {
+=======
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -41,6 +44,15 @@
     }else{
         [[NSNotificationCenter defaultCenter]postNotificationName:@"selectedSexNote" object:@"0"];
     }
+>>>>>>> FETCH_HEAD
     
+        for (UIView *v  in self.subviews) {
+        if ( [v isKindOfClass:[UIButton class]]) {
+            UIButton *button = (UIButton*)v ;
+            button.selected = NO ;
+        }
+    }
+    sender.selected = !sender.selected ;
+   
 }
 @end

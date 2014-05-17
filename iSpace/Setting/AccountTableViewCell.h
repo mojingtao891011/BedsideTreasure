@@ -19,7 +19,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *radioButton_b;
 @property (weak, nonatomic) IBOutlet UILabel *girlLabel;
 @property (weak, nonatomic) IBOutlet UIButton *pushButton;
+<<<<<<< HEAD
+=======
 @property (copy, nonatomic) NSString *selectedSex ;
+>>>>>>> FETCH_HEAD
 
 - (IBAction)selectedAction:(UIButton *)sender;
 @end
