@@ -28,7 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    _cellArr = @[_firstCell , _sencondCell , _threeCell , _fourCell];
+    [self setExtraCellLineHidden:_tableView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,6 +37,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark-----UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _cellArr.count ;
+}
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = _cellArr[indexPath.row];
+    return cell ;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *heightArr = @[@"44" , @"44" ,@"44", @"60"];
+    return [heightArr[indexPath.row] floatValue];
+}
+//UITableView隐藏多余的分割线
+- (void)setExtraCellLineHidden: (UITableView *)tableView
+{
+    UIView *view =[ [UIView alloc]init];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+    [tableView setTableHeaderView:view];
+}
+
 #pragma mark----提交修改
 - (IBAction)submitChange:(id)sender
 {

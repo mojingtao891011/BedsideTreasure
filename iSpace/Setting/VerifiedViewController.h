@@ -12,6 +12,11 @@
 
 @property(nonatomic , copy)NSString *phoneNumber ;
 @property (weak, nonatomic) IBOutlet UITextField *captcha;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property(nonatomic , retain)NSArray *cellArr ;
+@property (strong, nonatomic) IBOutlet UITableViewCell *firstCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *sencondCell;
+
 - (IBAction)submitCaptcha:(UIButton *)sender;
 
 
